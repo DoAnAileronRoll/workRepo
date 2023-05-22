@@ -1,11 +1,11 @@
 (function() {
-	let template = document.createElement("template");
+	let template = document.createElement("template");//SRC IS REMOVED FROM SCRIPT TAG <script src="https://kit.fontawesome.com/931b129623.js" crossorigin="anonymous"></script>
 	template.innerHTML = `
 <head>
 <script>
 
 </script>
-<script src="https://kit.fontawesome.com/931b129623.js" crossorigin="anonymous"></script>
+
 <style>
 body {
     margin: 0;
@@ -373,60 +373,7 @@ body {
         containerPrep()
         othersPrep()
        
-        othersPrep(){
-            childButton.addEventListener("click", addNewChild)
-            sectionButton.addEventListener("click", addNewSection)
-            hierButton.addEventListener("click", addNewHier)
-    
-            document.querySelectorAll('.draggable').forEach(item =>{
-                hoverButtonAdd(item)
-            })
-            document.querySelectorAll('.section').forEach(item =>{
-                hoverButtonAdd(item)
-            })
-            
-            
-            document.querySelectorAll('.xButton').forEach(item => {
-                item.addEventListener("click", ()=>{
-                    console.log("XXXXXXXXXX")
-                })
-            })
-            
-            document.querySelectorAll('.editButton').forEach(item => {
-                item.addEventListener("click", ()=>{
-                    console.log("EDITTTTT")
-                })
-            })
-            
-            editSlider.addEventListener("change", () =>{
-                if(editSlider.checked){  //turn on edit
-                    editActivate()
-                }
-                else{
-                    editDeactivate() //turn off edit
-                }
-            })
-
-            draggables.forEach(draggable => {//draggables will be added to dragging class when dragged
-                draggable.addEventListener('dragstart', () => {
-                    draggable.classList.add('dragging')
-                    preciseItem=draggable
-                })
-                draggable.addEventListener('dragend', () => {//and removed when not being dragged
-                    draggable.classList.remove('dragging')
-                })
-            })
-    
-            sections.forEach(section => {//same as for sections
-                section.addEventListener('dragstart', () => {
-                section.classList.add('dragging')
-                    preciseItem = section
-                })
-                section.addEventListener('dragend', () => {
-                    section.classList.remove('dragging')
-                })
-            })
-        }
+        
 
         editActivate(){ //turn on edit
             editBool = true
@@ -649,6 +596,63 @@ body {
                 }
             }, { offset: Number.NEGATIVE_INFINITY }).element
         }
+
+        othersPrep(){
+            childButton.addEventListener("click", addNewChild)
+            sectionButton.addEventListener("click", addNewSection)
+            hierButton.addEventListener("click", addNewHier)
+    
+            document.querySelectorAll('.draggable').forEach(item =>{
+                hoverButtonAdd(item)
+            })
+            document.querySelectorAll('.section').forEach(item =>{
+                hoverButtonAdd(item)
+            })
+            
+            
+            document.querySelectorAll('.xButton').forEach(item => {
+                item.addEventListener("click", ()=>{
+                    console.log("XXXXXXXXXX")
+                })
+            })
+            
+            document.querySelectorAll('.editButton').forEach(item => {
+                item.addEventListener("click", ()=>{
+                    console.log("EDITTTTT")
+                })
+            })
+            
+            editSlider.addEventListener("change", () =>{
+                if(editSlider.checked){  //turn on edit
+                    editActivate()
+                }
+                else{
+                    editDeactivate() //turn off edit
+                }
+            })
+
+            draggables.forEach(draggable => {//draggables will be added to dragging class when dragged
+                draggable.addEventListener('dragstart', () => {
+                    draggable.classList.add('dragging')
+                    preciseItem=draggable
+                })
+                draggable.addEventListener('dragend', () => {//and removed when not being dragged
+                    draggable.classList.remove('dragging')
+                })
+            })
+    
+            sections.forEach(section => {//same as for sections
+                section.addEventListener('dragstart', () => {
+                section.classList.add('dragging')
+                    preciseItem = section
+                })
+                section.addEventListener('dragend', () => {
+                    section.classList.remove('dragging')
+                })
+            })
+        }
+
+
 	}
 	customElements.define("com-cbeyondata-sidepanelb", Box);
 })();
