@@ -36,6 +36,9 @@
     },
     "othersPrep": {
       "description": "Prepares items for usage."
+    },
+    "intialize": {
+      "description": "Prepares items for usage."
     }
   }
 }
