@@ -40,5 +40,11 @@
     "initialize": {
       "description": "Prepares items for usage."
     }
+  },
+  "events": {
+    "onClick": {
+      "description": "Called when the user clicks the Sidebar."
+    }
   }
+
 }
