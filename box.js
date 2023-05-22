@@ -408,7 +408,10 @@ body {
                 })
             })
         }
-        
+        initialize(){
+            this.containerPrep()
+            this.othersPrep()
+        }
 
         constructor() {
 			super();
@@ -438,70 +441,6 @@ body {
             var editBool = true; //edit status
             var preciseItem = null //LOOK AT ME
 
-            containers.forEach(container => {//containers are MARKED
-                container.addEventListener('dragover', e => { //when an item is dragged over it
-                    e.preventDefault()//makes icon not freak out
-                    const afterElement = getDragAfterElement(container, e.clientY)//e.clientY finds height of mouse
-                    const draggable = document.querySelector('.dragging') //grabs the object actually being dragged
-                    if (afterElement == null) {//if mouse+draggable is below lowest item
-                        container.appendChild(preciseItem)
-                    } else {//otherwise put it above the closest item
-                        container.insertBefore(preciseItem, afterElement)
-                    }
-                })
-            })
-            childButton.addEventListener("click", addNewChild)
-            sectionButton.addEventListener("click", addNewSection)
-            hierButton.addEventListener("click", addNewHier)
-    
-            document.querySelectorAll('.draggable').forEach(item =>{
-                hoverButtonAdd(item)
-            })
-            document.querySelectorAll('.section').forEach(item =>{
-                hoverButtonAdd(item)
-            })
-            
-            
-            document.querySelectorAll('.xButton').forEach(item => {
-                item.addEventListener("click", ()=>{
-                    console.log("XXXXXXXXXX")
-                })
-            })
-            
-            document.querySelectorAll('.editButton').forEach(item => {
-                item.addEventListener("click", ()=>{
-                    console.log("EDITTTTT")
-                })
-            })
-            
-            editSlider.addEventListener("change", () =>{
-                if(editSlider.checked){  //turn on edit
-                    editActivate()
-                }
-                else{
-                    editDeactivate() //turn off edit
-                }
-            })
-
-            draggables.forEach(draggable => {//draggables will be added to dragging class when dragged
-                draggable.addEventListener('dragstart', () => {
-                    draggable.classList.add('dragging')
-                    preciseItem=draggable
-                })
-                draggable.addEventListener('dragend', () => {//and removed when not being dragged
-                    draggable.classList.remove('dragging')
-                })
-            })
-    
-            sections.forEach(section => {//same as for sections
-                section.addEventListener('dragstart', () => {
-                section.classList.add('dragging')
-                    preciseItem = section
-                })
-                section.addEventListener('dragend', () => {
-                    section.classList.remove('dragging')
-                })
-            })
 		}
 
 
