@@ -368,10 +368,12 @@ body {
             var editBool = true; //edit status
             var preciseItem = null //LOOK AT ME
 
+            containerPrep()
+            othersPrep()
+
 		}
 
-        containerPrep()
-        othersPrep()
+
        
         
 
