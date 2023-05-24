@@ -1,5 +1,5 @@
 (function() {
-	let template = document.createElement("template");//SRC IS REMOVED FROM SCRIPT TAG <script src="https://kit.fontawesome.com/931b129623.js" crossorigin="anonymous"></script>
+	let template = this.shadowRoot.createElement("template");//SRC IS REMOVED FROM SCRIPT TAG <script src="https://kit.fontawesome.com/931b129623.js" crossorigin="anonymous"></script>
 	template.innerHTML = `
 <head>
 <script>
@@ -340,14 +340,14 @@ body {
 	class Box extends HTMLElement {
 		othersPrep(){
             
+            
+            var sectionButton = this.shadowRoot.getElementById("sectionButton")
+            var childButton = this.shadowRoot.getElementById("childButton")
+            var hierButton = this.shadowRoot.getElementById("hierButton")
+            var draggables = this.shadowRoot.querySelectorAll('.draggable')
+            var sections = this.shadowRoot.querySelectorAll('.section')
 
-            var sectionButton = document.getElementById("sectionButton")
-            var childButton = document.getElementById("childButton")
-            var hierButton = document.getElementById("hierButton")
-            var draggables = document.querySelectorAll('.draggable')
-            var sections = document.querySelectorAll('.section')
-
-            var editSlider = document.getElementById("editSwitch")
+            var editSlider = this.shadowRoot.getElementById("editSwitch")
 
             console.log(childButton)
             console.log(this.addNewChild.name)
@@ -356,21 +356,21 @@ body {
             sectionButton.addEventListener("click", addNewSection)
             hierButton.addEventListener("click", addNewHier)
     
-            document.querySelectorAll('.draggable').forEach(item =>{
+            this.shadowRoot.querySelectorAll('.draggable').forEach(item =>{
                 hoverButtonAdd(item)
             })
-            document.querySelectorAll('.section').forEach(item =>{
+            this.shadowRoot.querySelectorAll('.section').forEach(item =>{
                 hoverButtonAdd(item)
             })
             
             
-            document.querySelectorAll('.xButton').forEach(item => {
+            this.shadowRoot.querySelectorAll('.xButton').forEach(item => {
                 item.addEventListener("click", ()=>{
                     console.log("XXXXXXXXXX")
                 })
             })
             
-            document.querySelectorAll('.editButton').forEach(item => {
+            this.shadowRoot.querySelectorAll('.editButton').forEach(item => {
                 item.addEventListener("click", ()=>{
                     console.log("EDITTTTT")
                 })
@@ -406,12 +406,12 @@ body {
             })
         }
         containerPrep(){
-            var containers = document.querySelectorAll('.container')
+            var containers = this.shadowRoot.querySelectorAll('.container')
             containers.forEach(container => {//containers are MARKED
                 container.addEventListener('dragover', e => { //when an item is dragged over it
                     e.preventDefault()//makes icon not freak out
                     const afterElement = getDragAfterElement(container, e.clientY)//e.clientY finds height of mouse
-                    const draggable = document.querySelector('.dragging') //grabs the object actually being dragged
+                    const draggable = this.shadowRoot.querySelector('.dragging') //grabs the object actually being dragged
                     if (afterElement == null) {//if mouse+draggable is below lowest item
                         container.appendChild(preciseItem)
                     } else {//otherwise put it above the closest item
@@ -441,28 +441,19 @@ body {
 
             
             
-            var containers = document.querySelectorAll('.container')
-            var draggables = document.querySelectorAll('.draggable')
-            var sections = document.querySelectorAll('.section')
-            const label = document.querySelector(".fancyText")
-            const editSlider = document.getElementById("editSwitch")
-            const addedTextField = document.getElementById("addedText")
-            const addedTextLabel = document.getElementById("addedTextLabel")
-            const sectionButton = document.getElementById("sectionButton")
-            const childButton = document.getElementById("childButton")
-            const hierButton = document.getElementById("hierButton")
+            var containers = this.shadowRoot.querySelectorAll('.container')
+            var draggables = this.shadowRoot.querySelectorAll('.draggable')
+            var sections = this.shadowRoot.querySelectorAll('.section')
+            const label = this.shadowRoot.querySelector(".fancyText")
+            const editSlider = this.shadowRoot.getElementById("editSwitch")
+            const addedTextField = this.shadowRoot.getElementById("addedText")
+            const addedTextLabel = this.shadowRoot.getElementById("addedTextLabel")
+            const sectionButton = this.shadowRoot.getElementById("sectionButton")
+            const childButton = this.shadowRoot.getElementById("childButton")
+            const hierButton = this.shadowRoot.getElementById("hierButton")
             var sidebarItems = null;
             var editBool = true; //edit status
             var preciseItem = null //LOOK AT ME
-
-            document.querySelectorAll('.draggable').forEach(item =>{
-                hoverButtonAdd(item)
-                console.log(item)
-                console.log("GRAHHHH")
-            })
-            document.querySelectorAll('.section').forEach(item =>{
-                hoverButtonAdd(item)
-            })
 
 		}
 
@@ -477,7 +468,7 @@ body {
             hierButton.style.display="";
             addedTextField.style.display="";
             addedTextLabel.style.display="";
-            document.querySelectorAll(".sidebarItem").forEach(item => { //turns off dragging on sidebarItem, should add cursor support?
+            this.shadowRoot.querySelectorAll(".sidebarItem").forEach(item => { //turns off dragging on sidebarItem, should add cursor support?
                 item.draggable=true;
             })
         }
@@ -488,16 +479,16 @@ body {
             hierButton.style.display="none";
             addedTextField.style.display="none";
             addedTextLabel.style.display="none";
-            document.querySelectorAll(".sidebarItem").forEach(item => { //turns on dragging for sidebarItem, should add cursor support?
+            this.shadowRoot.querySelectorAll(".sidebarItem").forEach(item => { //turns on dragging for sidebarItem, should add cursor support?
                 item.draggable=false;
             })
         }
 
         addNewSection(){//Ideally trying to add a section
-            var mainSideBar = document.getElementById("mainSideBar")
-            const newSection = document.createElement("div") //create a p element
+            var mainSideBar = this.shadowRoot.getElementById("mainSideBar")
+            const newSection = this.shadowRoot.createElement("div") //create a p element
             newSection.classList.add("section") //section class added for format
-            newSection.innerText = document.getElementById("addedText").value //get the correct text on
+            newSection.innerText = this.shadowRoot.getElementById("addedText").value //get the correct text on
             newSection.draggable = true //can be dragged :)
             newSection.classList.add("sidebarItem") //sidebarItem class added for future usage
 
@@ -514,11 +505,11 @@ body {
 
 
         addNewChild(){
-            var mainSideBar = document.getElementById("mainSideBar")
-            const newChild = document.createElement("div")
+            var mainSideBar = this.shadowRoot.getElementById("mainSideBar")
+            const newChild = this.shadowRoot.createElement("div")
             newChild.classList.add('draggable')//draggable CLASS for the correct format
             //newChild.classList.add('hoverer')
-            newChild.innerText = document.getElementById("addedText").value//text, lets move the reference of this to the method call?
+            newChild.innerText = this.shadowRoot.getElementById("addedText").value//text, lets move the reference of this to the method call?
             newChild.draggable = true //can drag
             newChild.classList.add("sidebarItem") //sidebar usage pls
 
@@ -538,19 +529,19 @@ body {
 
 
         addNewHier(){//add a new hierarchy object
-            var mainSideBar = document.getElementById("mainSideBar")
-            const newHier = document.createElement("div")//div element, will be the main object
+            var mainSideBar = this.shadowRoot.getElementById("mainSideBar")
+            const newHier = this.shadowRoot.createElement("div")//div element, will be the main object
             newHier.classList.add('draggable')//draggable format, CHANGE SOON
             newHier.classList.add("sidebarItem") //add class for usage
-            newHier.innerText = "> "+document.getElementById("addedText").value//added the carat for distinguishability, move reference
+            newHier.innerText = "> "+this.shadowRoot.getElementById("addedText").value//added the carat for distinguishability, move reference
             newHier.draggable = true //can be dragged
             newHier.style.width = "80%"
 
             hoverButtonAdd(newHier)
 
-            var upperDropBounds = document.createElement("p")
-            var dummy2 = document.createElement("p")
-            var lowerDropBounds = document.createElement("p")
+            var upperDropBounds = this.shadowRoot.createElement("p")
+            var dummy2 = this.shadowRoot.createElement("p")
+            var lowerDropBounds = this.shadowRoot.createElement("p")
             
             upperDropBounds.innerText = " "
             dummy2.innerText = " Demo Item "
@@ -569,7 +560,7 @@ body {
                 dummy2.classList.remove('dragging')
             })
 
-            var insideList= document.createElement("div")
+            var insideList= this.shadowRoot.createElement("div")
             insideList.classList.add("container")
             insideList.id = "insideList"
             insideList.appendChild(upperDropBounds)
@@ -619,9 +610,9 @@ body {
             
 
         hoverButtonAdd(parent){
-            var hiddenDiv = document.createElement("div")
+            var hiddenDiv = this.shadowRoot.createElement("div")
 
-            var trashCanIcon = document.createElement("i")
+            var trashCanIcon = this.shadowRoot.createElement("i")
             trashCanIcon.classList.add("p-inline")
             trashCanIcon.classList.add("xButton")
             trashCanIcon.classList.add("fa-solid")
@@ -629,7 +620,7 @@ body {
             trashCanIcon.classList.add("iconPad")
             trashCanIcon.style.float = "right"
             
-            var pencilIcon = document.createElement("i")
+            var pencilIcon = this.shadowRoot.createElement("i")
             pencilIcon.classList.add("p-inline")
             pencilIcon.classList.add("editButton")
             pencilIcon.classList.add("fa-solid")
