@@ -492,14 +492,14 @@ body {
                 batch.style.display = "none"
             })
             parent.addEventListener('mouseover', () =>{
-                if(editBool){
+                if(this.editBool){
                 parent.querySelectorAll(".hoverItems").forEach(batch => {
                     batch.style.display = ""
                 })
                 }
             })
             parent.addEventListener('mouseleave', () =>{
-                if(editBool){
+                if(this.editBool){
                 parent.querySelectorAll(".hoverItems").forEach(batch => {
                     batch.style.display = "none"
                 })
@@ -631,7 +631,7 @@ body {
         
 
         editActivate(){ //turn on edit
-            editBool = true
+            this.editBool = true
             sectionButton.style.display=""; //shows all edit fields in topBar
             childButton.style.display="";
             hierButton.style.display="";
@@ -642,7 +642,7 @@ body {
             })
         }
         editDeactivate(){ //turn off edit
-            editBool = false;
+            this.editBool = false;
             sectionButton.style.display="none"; //this hides an item
             childButton.style.display="none";
             hierButton.style.display="none";
