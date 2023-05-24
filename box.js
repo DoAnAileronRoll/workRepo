@@ -341,13 +341,13 @@ body {
 		othersPrep(){
             
 
-            const sectionButton = document.getElementById("sectionButton")
-            const childButton = document.getElementById("childButton")
-            const hierButton = document.getElementById("hierButton")
+            var sectionButton = document.getElementById("sectionButton")
+            var childButton = document.getElementById("childButton")
+            var hierButton = document.getElementById("hierButton")
             var draggables = document.querySelectorAll('.draggable')
             var sections = document.querySelectorAll('.section')
 
-            const editSlider = document.getElementById("editSwitch")
+            var editSlider = document.getElementById("editSwitch")
 
             console.log(childButton)
             console.log(this.addNewChild.name)
