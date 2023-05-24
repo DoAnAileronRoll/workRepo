@@ -352,9 +352,9 @@ body {
             console.log(childButton)
             console.log(this.addNewChild.name)
 
-            childButton.addEventListener("click", addNewChild)
-            sectionButton.addEventListener("click", addNewSection)
-            hierButton.addEventListener("click", addNewHier)
+            childButton.addEventListener("click", addNewChild())
+            sectionButton.addEventListener("click", addNewSection())
+            hierButton.addEventListener("click", addNewHier())
     
             this.shadowRoot.querySelectorAll('.draggable').forEach(item =>{
                 hoverButtonAdd(item)
