@@ -353,7 +353,7 @@ body {
             newSection.addEventListener('dragend', () => {//has now been added
                 newSection.classList.remove('dragging')
             })
-            hoverButtonAdd(newSection)
+            this.hoverButtonAdd(newSection)
             mainSideBar.appendChild(newSection) //add to our main container the new section
         }
 
@@ -375,7 +375,7 @@ body {
                 newChild.classList.remove('dragging')
             })
             
-            hoverButtonAdd(newChild)
+            this.hoverButtonAdd(newChild)
 
             mainSideBar.appendChild(newChild)//add it
         }
@@ -391,7 +391,7 @@ body {
             newHier.draggable = true //can be dragged
             newHier.style.width = "80%"
 
-            hoverButtonAdd(newHier)
+            this.hoverButtonAdd(newHier)
 
             var upperDropBounds = document.createElement("p")
             var dummy2 = document.createElement("p")
@@ -421,7 +421,7 @@ body {
             insideList.appendChild(dummy2)
 
             insideList.style.width = "75%"
-            containerPrep();
+            this.containerPrep();
             newHier.appendChild(insideList)
 
 
@@ -547,10 +547,10 @@ body {
             
             editSlider.addEventListener("change", () =>{
                 if(editSlider.checked){  //turn on edit
-                    editActivate()
+                    this.editActivate()
                 }
                 else{
-                    editDeactivate() //turn off edit
+                    this.editDeactivate() //turn off edit
                 }
             })
 
