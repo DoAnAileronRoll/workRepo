@@ -630,7 +630,13 @@ body {
        
         
 
-        editActivate(){ //turn on edit
+        editActivate(){ //turn on 
+            var addedTextField = this.shadowRoot.getElementById("addedText")
+            var addedTextLabel = this.shadowRoot.getElementById("addedTextLabel")
+            var sectionButton = this.shadowRoot.getElementById("sectionButton")
+            var childButton = this.shadowRoot.getElementById("childButton")
+            var hierButton = this.shadowRoot.getElementById("hierButton")
+
             this.editBool = true
             this.sectionButton.style.display=""; //shows all edit fields in topBar
             this.childButton.style.display="";
@@ -642,6 +648,12 @@ body {
             })
         }
         editDeactivate(){ //turn off edit
+            var addedTextField = this.shadowRoot.getElementById("addedText")
+            var addedTextLabel = this.shadowRoot.getElementById("addedTextLabel")
+            var sectionButton = this.shadowRoot.getElementById("sectionButton")
+            var childButton = this.shadowRoot.getElementById("childButton")
+            var hierButton = this.shadowRoot.getElementById("hierButton")
+
             this.editBool = false;
             this.sectionButton.style.display="none"; //this hides an item
             this.childButton.style.display="none";
