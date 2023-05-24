@@ -457,6 +457,8 @@ body {
 
             document.querySelectorAll('.draggable').forEach(item =>{
                 hoverButtonAdd(item)
+                console.log(item)
+                console.log("GRAHHHH")
             })
             document.querySelectorAll('.section').forEach(item =>{
                 hoverButtonAdd(item)
