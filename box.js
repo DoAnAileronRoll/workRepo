@@ -338,152 +338,6 @@ body {
 
 
 	class Box extends HTMLElement {
-		othersPrep(){
-            
-            
-            var sectionButton = this.shadowRoot.getElementById("sectionButton")
-            var childButton = this.shadowRoot.getElementById("childButton")
-            var hierButton = this.shadowRoot.getElementById("hierButton")
-            var draggables = this.shadowRoot.querySelectorAll('.draggable')
-            var sections = this.shadowRoot.querySelectorAll('.section')
-
-            var editSlider = this.shadowRoot.getElementById("editSwitch")
-
-            console.log(childButton)
-            console.log(this.addNewChild.name)
-
-            childButton.addEventListener("click", addNewChild())
-            sectionButton.addEventListener("click", addNewSection())
-            hierButton.addEventListener("click", addNewHier())
-    
-            this.shadowRoot.querySelectorAll('.draggable').forEach(item =>{
-                hoverButtonAdd(item)
-            })
-            this.shadowRoot.querySelectorAll('.section').forEach(item =>{
-                hoverButtonAdd(item)
-            })
-            
-            
-            this.shadowRoot.querySelectorAll('.xButton').forEach(item => {
-                item.addEventListener("click", ()=>{
-                    console.log("XXXXXXXXXX")
-                })
-            })
-            
-            this.shadowRoot.querySelectorAll('.editButton').forEach(item => {
-                item.addEventListener("click", ()=>{
-                    console.log("EDITTTTT")
-                })
-            })
-            
-            editSlider.addEventListener("change", () =>{
-                if(editSlider.checked){  //turn on edit
-                    editActivate()
-                }
-                else{
-                    editDeactivate() //turn off edit
-                }
-            })
-
-            draggables.forEach(draggable => {//draggables will be added to dragging class when dragged
-                draggable.addEventListener('dragstart', () => {
-                    draggable.classList.add('dragging')
-                    preciseItem=draggable
-                })
-                draggable.addEventListener('dragend', () => {//and removed when not being dragged
-                    draggable.classList.remove('dragging')
-                })
-            })
-    
-            sections.forEach(section => {//same as for sections
-                section.addEventListener('dragstart', () => {
-                section.classList.add('dragging')
-                    preciseItem = section
-                })
-                section.addEventListener('dragend', () => {
-                    section.classList.remove('dragging')
-                })
-            })
-        }
-        containerPrep(){
-            var containers = this.shadowRoot.querySelectorAll('.container')
-            containers.forEach(container => {//containers are MARKED
-                container.addEventListener('dragover', e => { //when an item is dragged over it
-                    e.preventDefault()//makes icon not freak out
-                    const afterElement = getDragAfterElement(container, e.clientY)//e.clientY finds height of mouse
-                    const draggable = this.shadowRoot.querySelector('.dragging') //grabs the object actually being dragged
-                    if (afterElement == null) {//if mouse+draggable is below lowest item
-                        container.appendChild(preciseItem)
-                    } else {//otherwise put it above the closest item
-                        container.insertBefore(preciseItem, afterElement)
-                    }
-                })
-            })
-        }
-        initialize(){
-            this.containerPrep()
-            this.othersPrep()
-        }
-
-        constructor() {
-			super();
-			let shadowRoot = this.attachShadow({
-				mode: "open"
-			});
-			shadowRoot.appendChild(template.content.cloneNode(true));
-			this.addEventListener("click", event => {
-				var event = new Event("onClick");
-				this.dispatchEvent(event);
-			});
-			this._props = {};
-			var _selectedItem;
-			var _oldSelectedItem = "";
-
-            
-            
-            var containers = this.shadowRoot.querySelectorAll('.container')
-            var draggables = this.shadowRoot.querySelectorAll('.draggable')
-            var sections = this.shadowRoot.querySelectorAll('.section')
-            const label = this.shadowRoot.querySelector(".fancyText")
-            const editSlider = this.shadowRoot.getElementById("editSwitch")
-            const addedTextField = this.shadowRoot.getElementById("addedText")
-            const addedTextLabel = this.shadowRoot.getElementById("addedTextLabel")
-            const sectionButton = this.shadowRoot.getElementById("sectionButton")
-            const childButton = this.shadowRoot.getElementById("childButton")
-            const hierButton = this.shadowRoot.getElementById("hierButton")
-            var sidebarItems = null;
-            var editBool = true; //edit status
-            var preciseItem = null //LOOK AT ME
-
-		}
-
-
-       
-        
-
-        editActivate(){ //turn on edit
-            editBool = true
-            sectionButton.style.display=""; //shows all edit fields in topBar
-            childButton.style.display="";
-            hierButton.style.display="";
-            addedTextField.style.display="";
-            addedTextLabel.style.display="";
-            this.shadowRoot.querySelectorAll(".sidebarItem").forEach(item => { //turns off dragging on sidebarItem, should add cursor support?
-                item.draggable=true;
-            })
-        }
-        editDeactivate(){ //turn off edit
-            editBool = false;
-            sectionButton.style.display="none"; //this hides an item
-            childButton.style.display="none";
-            hierButton.style.display="none";
-            addedTextField.style.display="none";
-            addedTextLabel.style.display="none";
-            this.shadowRoot.querySelectorAll(".sidebarItem").forEach(item => { //turns on dragging for sidebarItem, should add cursor support?
-                item.draggable=false;
-            })
-        }
-
         addNewSection(){//Ideally trying to add a section
             var mainSideBar = this.shadowRoot.getElementById("mainSideBar")
             const newSection = this.shadowRoot.createElement("div") //create a p element
@@ -653,6 +507,153 @@ body {
             })
         }
 
+		othersPrep(){
+            
+            
+            var sectionButton = this.shadowRoot.getElementById("sectionButton")
+            var childButton = this.shadowRoot.getElementById("childButton")
+            var hierButton = this.shadowRoot.getElementById("hierButton")
+            var draggables = this.shadowRoot.querySelectorAll('.draggable')
+            var sections = this.shadowRoot.querySelectorAll('.section')
+
+            var editSlider = this.shadowRoot.getElementById("editSwitch")
+
+            console.log(childButton)
+            console.log(this.addNewChild.name)
+
+            childButton.addEventListener("click", addNewChild())
+            sectionButton.addEventListener("click", addNewSection())
+            hierButton.addEventListener("click", addNewHier())
+    
+            this.shadowRoot.querySelectorAll('.draggable').forEach(item =>{
+                hoverButtonAdd(item)
+            })
+            this.shadowRoot.querySelectorAll('.section').forEach(item =>{
+                hoverButtonAdd(item)
+            })
+            
+            
+            this.shadowRoot.querySelectorAll('.xButton').forEach(item => {
+                item.addEventListener("click", ()=>{
+                    console.log("XXXXXXXXXX")
+                })
+            })
+            
+            this.shadowRoot.querySelectorAll('.editButton').forEach(item => {
+                item.addEventListener("click", ()=>{
+                    console.log("EDITTTTT")
+                })
+            })
+            
+            editSlider.addEventListener("change", () =>{
+                if(editSlider.checked){  //turn on edit
+                    editActivate()
+                }
+                else{
+                    editDeactivate() //turn off edit
+                }
+            })
+
+            draggables.forEach(draggable => {//draggables will be added to dragging class when dragged
+                draggable.addEventListener('dragstart', () => {
+                    draggable.classList.add('dragging')
+                    preciseItem=draggable
+                })
+                draggable.addEventListener('dragend', () => {//and removed when not being dragged
+                    draggable.classList.remove('dragging')
+                })
+            })
+    
+            sections.forEach(section => {//same as for sections
+                section.addEventListener('dragstart', () => {
+                section.classList.add('dragging')
+                    preciseItem = section
+                })
+                section.addEventListener('dragend', () => {
+                    section.classList.remove('dragging')
+                })
+            })
+        }
+        containerPrep(){
+            var containers = this.shadowRoot.querySelectorAll('.container')
+            containers.forEach(container => {//containers are MARKED
+                container.addEventListener('dragover', e => { //when an item is dragged over it
+                    e.preventDefault()//makes icon not freak out
+                    const afterElement = getDragAfterElement(container, e.clientY)//e.clientY finds height of mouse
+                    const draggable = this.shadowRoot.querySelector('.dragging') //grabs the object actually being dragged
+                    if (afterElement == null) {//if mouse+draggable is below lowest item
+                        container.appendChild(preciseItem)
+                    } else {//otherwise put it above the closest item
+                        container.insertBefore(preciseItem, afterElement)
+                    }
+                })
+            })
+        }
+        initialize(){
+            this.containerPrep()
+            this.othersPrep()
+        }
+
+        constructor() {
+			super();
+			let shadowRoot = this.attachShadow({
+				mode: "open"
+			});
+			shadowRoot.appendChild(template.content.cloneNode(true));
+			this.addEventListener("click", event => {
+				var event = new Event("onClick");
+				this.dispatchEvent(event);
+			});
+			this._props = {};
+			var _selectedItem;
+			var _oldSelectedItem = "";
+
+            
+            
+            var containers = this.shadowRoot.querySelectorAll('.container')
+            var draggables = this.shadowRoot.querySelectorAll('.draggable')
+            var sections = this.shadowRoot.querySelectorAll('.section')
+            const label = this.shadowRoot.querySelector(".fancyText")
+            const editSlider = this.shadowRoot.getElementById("editSwitch")
+            const addedTextField = this.shadowRoot.getElementById("addedText")
+            const addedTextLabel = this.shadowRoot.getElementById("addedTextLabel")
+            const sectionButton = this.shadowRoot.getElementById("sectionButton")
+            const childButton = this.shadowRoot.getElementById("childButton")
+            const hierButton = this.shadowRoot.getElementById("hierButton")
+            var sidebarItems = null;
+            var editBool = true; //edit status
+            var preciseItem = null //LOOK AT ME
+
+		}
+
+
+       
+        
+
+        editActivate(){ //turn on edit
+            editBool = true
+            sectionButton.style.display=""; //shows all edit fields in topBar
+            childButton.style.display="";
+            hierButton.style.display="";
+            addedTextField.style.display="";
+            addedTextLabel.style.display="";
+            this.shadowRoot.querySelectorAll(".sidebarItem").forEach(item => { //turns off dragging on sidebarItem, should add cursor support?
+                item.draggable=true;
+            })
+        }
+        editDeactivate(){ //turn off edit
+            editBool = false;
+            sectionButton.style.display="none"; //this hides an item
+            childButton.style.display="none";
+            hierButton.style.display="none";
+            addedTextField.style.display="none";
+            addedTextLabel.style.display="none";
+            this.shadowRoot.querySelectorAll(".sidebarItem").forEach(item => { //turns on dragging for sidebarItem, should add cursor support?
+                item.draggable=false;
+            })
+        }
+
+      
         
 
         getDragAfterElement(container, y) {//handles which item is considered above and below when dragging,
