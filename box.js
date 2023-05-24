@@ -638,11 +638,11 @@ body {
             var hierButton = this.shadowRoot.getElementById("hierButton")
 
             this.editBool = true
-            this.sectionButton.style.display=""; //shows all edit fields in topBar
-            this.childButton.style.display="";
-            this.hierButton.style.display="";
-            this.addedTextField.style.display="";
-            this.addedTextLabel.style.display="";
+            sectionButton.style.display=""; //shows all edit fields in topBar
+            childButton.style.display="";
+            hierButton.style.display="";
+            addedTextField.style.display="";
+            addedTextLabel.style.display="";
             this.shadowRoot.querySelectorAll(".sidebarItem").forEach(item => { //turns off dragging on sidebarItem, should add cursor support?
                 item.draggable=true;
             })
@@ -655,11 +655,11 @@ body {
             var hierButton = this.shadowRoot.getElementById("hierButton")
 
             this.editBool = false;
-            this.sectionButton.style.display="none"; //this hides an item
-            this.childButton.style.display="none";
-            this.hierButton.style.display="none";
-            this.addedTextField.style.display="none";
-            this.addedTextLabel.style.display="none";
+            sectionButton.style.display="none"; //this hides an item
+            childButton.style.display="none";
+            hierButton.style.display="none";
+            addedTextField.style.display="none";
+            addedTextLabel.style.display="none";
             this.shadowRoot.querySelectorAll(".sidebarItem").forEach(item => { //turns on dragging for sidebarItem, should add cursor support?
                 item.draggable=false;
             })
