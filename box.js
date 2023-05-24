@@ -86,7 +86,6 @@ body {
     cursor: pointer;
     padding: .5rem;
     
-    height:70%;
     width: 85%;
     display: inline-block;
   }
@@ -103,7 +102,6 @@ body {
     text-decoration: none;
   
     display: inline-block;
-    height:70%;
     width: 85%;
     transition-duration: 0.4s;
   }
@@ -427,9 +425,9 @@ body {
 			var _selectedItem;
 			var _oldSelectedItem = "";
 
-            const draggables = document.querySelectorAll('.draggable')
-            const containers = document.querySelectorAll('.container')
-            const sections = document.querySelectorAll('.section')
+            var draggables = document.querySelectorAll('.draggable')
+            var containers = document.querySelectorAll('.container')
+            var sections = document.querySelectorAll('.section')
             const label = document.querySelector(".fancyText")
             const editSlider = document.getElementById("editSwitch")
             const addedTextField = document.getElementById("addedText")
