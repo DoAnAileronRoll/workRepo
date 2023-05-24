@@ -339,6 +339,16 @@ body {
 
 	class Box extends HTMLElement {
 		othersPrep(){
+            
+
+            const sectionButton = document.getElementById("sectionButton")
+            const childButton = document.getElementById("childButton")
+            const hierButton = document.getElementById("hierButton")
+            var draggables = document.querySelectorAll('.draggable')
+            var sections = document.querySelectorAll('.section')
+
+            const editSlider = document.getElementById("editSwitch")
+
             childButton.addEventListener("click", addNewChild)
             sectionButton.addEventListener("click", addNewSection)
             hierButton.addEventListener("click", addNewHier)
@@ -426,8 +436,10 @@ body {
 			var _selectedItem;
 			var _oldSelectedItem = "";
 
-            var draggables = document.querySelectorAll('.draggable')
+            
+            
             var containers = document.querySelectorAll('.container')
+            var draggables = document.querySelectorAll('.draggable')
             var sections = document.querySelectorAll('.section')
             const label = document.querySelector(".fancyText")
             const editSlider = document.getElementById("editSwitch")
