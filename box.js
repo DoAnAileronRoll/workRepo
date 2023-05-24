@@ -384,7 +384,7 @@ body {
 
         addNewHier(){//add a new hierarchy object
             var mainSideBar = this.shadowRoot.getElementById("mainSideBar")
-            varnewHier = document.createElement("div")//div element, will be the main object
+            var newHier = document.createElement("div")//div element, will be the main object
             newHier.classList.add('draggable')//draggable format, CHANGE SOON
             newHier.classList.add("sidebarItem") //add class for usage
             newHier.innerText = "> "+this.shadowRoot.getElementById("addedText").value//added the carat for distinguishability, move reference
@@ -580,7 +580,7 @@ body {
                 container.addEventListener('dragover', e => { //when an item is dragged over it
                     e.preventDefault()//makes icon not freak out
                     var afterElement = getDragAfterElement(container, e.clientY)//e.clientY finds height of mouse
-                    vardraggable = this.shadowRoot.querySelector('.dragging') //grabs the object actually being dragged
+                    var draggable = this.shadowRoot.querySelector('.dragging') //grabs the object actually being dragged
                     if (afterElement == null) {//if mouse+draggable is below lowest item
                         container.appendChild(preciseItem)
                     } else {//otherwise put it above the closest item
@@ -613,13 +613,13 @@ body {
             var containers = this.shadowRoot.querySelectorAll('.container')
             var draggables = this.shadowRoot.querySelectorAll('.draggable')
             var sections = this.shadowRoot.querySelectorAll('.section')
-            varlabel = this.shadowRoot.querySelector(".fancyText")
-            vareditSlider = this.shadowRoot.getElementById("editSwitch")
-            varaddedTextField = this.shadowRoot.getElementById("addedText")
-            varaddedTextLabel = this.shadowRoot.getElementById("addedTextLabel")
-            varsectionButton = this.shadowRoot.getElementById("sectionButton")
-            varchildButton = this.shadowRoot.getElementById("childButton")
-            varhierButton = this.shadowRoot.getElementById("hierButton")
+            var label = this.shadowRoot.querySelector(".fancyText")
+            var editSlider = this.shadowRoot.getElementById("editSwitch")
+            var addedTextField = this.shadowRoot.getElementById("addedText")
+            var addedTextLabel = this.shadowRoot.getElementById("addedTextLabel")
+            var sectionButton = this.shadowRoot.getElementById("sectionButton")
+            var childButton = this.shadowRoot.getElementById("childButton")
+            var hierButton = this.shadowRoot.getElementById("hierButton")
             var sidebarItems = null;
             var editBool = true; //edit status
             var preciseItem = null //LOOK AT ME
@@ -658,11 +658,11 @@ body {
 
         getDragAfterElement(container, y) {//handles which item is considered above and below when dragging,
         //y is the height of mouse, container is the items in question
-            vardraggableElements = [...container.querySelectorAll('.draggable:not(.dragging)')]
+            var draggableElements = [...container.querySelectorAll('.draggable:not(.dragging)')]
 
             return draggableElements.reduce((closest, child) => {
-                varbox = child.getBoundingClientRect()
-                varoffset = y - box.top - box.height / 2 //tries to sense middle of box
+                var box = child.getBoundingClientRect()
+                var offset = y - box.top - box.height / 2 //tries to sense middle of box
                 if (offset < 0 && offset > closest.offset) {
                     return { offset: offset, element: child }
                 } else {
