@@ -455,6 +455,13 @@ body {
             var editBool = true; //edit status
             var preciseItem = null //LOOK AT ME
 
+            document.querySelectorAll('.draggable').forEach(item =>{
+                hoverButtonAdd(item)
+            })
+            document.querySelectorAll('.section').forEach(item =>{
+                hoverButtonAdd(item)
+            })
+
 		}
 
 
