@@ -349,6 +349,9 @@ body {
 
             const editSlider = document.getElementById("editSwitch")
 
+            console.log(childButton)
+            console.log(this.addNewChild.name)
+
             childButton.addEventListener("click", addNewChild)
             sectionButton.addEventListener("click", addNewSection)
             hierButton.addEventListener("click", addNewHier)
