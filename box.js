@@ -393,6 +393,7 @@ body {
             })
         }
         containerPrep(){
+            var containers = document.querySelectorAll('.container')
             containers.forEach(container => {//containers are MARKED
                 container.addEventListener('dragover', e => { //when an item is dragged over it
                     e.preventDefault()//makes icon not freak out
