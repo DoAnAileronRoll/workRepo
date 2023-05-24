@@ -340,7 +340,7 @@ body {
 	class Box extends HTMLElement {
         addNewSection(){//Ideally trying to add a section
             var mainSideBar = this.shadowRoot.getElementById("mainSideBar")
-            const newSection = this.shadowRoot.createElement("div") //create a p element
+            const newSection = this.document.createElement("div") //create a p element
             newSection.classList.add("section") //section class added for format
             newSection.innerText = this.shadowRoot.getElementById("addedText").value //get the correct text on
             newSection.draggable = true //can be dragged :)
@@ -360,7 +360,7 @@ body {
 
         addNewChild(){
             var mainSideBar = this.shadowRoot.getElementById("mainSideBar")
-            const newChild = this.shadowRoot.createElement("div")
+            const newChild = this.document.createElement("div")
             newChild.classList.add('draggable')//draggable CLASS for the correct format
             //newChild.classList.add('hoverer')
             newChild.innerText = this.shadowRoot.getElementById("addedText").value//text, lets move the reference of this to the method call?
@@ -384,7 +384,7 @@ body {
 
         addNewHier(){//add a new hierarchy object
             var mainSideBar = this.shadowRoot.getElementById("mainSideBar")
-            const newHier = this.shadowRoot.createElement("div")//div element, will be the main object
+            const newHier = this.document.createElement("div")//div element, will be the main object
             newHier.classList.add('draggable')//draggable format, CHANGE SOON
             newHier.classList.add("sidebarItem") //add class for usage
             newHier.innerText = "> "+this.shadowRoot.getElementById("addedText").value//added the carat for distinguishability, move reference
@@ -393,9 +393,9 @@ body {
 
             hoverButtonAdd(newHier)
 
-            var upperDropBounds = this.shadowRoot.createElement("p")
-            var dummy2 = this.shadowRoot.createElement("p")
-            var lowerDropBounds = this.shadowRoot.createElement("p")
+            var upperDropBounds = this.document.createElement("p")
+            var dummy2 = this.document.createElement("p")
+            var lowerDropBounds = this.document.createElement("p")
             
             upperDropBounds.innerText = " "
             dummy2.innerText = " Demo Item "
@@ -414,7 +414,7 @@ body {
                 dummy2.classList.remove('dragging')
             })
 
-            var insideList= this.shadowRoot.createElement("div")
+            var insideList= this.document.createElement("div")
             insideList.classList.add("container")
             insideList.id = "insideList"
             insideList.appendChild(upperDropBounds)
@@ -464,9 +464,9 @@ body {
             
 
         hoverButtonAdd(parent){
-            var hiddenDiv = this.shadowRoot.createElement("div")
+            var hiddenDiv = this.document.createElement("div")
 
-            var trashCanIcon = this.shadowRoot.createElement("i")
+            var trashCanIcon = this.document.createElement("i")
             trashCanIcon.classList.add("p-inline")
             trashCanIcon.classList.add("xButton")
             trashCanIcon.classList.add("fa-solid")
@@ -474,7 +474,7 @@ body {
             trashCanIcon.classList.add("iconPad")
             trashCanIcon.style.float = "right"
             
-            var pencilIcon = this.shadowRoot.createElement("i")
+            var pencilIcon = this.document.createElement("i")
             pencilIcon.classList.add("p-inline")
             pencilIcon.classList.add("editButton")
             pencilIcon.classList.add("fa-solid")
