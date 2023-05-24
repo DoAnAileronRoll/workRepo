@@ -338,6 +338,125 @@ body {
 
 
 	class Box extends HTMLElement {
+		othersPrep(){
+            
+            
+            var sectionButton = this.shadowRoot.getElementById("sectionButton")
+            var childButton = this.shadowRoot.getElementById("childButton")
+            var hierButton = this.shadowRoot.getElementById("hierButton")
+            var draggables = this.shadowRoot.querySelectorAll('.draggable')
+            var sections = this.shadowRoot.querySelectorAll('.section')
+
+            var editSlider = this.shadowRoot.getElementById("editSwitch")
+
+            console.log(childButton)
+            console.log(this.addNewChild.name)
+
+            childButton.addEventListener("click", this.addNewChild)
+            sectionButton.addEventListener("click", this.addNewSection)
+            hierButton.addEventListener("click", this.addNewHier)
+    
+            this.shadowRoot.querySelectorAll('.draggable').forEach(item =>{
+                this.hoverButtonAdd(item)
+            })
+            this.shadowRoot.querySelectorAll('.section').forEach(item =>{
+                this.hoverButtonAdd(item)
+            })
+            
+            
+            this.shadowRoot.querySelectorAll('.xButton').forEach(item => {
+                item.addEventListener("click", ()=>{
+                    console.log("XXXXXXXXXX")
+                })
+            })
+            
+            this.shadowRoot.querySelectorAll('.editButton').forEach(item => {
+                item.addEventListener("click", ()=>{
+                    console.log("EDITTTTT")
+                })
+            })
+            
+            editSlider.addEventListener("change", () =>{
+                if(editSlider.checked){  //turn on edit
+                    this.editActivate()
+                }
+                else{
+                    this.editDeactivate() //turn off edit
+                }
+            })
+
+            draggables.forEach(draggable => {//draggables will be added to dragging class when dragged
+                draggable.addEventListener('dragstart', () => {
+                    draggable.classList.add('dragging')
+                    preciseItem=draggable
+                })
+                draggable.addEventListener('dragend', () => {//and removed when not being dragged
+                    draggable.classList.remove('dragging')
+                })
+            })
+    
+            sections.forEach(section => {//same as for sections
+                section.addEventListener('dragstart', () => {
+                section.classList.add('dragging')
+                    preciseItem = section
+                })
+                section.addEventListener('dragend', () => {
+                    section.classList.remove('dragging')
+                })
+            })
+        }
+        containerPrep(){
+            var containers = this.shadowRoot.querySelectorAll('.container')
+            containers.forEach(container => {//containers are MARKED
+                container.addEventListener('dragover', e => { //when an item is dragged over it
+                    e.preventDefault()//makes icon not freak out
+                    var afterElement = getDragAfterElement(container, e.clientY)//e.clientY finds height of mouse
+                    var draggable = this.shadowRoot.querySelector('.dragging') //grabs the object actually being dragged
+                    if (afterElement == null) {//if mouse+draggable is below lowest item
+                        container.appendChild(preciseItem)
+                    } else {//otherwise put it above the closest item
+                        container.insertBefore(preciseItem, afterElement)
+                    }
+                })
+            })
+        }
+        initialize(){
+            this.containerPrep()
+            this.othersPrep()
+        }
+
+        constructor() {
+			super();
+			let shadowRoot = this.attachShadow({
+				mode: "open"
+			});
+			shadowRoot.appendChild(template.content.cloneNode(true));
+			this.addEventListener("click", event => {
+				var event = new Event("onClick");
+				this.dispatchEvent(event);
+			});
+			this._props = {};
+			var _selectedItem;
+			var _oldSelectedItem = "";
+
+            
+            
+            var containers = this.shadowRoot.querySelectorAll('.container')
+            var draggables = this.shadowRoot.querySelectorAll('.draggable')
+            var sections = this.shadowRoot.querySelectorAll('.section')
+            var label = this.shadowRoot.querySelector(".fancyText")
+            var editSlider = this.shadowRoot.getElementById("editSwitch")
+            var addedTextField = this.shadowRoot.getElementById("addedText")
+            var addedTextLabel = this.shadowRoot.getElementById("addedTextLabel")
+            var sectionButton = this.shadowRoot.getElementById("sectionButton")
+            var childButton = this.shadowRoot.getElementById("childButton")
+            var hierButton = this.shadowRoot.getElementById("hierButton")
+            var sidebarItems = null;
+            var editBool = true; //edit status
+            var preciseItem = null //LOOK AT ME
+
+		}
+
         addNewSection(){//Ideally trying to add a section
             var mainSideBar = this.shadowRoot.getElementById("mainSideBar")
             var newSection = document.createElement("div") //create a p element
@@ -507,124 +626,6 @@ body {
             })
         }
 
-		othersPrep(){
-            
-            
-            var sectionButton = this.shadowRoot.getElementById("sectionButton")
-            var childButton = this.shadowRoot.getElementById("childButton")
-            var hierButton = this.shadowRoot.getElementById("hierButton")
-            var draggables = this.shadowRoot.querySelectorAll('.draggable')
-            var sections = this.shadowRoot.querySelectorAll('.section')
-
-            var editSlider = this.shadowRoot.getElementById("editSwitch")
-
-            console.log(childButton)
-            console.log(this.addNewChild.name)
-
-            childButton.addEventListener("click", this.addNewChild)
-            sectionButton.addEventListener("click", this.addNewSection)
-            hierButton.addEventListener("click", this.addNewHier)
-    
-            this.shadowRoot.querySelectorAll('.draggable').forEach(item =>{
-                this.hoverButtonAdd(item)
-            })
-            this.shadowRoot.querySelectorAll('.section').forEach(item =>{
-                this.hoverButtonAdd(item)
-            })
-            
-            
-            this.shadowRoot.querySelectorAll('.xButton').forEach(item => {
-                item.addEventListener("click", ()=>{
-                    console.log("XXXXXXXXXX")
-                })
-            })
-            
-            this.shadowRoot.querySelectorAll('.editButton').forEach(item => {
-                item.addEventListener("click", ()=>{
-                    console.log("EDITTTTT")
-                })
-            })
-            
-            editSlider.addEventListener("change", () =>{
-                if(editSlider.checked){  //turn on edit
-                    this.editActivate()
-                }
-                else{
-                    this.editDeactivate() //turn off edit
-                }
-            })
-
-            draggables.forEach(draggable => {//draggables will be added to dragging class when dragged
-                draggable.addEventListener('dragstart', () => {
-                    draggable.classList.add('dragging')
-                    preciseItem=draggable
-                })
-                draggable.addEventListener('dragend', () => {//and removed when not being dragged
-                    draggable.classList.remove('dragging')
-                })
-            })
-    
-            sections.forEach(section => {//same as for sections
-                section.addEventListener('dragstart', () => {
-                section.classList.add('dragging')
-                    preciseItem = section
-                })
-                section.addEventListener('dragend', () => {
-                    section.classList.remove('dragging')
-                })
-            })
-        }
-        containerPrep(){
-            var containers = this.shadowRoot.querySelectorAll('.container')
-            containers.forEach(container => {//containers are MARKED
-                container.addEventListener('dragover', e => { //when an item is dragged over it
-                    e.preventDefault()//makes icon not freak out
-                    var afterElement = getDragAfterElement(container, e.clientY)//e.clientY finds height of mouse
-                    var draggable = this.shadowRoot.querySelector('.dragging') //grabs the object actually being dragged
-                    if (afterElement == null) {//if mouse+draggable is below lowest item
-                        container.appendChild(preciseItem)
-                    } else {//otherwise put it above the closest item
-                        container.insertBefore(preciseItem, afterElement)
-                    }
-                })
-            })
-        }
-        initialize(){
-            this.containerPrep()
-            this.othersPrep()
-        }
-
-        constructor() {
-			super();
-			let shadowRoot = this.attachShadow({
-				mode: "open"
-			});
-			shadowRoot.appendChild(template.content.cloneNode(true));
-			this.addEventListener("click", event => {
-				var event = new Event("onClick");
-				this.dispatchEvent(event);
-			});
-			this._props = {};
-			var _selectedItem;
-			var _oldSelectedItem = "";
-
-            
-            
-            var containers = this.shadowRoot.querySelectorAll('.container')
-            var draggables = this.shadowRoot.querySelectorAll('.draggable')
-            var sections = this.shadowRoot.querySelectorAll('.section')
-            var label = this.shadowRoot.querySelector(".fancyText")
-            var editSlider = this.shadowRoot.getElementById("editSwitch")
-            var addedTextField = this.shadowRoot.getElementById("addedText")
-            var addedTextLabel = this.shadowRoot.getElementById("addedTextLabel")
-            var sectionButton = this.shadowRoot.getElementById("sectionButton")
-            var childButton = this.shadowRoot.getElementById("childButton")
-            var hierButton = this.shadowRoot.getElementById("hierButton")
-            var sidebarItems = null;
-            var editBool = true; //edit status
-            var preciseItem = null //LOOK AT ME
-
-		}
 
 
        
