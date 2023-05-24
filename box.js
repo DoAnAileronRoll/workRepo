@@ -416,7 +416,7 @@ body {
             containers.forEach(container => {//containers are MARKED
                 container.addEventListener('dragover', e => { //when an item is dragged over it
                     e.preventDefault()//makes icon not freak out
-                    var afterElement = getDragAfterElement(container, e.clientY)//e.clientY finds height of mouse
+                    var afterElement = this.getDragAfterElement(container, e.clientY)//e.clientY finds height of mouse
                     var draggable = this.shadowRoot.querySelector('.dragging') //grabs the object actually being dragged
                     if (afterElement == null) {//if mouse+draggable is below lowest item
                         container.appendChild(preciseItem)
@@ -508,79 +508,78 @@ body {
 
 
         addNewHier(){//add a new hierarchy object
-            console.log(this.shadowRoot)
-            // var mainSideBar = this.shadowRoot.getElementById("mainSideBar")
-            // var newHier = document.createElement("div")//div element, will be the main object
-            // newHier.classList.add('draggable')//draggable format, CHANGE SOON
-            // newHier.classList.add("sidebarItem") //add class for usage
-            // newHier.innerText = "> "+this.shadowRoot.getElementById("addedText").value//added the carat for distinguishability, move reference
-            // newHier.draggable = true //can be dragged
-            // newHier.style.width = "80%"
+            var mainSideBar = this.shadowRoot.getElementById("mainSideBar")
+            var newHier = document.createElement("div")//div element, will be the main object
+            newHier.classList.add('draggable')//draggable format, CHANGE SOON
+            newHier.classList.add("sidebarItem") //add class for usage
+            newHier.innerText = "> "+this.shadowRoot.getElementById("addedText").value//added the carat for distinguishability, move reference
+            newHier.draggable = true //can be dragged
+            newHier.style.width = "80%"
 
-            // this.hoverButtonAdd(newHier)
+            this.hoverButtonAdd(newHier)
 
-            // var upperDropBounds = document.createElement("p")
-            // var dummy2 = document.createElement("p")
-            // var lowerDropBounds = document.createElement("p")
+            var upperDropBounds = document.createElement("p")
+            var dummy2 = document.createElement("p")
+            var lowerDropBounds = document.createElement("p")
             
-            // upperDropBounds.innerText = " "
-            // dummy2.innerText = " Demo Item "
-            // lowerDropBounds.innerText = " ^ Drop Here ^ "
+            upperDropBounds.innerText = " "
+            dummy2.innerText = " Demo Item "
+            lowerDropBounds.innerText = " ^ Drop Here ^ "
 
-            // upperDropBounds.classList.add('draggable')
+            upperDropBounds.classList.add('draggable')
 
-            // dummy2.classList.add("draggable")
-            // dummy2.classList.add("sidebarItem")
-            // dummy2.draggable = true
-            // dummy2.addEventListener('dragstart', () => {//oooo we know this
-            //     dummy2.classList.add('dragging')
-            //     preciseItem = dummy2
-            // })
-            // dummy2.addEventListener('dragend', () => {
-            //     dummy2.classList.remove('dragging')
-            // })
+            dummy2.classList.add("draggable")
+            dummy2.classList.add("sidebarItem")
+            dummy2.draggable = true
+            dummy2.addEventListener('dragstart', () => {//oooo we know this
+                dummy2.classList.add('dragging')
+                preciseItem = dummy2
+            })
+            dummy2.addEventListener('dragend', () => {
+                dummy2.classList.remove('dragging')
+            })
 
-            // var insideList= document.createElement("div")
-            // insideList.classList.add("container")
-            // insideList.id = "insideList"
-            // insideList.appendChild(upperDropBounds)
-            // insideList.appendChild(dummy2)
+            var insideList= document.createElement("div")
+            insideList.classList.add("container")
+            insideList.id = "insideList"
+            insideList.appendChild(upperDropBounds)
+            insideList.appendChild(dummy2)
 
-            // insideList.style.width = "75%"
-            // this.containerPrep();
-            // newHier.appendChild(insideList)
-
-
-            // insideList.addEventListener('dragover', e => {//event listener for our interior list. IDK if it works help me
-            //     e.preventDefault()
-            //     insideList.appendChild(preciseItem)
-            // })
+            insideList.style.width = "75%"
+            this.containerPrep();
+            newHier.appendChild(insideList)
 
 
-            // newHier.addEventListener('dragstart', () => {//dragging listeners are important
-            // if(insideList.style.display=="none")
-            //     preciseItem = newHier
-            //     newHier.classList.add('dragging')
-            // })
-            // newHier.addEventListener('dragend', () => {
-            //     newHier.classList.remove('dragging')
-            // })
+            insideList.addEventListener('dragover', e => {//event listener for our interior list. IDK if it works help me
+                e.preventDefault()
+                insideList.appendChild(preciseItem)
+            })
 
-            // newHier.addEventListener("click", (event) =>{//fun stuff here. Listens for a click
-            //     if(insideList.style.display=="none"){//if interiorList is hidden, show it and TURN OFF DRAG
-            //         insideList.style.display=""
-            //         insideList.parentElement.draggable=false //CANNOT DRAG AN OPEN LIST
-            //         console.log("OPEN")
-            //     }
-            //     else{
-            //         insideList.style.display="none" //IF SHOWING WE ROLL UP
-            //         insideList.parentElement.draggable=true //CAN DRAG CLOSED LIST
-            //         console.log("closed")
-            //     }
-            // })
 
-            // insideList.style.display="none"
-            // mainSideBar.appendChild(newHier)//FINALLY ADD US TO SIDEBAR AND CAN WE PLEASE CHANGE THIS REFERENCE NAME
+            newHier.addEventListener('dragstart', () => {//dragging listeners are important
+            if(insideList.style.display=="none")
+                preciseItem = newHier
+                newHier.classList.add('dragging')
+            })
+            newHier.addEventListener('dragend', () => {
+                newHier.classList.remove('dragging')
+            })
+
+            newHier.addEventListener("click", (event) =>{//fun stuff here. Listens for a click
+                if(insideList.style.display=="none"){//if interiorList is hidden, show it and TURN OFF DRAG
+                    insideList.style.display=""
+                    insideList.parentElement.draggable=false //CANNOT DRAG AN OPEN LIST
+                    console.log("OPEN")
+                }
+                else{
+                    insideList.style.display="none" //IF SHOWING WE ROLL UP
+                    insideList.parentElement.draggable=true //CAN DRAG CLOSED LIST
+                    console.log("closed")
+                }
+            })
+
+            insideList.style.display="none"
+            mainSideBar.appendChild(newHier)//FINALLY ADD US TO SIDEBAR AND CAN WE PLEASE CHANGE THIS REFERENCE NAME
         }
 
             //Below all runs on start up, super important to know by heart
