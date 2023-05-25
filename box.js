@@ -431,6 +431,7 @@ body {
         initialize(){
             this.containerPrep()
             this.othersPrep()
+            this.editDeactivate()
         }
 
         constructor() {
@@ -460,9 +461,9 @@ body {
             var childButton = this.shadowRoot.getElementById("childButton")
             var hierButton = this.shadowRoot.getElementById("hierButton")
             var sidebarItems = null;
-            var editBool = true; //edit status
+            var editBool = false; //edit status
             var preciseItem = null //LOOK AT ME
-
+            
 		}
 
         addNewSection(){//Ideally trying to add a section
@@ -595,7 +596,8 @@ body {
             var hiddenDiv = document.createElement("div")
 
             //var trashCanIcon = document.createElement("i")
-            var trashCanIcon = document.createElement("p")
+            var trashCanIcon = document.createElement("button")
+            trashCanIcon.display.style = "button"
             trashCanIcon.innerText = "X"
             trashCanIcon.classList.add("p-inline")
             trashCanIcon.classList.add("xButton")
@@ -605,7 +607,8 @@ body {
             trashCanIcon.style.float = "right"
             
             //var pencilIcon = document.createElement("i")
-            var pencilIcon = document.createElement("p")
+            var pencilIcon = document.createElement("button")
+            pencilIcon.display.style = "button"
             pencilIcon.innerText = "E"
             pencilIcon.classList.add("p-inline")
             pencilIcon.classList.add("editButton")
