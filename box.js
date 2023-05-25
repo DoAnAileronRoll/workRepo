@@ -421,6 +421,8 @@ body {
                     if (afterElement == null) {//if mouse+draggable is below lowest item
                         container.appendChild(this.preciseItem)
                     } else {//otherwise put it above the closest item
+                        console.log(this.preciseItem)
+                        console.log(afterElement)
                         container.insertBefore(this.preciseItem, afterElement)
                     }
                 })
@@ -519,7 +521,7 @@ body {
             this.hoverButtonAdd(newHier)
 
             var upperDropBounds = document.createElement("p")
-            var dummy2 = document.createElement("p")
+            var dummy2 = document.createElement("div")
             var lowerDropBounds = document.createElement("p")
             
             upperDropBounds.innerText = " "
