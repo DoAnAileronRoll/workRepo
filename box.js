@@ -431,7 +431,6 @@ body {
         initialize(){
             this.containerPrep()
             this.othersPrep()
-            this.editDeactivate()
         }
 
         constructor() {
@@ -461,7 +460,7 @@ body {
             var childButton = this.shadowRoot.getElementById("childButton")
             var hierButton = this.shadowRoot.getElementById("hierButton")
             var sidebarItems = null;
-            var editBool = false; //edit status
+            var editBool = true; //edit status
             var preciseItem = null //LOOK AT ME
             
 		}
