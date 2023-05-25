@@ -597,7 +597,7 @@ body {
 
             //var trashCanIcon = document.createElement("i")
             var trashCanIcon = document.createElement("button")
-            trashCanIcon.display.style = "button"
+            trashCanIcon.style = "button"
             trashCanIcon.innerText = "X"
             trashCanIcon.classList.add("p-inline")
             trashCanIcon.classList.add("xButton")
@@ -608,7 +608,7 @@ body {
             
             //var pencilIcon = document.createElement("i")
             var pencilIcon = document.createElement("button")
-            pencilIcon.display.style = "button"
+            pencilIcon.style = "button"
             pencilIcon.innerText = "E"
             pencilIcon.classList.add("p-inline")
             pencilIcon.classList.add("editButton")
