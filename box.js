@@ -394,7 +394,7 @@ body {
             draggables.forEach(draggable => {//draggables will be added to dragging class when dragged
                 draggable.addEventListener('dragstart', () => {
                     draggable.classList.add('dragging')
-                    preciseItem=draggable
+                    this.preciseItem=draggable
                 })
                 draggable.addEventListener('dragend', () => {//and removed when not being dragged
                     draggable.classList.remove('dragging')
@@ -404,7 +404,7 @@ body {
             sections.forEach(section => {//same as for sections
                 section.addEventListener('dragstart', () => {
                 section.classList.add('dragging')
-                    preciseItem = section
+                    this.preciseItem = section
                 })
                 section.addEventListener('dragend', () => {
                     section.classList.remove('dragging')
@@ -419,9 +419,9 @@ body {
                     var afterElement = this.getDragAfterElement(container, e.clientY)//e.clientY finds height of mouse
                     var draggable = this.shadowRoot.querySelector('.dragging') //grabs the object actually being dragged
                     if (afterElement == null) {//if mouse+draggable is below lowest item
-                        container.appendChild(preciseItem)
+                        container.appendChild(this.preciseItem)
                     } else {//otherwise put it above the closest item
-                        container.insertBefore(preciseItem, afterElement)
+                        container.insertBefore(this.preciseItem, afterElement)
                     }
                 })
             })
@@ -473,7 +473,7 @@ body {
 
             newSection.addEventListener('dragstart', () => {//dragging functionality
             newSection.classList.add('dragging')
-                preciseItem = newSection
+                this.preciseItem = newSection
             })
             newSection.addEventListener('dragend', () => {//has now been added
                 newSection.classList.remove('dragging')
@@ -494,7 +494,7 @@ body {
 
             newChild.addEventListener('dragstart', () => {//oooo we know this
             newChild.classList.add('dragging')
-                preciseItem = newChild
+                this.preciseItem = newChild
             })
             newChild.addEventListener('dragend', () => {
                 newChild.classList.remove('dragging')
@@ -533,7 +533,7 @@ body {
             dummy2.draggable = true
             dummy2.addEventListener('dragstart', () => {//oooo we know this
                 dummy2.classList.add('dragging')
-                preciseItem = dummy2
+                this.preciseItem = dummy2
             })
             dummy2.addEventListener('dragend', () => {
                 dummy2.classList.remove('dragging')
@@ -552,13 +552,13 @@ body {
 
             insideList.addEventListener('dragover', e => {//event listener for our interior list. IDK if it works help me
                 e.preventDefault()
-                insideList.appendChild(preciseItem)
+                insideList.appendChild(this.preciseItem)
             })
 
 
             newHier.addEventListener('dragstart', () => {//dragging listeners are important
             if(insideList.style.display=="none")
-                preciseItem = newHier
+                this.preciseItem = newHier
                 newHier.classList.add('dragging')
             })
             newHier.addEventListener('dragend', () => {
