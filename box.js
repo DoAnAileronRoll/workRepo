@@ -423,7 +423,10 @@ body {
                     } else {//otherwise put it above the closest item
                         console.log(this.preciseItem)
                         console.log(afterElement)
-                        container.insertBefore(this.preciseItem, afterElement)
+                        try{container.insertBefore(this.preciseItem, afterElement)}
+                        catch (error) {
+                            console.error(error)
+                        }
                     }
                 })
             })
