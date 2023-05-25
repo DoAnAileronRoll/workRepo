@@ -591,21 +591,26 @@ body {
             
 
         hoverButtonAdd(parent){
+            console.log("ADDING")
             var hiddenDiv = document.createElement("div")
 
-            var trashCanIcon = document.createElement("i")
+            //var trashCanIcon = document.createElement("i")
+            var trashCanIcon = document.createElement("p")
+            trashCanIcon.innerText = "X"
             trashCanIcon.classList.add("p-inline")
             trashCanIcon.classList.add("xButton")
-            trashCanIcon.classList.add("fa-solid")
-            trashCanIcon.classList.add("fa-trash-can")
+            // trashCanIcon.classList.add("fa-solid")
+            // trashCanIcon.classList.add("fa-trash-can")
             trashCanIcon.classList.add("iconPad")
             trashCanIcon.style.float = "right"
             
-            var pencilIcon = document.createElement("i")
+            //var pencilIcon = document.createElement("i")
+            var pencilIcon = document.createElement("p")
+            pencilIcon.innerText = "E"
             pencilIcon.classList.add("p-inline")
             pencilIcon.classList.add("editButton")
-            pencilIcon.classList.add("fa-solid")
-            pencilIcon.classList.add("fa-pen-to-square")
+            // pencilIcon.classList.add("fa-solid")
+            // pencilIcon.classList.add("fa-pen-to-square")
             pencilIcon.classList.add("iconPad")
             pencilIcon.style.float = "right"
 
