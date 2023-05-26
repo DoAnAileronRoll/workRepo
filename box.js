@@ -1,11 +1,11 @@
 (function() {
-	let template = this.document.createElement("template");//SRC IS REMOVED FROM SCRIPT TAG <script src="https://kit.fontawesome.com/931b129623.js" crossorigin="anonymous"></script>
+	let template = this.document.createElement("template");//SRC IS REMOVED FROM SCRIPT TAG 
 	template.innerHTML = `
 <head>
 <script>
 
 </script>
- 
+<script src="https://kit.fontawesome.com/931b129623.js" crossorigin="anonymous"></script>
 <style>
 body {
     margin: 0;
@@ -424,8 +424,7 @@ body {
                         console.log(this.preciseItem)
                         console.log(afterElement)
                         try{container.insertBefore(this.preciseItem, afterElement)}
-                        catch (error) {
-                            console.error(error)
+                        catch (error) {  console.error(error)
                         }
                     }
                 })
@@ -608,14 +607,14 @@ body {
             trashCanIcon.classList.add("iconPad")
             trashCanIcon.style.float = "right"
             
-            //var pencilIcon = document.createElement("i")
-            var pencilIcon = document.createElement("button")
-            pencilIcon.style = "button"
-            pencilIcon.innerText = "E"
+            var pencilIcon = document.createElement("i")
+            // var pencilIcon = document.createElement("button")
+            // pencilIcon.style = "button"
+            // pencilIcon.innerText = "E"
             pencilIcon.classList.add("p-inline")
             pencilIcon.classList.add("editButton")
-            // pencilIcon.classList.add("fa-solid")
-            // pencilIcon.classList.add("fa-pen-to-square")
+            pencilIcon.classList.add("fa-solid")
+            pencilIcon.classList.add("fa-pen-to-square")
             pencilIcon.classList.add("iconPad")
             pencilIcon.style.float = "right"
 
