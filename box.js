@@ -1,11 +1,12 @@
 (function() {
-	let template = this.document.createElement("template");//SRC IS REMOVED FROM SCRIPT TAG 
+	let template = this.document.createElement("template");//SRC IS REMOVED FROM SCRIPT TAG <script src="https://kit.fontawesome.com/931b129623.js" crossorigin="anonymous"></script>
 	template.innerHTML = `
 <head>
 <script>
 
 </script>
-<script src="https://kit.fontawesome.com/931b129623.js" crossorigin="anonymous"></script>
+
+<link rel="stylesheet" href="https://cbeyondatanmd.github.io/widgets/font-awesome.min.css">
 <style>
 body {
     margin: 0;
