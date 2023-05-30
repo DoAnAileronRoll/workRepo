@@ -536,8 +536,9 @@ body {
             })
             this.hoverButtonAdd(newSection)
             newSection.id = this.shadowRoot.getElementById("addedText").value
-            //this.setTitle(newSection.id, this.shadowRoot.getElementById("addedText").value)
+            
             mainSideBar.appendChild(newSection) //add to our main container the new section
+            this.setTitle(newSection.id, this.shadowRoot.getElementById("addedText").value)
         }
 
         addNewChild(){
@@ -649,8 +650,9 @@ body {
 
             insideList.style.display="none"
             newHier.id = this.shadowRoot.getElementById("addedText").value
-            this.setTitle(newHier.id, this.shadowRoot.getElementById("addedText").value)
+            
             mainSideBar.appendChild(newHier)//FINALLY ADD US TO SIDEBAR AND CAN WE PLEASE CHANGE THIS REFERENCE NAME
+            this.setTitle(newHier.id, this.shadowRoot.getElementById("addedText").value)
         }
 
             //Below all runs on start up, super important to know by heart
@@ -774,59 +776,59 @@ body {
         }
 
         getParameters(item){
-            return document.getElementById(item).getAttribute("parameters")
+            return this.shadowRoot.getElementById(item).getAttribute("parameters")
         }
         setParameters(item, newVal){
-            document.getElementById(item).setAttribute("parameters", newVal)
+            this.shadowRoot.getElementById(item).setAttribute("parameters", newVal)
         }
 
         getIcon(item){
-            return document.getElementById(item).getAttribute("icon")
+            return this.shadowRoot.getElementById(item).getAttribute("icon")
         }
         setIcon(item, newVal){
-            document.getElementById(item).setAttribute("icon", newVal)
+            this.shadowRoot.getElementById(item).setAttribute("icon", newVal)
         }
 
         getModel(item){
-            return document.getElementById(item).getAttribute("model")
+            return this.shadowRoot.getElementById(item).getAttribute("model")
         }
         setModel(item, newVal){
-            document.getElementById(item).setAttribute("model", newVal)
+            this.shadowRoot.getElementById(item).setAttribute("model", newVal)
         }
 
         getLink(item){
-            return document.getElementById(item).getAttribute("link")
+            return this.shadowRoot.getElementById(item).getAttribute("link")
         }
         setLink(item, newVal){
-            document.getElementById(item).setAttribute("link", newVal)
+            this.shadowRoot.getElementById(item).setAttribute("link", newVal)
         }
 
         getTitle(item){
-            return document.getElementById(item).getAttribute("title")
+            return this.shadowRoot.getElementById(item).getAttribute("title")
         }
         setTitle(item, newVal){
             this.shadowRoot.getElementById(item).setAttribute("title", newVal)
         }
 
         getParent(item){
-            return document.getElementById(item).getAttribute("parent")
+            return this.shadowRoot.getElementById(item).getAttribute("parent")
         }
         setParent(item, newVal){
-            document.getElementById(item).setAttribute("parent", newVal)
+            this.shadowRoot.getElementById(item).setAttribute("parent", newVal)
         }
 
         getLinkType(item){
-            return document.getElementById(item).getAttribute("linktype")
+            return this.shadowRoot.getElementById(item).getAttribute("linktype")
         }
         setLinkType(item, newVal){
-            document.getElementById(item).setAttribute("linktype", newVal)
+            this.shadowRoot.getElementById(item).setAttribute("linktype", newVal)
         }
 
         getDescription(item){
-            return document.getElementById(item).getAttribute("description")
+            return this.shadowRoot.getElementById(item).getAttribute("description")
         }
         setDescription(item, newVal){
-            document.getElementById(item).setAttribute("description", newVal)
+            this.shadowRoot.getElementById(item).setAttribute("description", newVal)
         }
 
         getApp(){
