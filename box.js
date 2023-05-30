@@ -525,7 +525,7 @@ body {
             newSection.classList.add("section") //section class added for format
             newSection.innerText = this.shadowRoot.getElementById("addedText").value //get the correct text on
 
-            this.shadowRoot.querySelectorAll().forEach((item)=>{
+            this.shadowRoot.querySelectorAll("*").forEach((item)=>{
                 if(item.hasAttribute('id')){
                     console.log(item.id)
                 }
