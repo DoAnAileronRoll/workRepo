@@ -39,11 +39,185 @@
     },
     "initialize": {
       "description": "Prepares items for usage."
+    },
+    "getSelected": {
+      "description": "Gets the selected object."
+    },
+    "setParameters": {
+      "description": "Sets the parameter of an object.",
+      "parameters": [{
+        "name": "item",
+        "type": "string",
+        "description" : "Item upon which the method is called"
+      },
+      {
+        "name": "newVal",
+        "type": "string",
+        "description" : "New value for method in question"
+      }]
+    },
+    "setIcon": {
+      "description": "Sets the icon of an object.",
+      "parameters": [{
+        "name": "item",
+        "type": "string",
+        "description" : "Item upon which the method is called"
+      },
+      {
+        "name": "newVal",
+        "type": "string",
+        "description" : "New value for method in question"
+      }]
+    },
+    "setModel": {
+      "description": "Sets the model of an object.",
+      "parameters": [{
+        "name": "item",
+        "type": "string",
+        "description" : "Item upon which the method is called"
+      },
+      {
+        "name": "newVal",
+        "type": "string",
+        "description" : "New value for method in question"
+      }]
+    },
+    "setLink": {
+      "description": "Sets the link of an object.",
+      "parameters": [{
+        "name": "item",
+        "type": "string",
+        "description" : "Item upon which the method is called"
+      },
+      {
+        "name": "newVal",
+        "type": "string",
+        "description" : "New value for method in question"
+      }]
+    },
+    "setTitle": {
+      "description": "Sets the title of an object.",
+      "parameters": [{
+        "name": "item",
+        "type": "string",
+        "description" : "Item upon which the method is called"
+      },
+      {
+        "name": "newVal",
+        "type": "string",
+        "description" : "New value for method in question"
+      }]
+    },
+    "setParent": {
+      "description": "Sets the parent of an object.",
+      "parameters": [{
+        "name": "item",
+        "type": "string",
+        "description" : "Item upon which the method is called"
+      },
+      {
+        "name": "newVal",
+        "type": "string",
+        "description" : "New value for method in question"
+      }]
+    },
+    "setLinkType": {
+      "description": "Sets the link type of an object.",
+      "parameters": [{
+        "name": "item",
+        "type": "string",
+        "description" : "Item upon which the method is called"
+      },
+      {
+        "name": "newVal",
+        "type": "string",
+        "description" : "New value for method in question"
+      }]
+    },
+    "setDescription": {
+      "description": "Sets the description object.",
+      "parameters": [{
+        "name": "item",
+        "type": "string",
+        "description" : "Item upon which the method is called"
+      },
+      {
+        "name": "newVal",
+        "type": "string",
+        "description" : "New value for method in question"
+      }]
+    },
+    "getParameters": {
+      "description": "Gets the parameter of an object.",
+      "parameters": [{
+        "name": "item",
+        "type": "string",
+        "description" : "Item upon which the method is called"
+      }]
+    },
+    "getIcon": {
+      "description": "Gets the icon of an object.",
+      "parameters": [{
+        "name": "item",
+        "type": "string",
+        "description" : "Item upon which the method is called"
+      }]
+    },
+    "getModel": {
+      "description": "Gets the model of an object.",
+      "parameters": [{
+        "name": "item",
+        "type": "string",
+        "description" : "Item upon which the method is called"
+      }]
+    },
+    "getLink": {
+      "description": "Gets the link of an object.",
+      "parameters": [{
+        "name": "item",
+        "type": "string",
+        "description" : "Item upon which the method is called"
+      }]
+    },
+    "getTitle": {
+      "description": "Gets the title of an object.",
+      "parameters": [{
+        "name": "item",
+        "type": "string",
+        "description" : "Item upon which the method is called"
+      }]
+    },
+    "getParent": {
+      "description": "Gets the parent of an object.",
+      "parameters": [{
+        "name": "item",
+        "type": "string",
+        "description" : "Item upon which the method is called"
+      }]
+    },
+    "getLinkType": {
+      "description": "Gets the link type of an object.",
+      "parameters": [{
+        "name": "item",
+        "type": "string",
+        "description" : "Item upon which the method is called"
+      }]
+    },
+    "getDescription": {
+      "description": "Gets the description object.",
+      "parameters": [{
+        "name": "item",
+        "type": "string",
+        "description" : "Item upon which the method is called"
+      }]
     }
   },
   "events": {
     "onClick": {
       "description": "Called when the user clicks the Sidebar."
+    },
+    "onEdit": {
+      "description": "Called when the Sidebar is edited"
     }
   }
 
