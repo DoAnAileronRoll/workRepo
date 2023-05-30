@@ -805,7 +805,7 @@ body {
             return document.getElementById(item).getAttribute("title")
         }
         setTitle(item, newVal){
-            document.getElementById(item).setAttribute("title", newVal)
+            this.shadowRoot.getElementById(item).setAttribute("title", newVal)
         }
 
         getParent(item){
