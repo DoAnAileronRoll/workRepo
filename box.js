@@ -380,6 +380,8 @@ body {
             this.shadowRoot.querySelectorAll('.editButton').forEach(item => {
                 item.addEventListener("click", ()=>{
                     console.log("EDITTTTT")
+                    var event = new Event("onEdit");
+				    this.dispatchEvent(event);
                 })
             })
             
@@ -449,6 +451,7 @@ body {
 			this._props = {};
 			var _selectedItem;
 			var _oldSelectedItem = "";
+            var _selectedApp;
 
             
             
@@ -467,7 +470,55 @@ body {
             var preciseItem = null //LOOK AT ME
             
 		}
+        setSelected(newSelected) {
+            var cell;
+            var anchor;
 
+            if (this._oldSelectedItem)
+            {
+                cell = this.shadowRoot.getElementById(this._oldSelectedItem);
+                anchor = this.shadowRoot.getElementById(this._oldSelectedItem + "A");
+                
+                cell.classList.remove("sel");
+                anchor.classList.remove("sela");
+            }
+
+			this._oldSelectedItem = newSelected;
+			this._selectedItem = newSelected;
+
+			cell = this.shadowRoot.getElementById(newSelected);
+			anchor = this.shadowRoot.getElementById(newSelected + "A");
+			
+			cell.classList.add("sel");
+			anchor.classList.add("sela");
+            if (cell.parentElement.hidden)
+            {
+		var caption =  cell.parentNode.getAttribute("parentname").toString();
+                
+                var childRows = this.shadowRoot.querySelectorAll('[parentname="'+caption+'"]');
+                var rotate = false;
+		
+                for (let i = 0; i < childRows.length; i++) {
+                    childRows[i].hidden = !childRows[i].hidden;
+                    rotate=childRows[i].hidden;
+                  }                
+                
+                var parentCaratNode = this.shadowRoot.getElementById(caption+'C');
+                if (parentCaratNode)
+                {
+                    if (rotate) 
+                    {
+                        parentCaratNode.classList.remove("rotated"); 
+                    }
+                    else
+                    {
+                        parentCaratNode.classList.add("rotated");
+                    }
+                }
+            }
+		}
+
+        
         addNewSection(){//Ideally trying to add a section
             var mainSideBar = this.shadowRoot.getElementById("mainSideBar")
             var newSection = document.createElement("div") //create a p element
@@ -484,9 +535,10 @@ body {
                 newSection.classList.remove('dragging')
             })
             this.hoverButtonAdd(newSection)
+
+            newSection.this.setTitle(this.shadowRoot.getElementById("addedText").value)
             mainSideBar.appendChild(newSection) //add to our main container the new section
         }
-
 
         addNewChild(){
             var mainSideBar = this.shadowRoot.getElementById("mainSideBar")
@@ -496,6 +548,15 @@ body {
             newChild.innerText = this.shadowRoot.getElementById("addedText").value//text, lets move the reference of this to the method call?
             newChild.draggable = true //can drag
             newChild.classList.add("sidebarItem") //sidebar usage pls
+            
+            newChild.setAttribute("parameters", "mode=embed,pageBar=disabled");
+            newChild.setAttribute("icon", "exFontAwesomeIcon");
+            newChild.setAttribute("model", "");
+            newChild.setAttribute("link", "URL/last section of URL in sac");
+            newChild.setAttribute("title", "The big name");
+            newChild.setAttribute("parent", "* is a parent, otherwise must reference parent");
+            newChild.setAttribute("linkType", "4 types APP,URL,STORY,EXT");
+            newChild.setAttribute("description", "explanatory");
 
             newChild.addEventListener('dragstart', () => {//oooo we know this
             newChild.classList.add('dragging')
@@ -505,6 +566,7 @@ body {
                 newChild.classList.remove('dragging')
             })
             
+            newChild.this.setTitle(this.shadowRoot.getElementById("addedText").value)
             this.hoverButtonAdd(newChild)
 
             mainSideBar.appendChild(newChild)//add it
@@ -584,6 +646,7 @@ body {
             })
 
             insideList.style.display="none"
+            newHier.this.setTitle(this.shadowRoot.getElementById("addedText").value)
             mainSideBar.appendChild(newHier)//FINALLY ADD US TO SIDEBAR AND CAN WE PLEASE CHANGE THIS REFERENCE NAME
         }
 
@@ -608,16 +671,23 @@ body {
             trashCanIcon.classList.add("iconPad")
             trashCanIcon.style.float = "right"
             
-            var pencilIcon = document.createElement("i")
-            // var pencilIcon = document.createElement("button")
-            // pencilIcon.style = "button"
-            // pencilIcon.innerText = "E"
+            // var pencilIcon = document.createElement("i")
+            var pencilIcon = document.createElement("button")
+            pencilIcon.style = "button"
+            pencilIcon.innerText = "E"
             pencilIcon.classList.add("p-inline")
             pencilIcon.classList.add("editButton")
-            pencilIcon.classList.add("fa-solid")
-            pencilIcon.classList.add("fa-pen-to-square")
+            // pencilIcon.classList.add("fa-solid")
+            // pencilIcon.classList.add("fa-pen-to-square")
             pencilIcon.classList.add("iconPad")
             pencilIcon.style.float = "right"
+            
+            pencilIcon.addEventListener("click", ()=>{
+                console.log("EDITTTTT")
+                var event = new Event("onEdit");
+			    this.dispatchEvent(event);
+            })
+            
 
             hiddenDiv.classList.add("hoverItems")
 
@@ -643,11 +713,6 @@ body {
                 }
             })
         }
-
-
-
-       
-        
 
         editActivate(){ //turn on 
             var addedTextField = this.shadowRoot.getElementById("addedText")
@@ -700,6 +765,72 @@ body {
                     return closest
                 }
             }, { offset: Number.NEGATIVE_INFINITY }).element
+        }
+        getSelected() {
+            return this._selectedItem;
+        }
+
+        getParameters(item){
+            return document.getElementById(item).getAttribute("parameters")
+        }
+        setParameters(item, newVal){
+            document.getElementById(item).setAttribute("parameters", newVal)
+        }
+
+        getIcon(item){
+            return document.getElementById(item).getAttribute("icon")
+        }
+        setIcon(item, newVal){
+            document.getElementById(item).setAttribute("icon", newVal)
+        }
+
+        getModel(item){
+            return document.getElementById(item).getAttribute("model")
+        }
+        setModel(item, newVal){
+            document.getElementById(item).setAttribute("model", newVal)
+        }
+
+        getLink(item){
+            return document.getElementById(item).getAttribute("link")
+        }
+        setLink(item, newVal){
+            document.getElementById(item).setAttribute("link", newVal)
+        }
+
+        getTitle(item){
+            return document.getElementById(item).getAttribute("title")
+        }
+        setTitle(item, newVal){
+            document.getElementById(item).setAttribute("title", newVal)
+        }
+
+        getParent(item){
+            return document.getElementById(item).getAttribute("parent")
+        }
+        setParent(item, newVal){
+            document.getElementById(item).setAttribute("parent", newVal)
+        }
+
+        getLinkType(item){
+            return document.getElementById(item).getAttribute("linktype")
+        }
+        setLinkType(item, newVal){
+            document.getElementById(item).setAttribute("linktype", newVal)
+        }
+
+        getDescription(item){
+            return document.getElementById(item).getAttribute("description")
+        }
+        setDescription(item, newVal){
+            document.getElementById(item).setAttribute("description", newVal)
+        }
+
+        getApp(){
+            return this._selectedApp
+        }
+        setApp(newApp){
+            this._selectedApp = newApp
         }
 
         
