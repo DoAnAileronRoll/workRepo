@@ -568,10 +568,10 @@ body {
             newChild.id = this.shadowRoot.getElementById("addedText").value
             console.log("id  " +newChild.id)
             console.log("val" + this.shadowRoot.getElementById("addedText").value)
-            this.setTitle(newChild.id, this.shadowRoot.getElementById("addedText").value)
             this.hoverButtonAdd(newChild)
 
             mainSideBar.appendChild(newChild)//add it
+            this.setTitle(newChild.id, this.shadowRoot.getElementById("addedText").value)
         }
 
 
