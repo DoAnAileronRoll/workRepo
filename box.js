@@ -527,6 +527,16 @@ body {
             newSection.draggable = true //can be dragged :)
             newSection.classList.add("sidebarItem") //sidebarItem class added for future usage
 
+            newSection.setAttribute("parameters", "mode=embed,pageBar=disabled");
+            newSection.setAttribute("icon", "exFontAwesomeIcon");
+            newSection.setAttribute("model", "");
+            newSection.setAttribute("link", "URL/last section of URL in sac");
+            newSection.setAttribute("title", "The big name");
+            newSection.setAttribute("parent", "* is a parent, otherwise must reference parent");
+            newSection.setAttribute("linkType", "4 types APP,URL,STORY,EXT");
+            newSection.setAttribute("description", "explanatory");
+
+
             newSection.addEventListener('dragstart', () => {//dragging functionality
             newSection.classList.add('dragging')
                 this.preciseItem = newSection
@@ -536,7 +546,11 @@ body {
             })
             this.hoverButtonAdd(newSection)
             newSection.id = this.shadowRoot.getElementById("addedText").value
-            
+            newSection.addEventListener('click', () => {
+                console.log(this.getParameters(newSection.id) + " " + this.getIcon(newSection.id) + " " +this.getModel(newSection.id) + " " +this.getLink(newSection.id) + " " +this.getTitle(newSection.id) + " " +this.getParent(newSection.id) + " " +this.getLinkType(newSection.id) + " " +this.getDescription(newSection.id) + " ")
+            })
+
+
             mainSideBar.appendChild(newSection) //add to our main container the new section
             this.setTitle(newSection.id, this.shadowRoot.getElementById("addedText").value)
         }
@@ -569,7 +583,7 @@ body {
             newChild.id = this.shadowRoot.getElementById("addedText").value
             this.hoverButtonAdd(newChild)
             newChild.addEventListener('click', () => {
-                console.log(this.getTitle(newChild.id))
+                console.log(this.getParameters(newChild.id) + " " + this.getIcon(newChild.id) + " " +this.getModel(newChild.id) + " " +this.getLink(newChild.id) + " " +this.getTitle(newChild.id) + " " +this.getParent(newChild.id) + " " +this.getLinkType(newChild.id) + " " +this.getDescription(newChild.id) + " ")
             })
 
             mainSideBar.appendChild(newChild)//add it
@@ -586,6 +600,15 @@ body {
             newHier.innerText = "> "+this.shadowRoot.getElementById("addedText").value//added the carat for distinguishability, move reference
             newHier.draggable = true //can be dragged
             newHier.style.width = "80%"
+
+            newHier.setAttribute("parameters", "mode=embed,pageBar=disabled");
+            newHier.setAttribute("icon", "exFontAwesomeIcon");
+            newHier.setAttribute("model", "");
+            newHier.setAttribute("link", "URL/last section of URL in sac");
+            newHier.setAttribute("title", "The big name");
+            newHier.setAttribute("parent", "* is a parent, otherwise must reference parent");
+            newHier.setAttribute("linkType", "4 types APP,URL,STORY,EXT");
+            newHier.setAttribute("description", "explanatory");
 
             this.hoverButtonAdd(newHier)
 
@@ -652,6 +675,10 @@ body {
             insideList.style.display="none"
             newHier.id = this.shadowRoot.getElementById("addedText").value
             
+            newHier.addEventListener('click', () => {
+                console.log(this.getParameters(newHier.id) + " " + this.getIcon(newHier.id) + " " +this.getModel(newHier.id) + " " +this.getLink(newHier.id) + " " +this.getTitle(newHier.id) + " " +this.getParent(newHier.id) + " " +this.getLinkType(newHier.id) + " " +this.getDescription(newHier.id) + " ")
+            })
+
             mainSideBar.appendChild(newHier)//FINALLY ADD US TO SIDEBAR AND CAN WE PLEASE CHANGE THIS REFERENCE NAME
             this.setTitle(newHier.id, this.shadowRoot.getElementById("addedText").value)
         }
