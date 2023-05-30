@@ -535,7 +535,7 @@ body {
                 newSection.classList.remove('dragging')
             })
             this.hoverButtonAdd(newSection)
-
+            newSection.id = this.shadowRoot.getElementById("addedText").value
             this.setTitle(newSection, this.shadowRoot.getElementById("addedText").value)
             mainSideBar.appendChild(newSection) //add to our main container the new section
         }
@@ -565,7 +565,7 @@ body {
             newChild.addEventListener('dragend', () => {
                 newChild.classList.remove('dragging')
             })
-            
+            newChild.id = this.shadowRoot.getElementById("addedText").value
             this.setTitle(newChild, this.shadowRoot.getElementById("addedText").value)
             this.hoverButtonAdd(newChild)
 
@@ -646,6 +646,7 @@ body {
             })
 
             insideList.style.display="none"
+            newHier.id = this.shadowRoot.getElementById("addedText").value
             this.setTitle(newHier, this.shadowRoot.getElementById("addedText").value)
             mainSideBar.appendChild(newHier)//FINALLY ADD US TO SIDEBAR AND CAN WE PLEASE CHANGE THIS REFERENCE NAME
         }
