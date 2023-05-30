@@ -566,6 +566,8 @@ body {
                 newChild.classList.remove('dragging')
             })
             newChild.id = this.shadowRoot.getElementById("addedText").value
+            console.log("id  " +newChild.id)
+            console.log("val" + this.shadowRoot.getElementById("addedText").value)
             this.setTitle(newChild.id, this.shadowRoot.getElementById("addedText").value)
             this.hoverButtonAdd(newChild)
 
