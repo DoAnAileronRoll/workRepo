@@ -569,7 +569,7 @@ body {
             newChild.id = this.shadowRoot.getElementById("addedText").value
             this.hoverButtonAdd(newChild)
             newChild.addEventListener('click', () => {
-                this.getTitle(newChild.id)
+                console.log(this.getTitle(newChild.id))
             })
 
             mainSideBar.appendChild(newChild)//add it
