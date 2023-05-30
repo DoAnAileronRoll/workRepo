@@ -524,8 +524,16 @@ body {
             var newSection = document.createElement("div") //create a p element
             newSection.classList.add("section") //section class added for format
             newSection.innerText = this.shadowRoot.getElementById("addedText").value //get the correct text on
+
+            this.shadowRoot.querySelectorAll().forEach((item)=>{
+                if(item.hasAttribute('id')){
+                    console.log(item.id)
+                }
+            })
+
             newSection.draggable = true //can be dragged :)
             newSection.classList.add("sidebarItem") //sidebarItem class added for future usage
+
 
             newSection.setAttribute("parameters", "mode=embed,pageBar=disabled");
             newSection.setAttribute("icon", "exFontAwesomeIcon");
@@ -549,7 +557,7 @@ body {
             newSection.addEventListener('click', () => {
                 console.log(this.getParameters(newSection.id) + " " + this.getIcon(newSection.id) + " " +this.getModel(newSection.id) + " " +this.getLink(newSection.id) + " " +this.getTitle(newSection.id) + " " +this.getParent(newSection.id) + " " +this.getLinkType(newSection.id) + " " +this.getDescription(newSection.id) + " ")
             })
-
+            
 
             mainSideBar.appendChild(newSection) //add to our main container the new section
             this.setTitle(newSection.id, this.shadowRoot.getElementById("addedText").value)
