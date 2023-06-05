@@ -20,6 +20,11 @@ body {
   .p-inline{
     display: inline;
     z-index: 0;
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
   }
   .sidebarItem{
     opacity: 99%;
@@ -54,10 +59,9 @@ body {
     float:right
   }
   .topBar{
-    height: 42px;
-    padding: 1rem;
-    background-color: #3a426f;
-    border: 1px solid black;
+    height: 48px;
+    width: 1920px;
+    background-color: #354a5f;
   }
   .fancyText{
     height: 30px;
@@ -78,22 +82,22 @@ body {
     text-decoration: none;
   }
   .section{
-    color: white;
+    color: rgb(221, 210, 211);
     font-family: Calibri;
     font-size: 10.5pt;
     font-weight: bold;
     text-decoration: none;
     cursor: move;
     cursor: pointer;
-    padding: .5rem;
-    
+    padding: 0pt 5pt;
+    height:70%;
     width: 85%;
     display: inline-block;
   }
    .draggable {
     padding: .5rem;
-    background-color: #20243c;
-    border: 1px solid black;
+    background-color: #29313a;
+    
     cursor: move;
     cursor: pointer;
     color: white;
@@ -103,6 +107,7 @@ body {
     text-decoration: none;
   
     display: inline-block;
+    height:70%;
     width: 85%;
     transition-duration: 0.4s;
   }
@@ -229,9 +234,8 @@ body {
   transform: translateX(26px);
   }
   .container {
-    background-color: #20243c;
-    padding: 1rem;
-    width: 15%;
+    background-color: #29313a;
+    width: 290px;
     height: 100%;
   }
   /* Rounded sliders */
@@ -295,6 +299,7 @@ body {
     border-radius: 50%;
   }
   
+  
 
 </style>
 </head>
@@ -318,18 +323,18 @@ body {
      
        </div>
       <div class="container" id="mainSideBar">
-          <div class="section sidebarItem p-inline"  draggable = "true">Section 1</div>
-          <div class="draggable sidebarItem p-inline"  draggable="true">Nick App</div>
+          <div class="section sidebarItem p-inline"  draggable = "true">SECTION 1</div>
+          <div class="draggable sidebarItem p-inline"  draggable="true">NICK APP</div>
 
         
         
           <!--<button class = "p-inline">X</button> -->
-          <div class="draggable sidebarItem p-inline" draggable="true">Diego App</div>
+          <div class="draggable sidebarItem p-inline" draggable="true">DIEGO APP</div>
 
-          <div class="draggable sidebarItem p-inline"  draggable="true">Frank App</div>
+          <div class="draggable sidebarItem p-inline"  draggable="true">FRANK APP</div>
         
-        <div class="draggable sidebarItem" draggable="true">Greg App </div> 
-        <div class="draggable sidebarItem p-inline " draggable="true">hover on me</div>
+        <div class="draggable sidebarItem p-inline" draggable="true">GREG APP</div> 
+        <div class="draggable sidebarItem p-inline " draggable="true">HOVER ON ME</div>
           
           <br>
       </div>
@@ -525,6 +530,8 @@ body {
             newSection.classList.add("section") //section class added for format
             newSection.innerText = this.shadowRoot.getElementById("addedText").value //get the correct text on
 
+            var contBool = "true"
+
             this.shadowRoot.querySelectorAll("*").forEach((item)=>{
                 if(item.hasAttribute('id')){
                     console.log(item.id)
@@ -705,7 +712,6 @@ body {
             var trashCanIcon = document.createElement("button")
             trashCanIcon.style = "button"
             trashCanIcon.innerText = "X"
-            trashCanIcon.classList.add("p-inline")
             trashCanIcon.classList.add("xButton")
             // trashCanIcon.classList.add("fa-solid")
             // trashCanIcon.classList.add("fa-trash-can")
@@ -716,7 +722,7 @@ body {
             var pencilIcon = document.createElement("button")
             pencilIcon.style = "button"
             pencilIcon.innerText = "E"
-            pencilIcon.classList.add("p-inline")
+            
             pencilIcon.classList.add("editButton")
             // pencilIcon.classList.add("fa-solid")
             // pencilIcon.classList.add("fa-pen-to-square")
