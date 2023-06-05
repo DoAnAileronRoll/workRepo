@@ -90,7 +90,6 @@ body {
     cursor: move;
     cursor: pointer;
     padding: 0pt 5pt;
-    height:70%;
     width: 85%;
     display: inline-block;
   }
@@ -107,7 +106,6 @@ body {
     text-decoration: none;
   
     display: inline-block;
-    height:70%;
     width: 85%;
     transition-duration: 0.4s;
   }
