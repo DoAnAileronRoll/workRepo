@@ -347,6 +347,19 @@ body {
 
 
 	class Box extends HTMLElement {
+        loadEditSidebar(){
+            var table = this.shadowRoot.getElementById("tableNavigation");
+            for (var i = 0, row; row = table.rows[i]; i++) {
+                //iterate through rows
+                //rows would be accessed using the "row" variable assigned in the for loop
+                if(row.id == ""){
+                    for(var j =0; j < row.length; j++){
+                        console.log(row[j].id)
+                    }
+                }
+                console.log(row.id)
+             }
+        }
 		othersPrep(){
             
             
@@ -801,7 +814,7 @@ body {
             })
         }
 
-      
+        
         
 
         getDragAfterElement(container, y) {//handles which item is considered above and below when dragging,
