@@ -314,11 +314,14 @@ body {
             </div>
           
           <div class="constant">
+            <!--
               <label class="fancyTextLabel" for="editSwitch">Edit:</label>
               <label class="switch">
                   <input type="checkbox" id="editSwitch" checked>
                   <span class="slider round"></span>
               </label>
+
+              -->
           </div>
      
        </div>
