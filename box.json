@@ -26,13 +26,48 @@
       "description": "Disables editing of sidebar."
     },  
     "addNewSection": {
-      "description": "Creates section item."
+      "description": "Creates section item.",
+      "parameters": [{
+        "name": "name",
+        "type": "string",
+        "description" : "Name of section hierarchy item"
+      },
+      {
+        "name": "description",
+        "type": "string",
+        "description" : "Description of section hierarchy item"
+      }]
     },
     "addNewChild": {
-      "description": "Creates child item."
+      "description": "Creates child item.",
+      "parameters": [{
+        "name": "name",
+        "type": "string",
+        "description" : "Name of new child item"
+      },
+      {
+        "name": "description",
+        "type": "string",
+        "description" : "Description of new child item"
+      },
+      {
+        "name": "link",
+        "type": "string",
+        "description" : "Link for new child item"
+      }]
     },
     "addNewHier": {
-      "description": "Creates hierarchy item."
+      "description": "Creates hierarchy item.",
+      "parameters": [{
+        "name": "name",
+        "type": "string",
+        "description" : "Name of new hierarchy item"
+      },
+      {
+        "name": "description",
+        "type": "string",
+        "description" : "Description of new hierarchy item"
+      }]
     },
     "othersPrep": {
       "description": "Prepares items for usage."
