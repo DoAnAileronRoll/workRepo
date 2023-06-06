@@ -522,11 +522,11 @@ body {
 		}
 
         
-        addNewSection(){//Ideally trying to add a section
+        addNewSection(name, description){//Ideally trying to add a section
             var mainSideBar = this.shadowRoot.getElementById("mainSideBar")
             var newSection = document.createElement("div") //create a p element
             newSection.classList.add("section") //section class added for format
-            newSection.innerText = this.shadowRoot.getElementById("addedText").value //get the correct text on
+            newSection.innerText = name //get the correct text on
 
             var contBool = "true"
 
@@ -547,7 +547,7 @@ body {
             newSection.setAttribute("title", "The big name");
             newSection.setAttribute("parent", "* is a parent, otherwise must reference parent");
             newSection.setAttribute("linkType", "4 types APP,URL,STORY,EXT");
-            newSection.setAttribute("description", "explanatory");
+            newSection.setAttribute("description", description);
 
 
             newSection.addEventListener('dragstart', () => {//dragging functionality
@@ -558,33 +558,33 @@ body {
                 newSection.classList.remove('dragging')
             })
             this.hoverButtonAdd(newSection)
-            newSection.id = this.shadowRoot.getElementById("addedText").value
+            newSection.id = name
             newSection.addEventListener('click', () => {
                 console.log(this.getParameters(newSection.id) + " " + this.getIcon(newSection.id) + " " +this.getModel(newSection.id) + " " +this.getLink(newSection.id) + " " +this.getTitle(newSection.id) + " " +this.getParent(newSection.id) + " " +this.getLinkType(newSection.id) + " " +this.getDescription(newSection.id) + " ")
             })
             
 
             mainSideBar.appendChild(newSection) //add to our main container the new section
-            this.setTitle(newSection.id, this.shadowRoot.getElementById("addedText").value)
+            this.setTitle(newSection.id, name)
         }
 
-        addNewChild(){
+        addNewChild(name, description, link){
             var mainSideBar = this.shadowRoot.getElementById("mainSideBar")
             var newChild = document.createElement("div")
             newChild.classList.add('draggable')//draggable CLASS for the correct format
             //newChild.classList.add('hoverer')
-            newChild.innerText = this.shadowRoot.getElementById("addedText").value//text, lets move the reference of this to the method call?
+            newChild.innerText = name//text, lets move the reference of this to the method call?
             newChild.draggable = true //can drag
             newChild.classList.add("sidebarItem") //sidebar usage pls
             
             newChild.setAttribute("parameters", "mode=embed,pageBar=disabled");
             newChild.setAttribute("icon", "exFontAwesomeIcon");
             newChild.setAttribute("model", "");
-            newChild.setAttribute("link", "URL/last section of URL in sac");
+            newChild.setAttribute("link", link);
             newChild.setAttribute("title", "The big name");
             newChild.setAttribute("parent", "* is a parent, otherwise must reference parent");
             newChild.setAttribute("linkType", "4 types APP,URL,STORY,EXT");
-            newChild.setAttribute("description", "explanatory");
+            newChild.setAttribute("description", description);
 
             newChild.addEventListener('dragstart', () => {//oooo we know this
             newChild.classList.add('dragging')
@@ -593,24 +593,24 @@ body {
             newChild.addEventListener('dragend', () => {
                 newChild.classList.remove('dragging')
             })
-            newChild.id = this.shadowRoot.getElementById("addedText").value
+            newChild.id = name
             this.hoverButtonAdd(newChild)
             newChild.addEventListener('click', () => {
                 console.log(this.getParameters(newChild.id) + " " + this.getIcon(newChild.id) + " " +this.getModel(newChild.id) + " " +this.getLink(newChild.id) + " " +this.getTitle(newChild.id) + " " +this.getParent(newChild.id) + " " +this.getLinkType(newChild.id) + " " +this.getDescription(newChild.id) + " ")
             })
 
             mainSideBar.appendChild(newChild)//add it
-            this.setTitle(newChild.id, this.shadowRoot.getElementById("addedText").value)
+            this.setTitle(newChild.id, name)
         }
 
 
 
-        addNewHier(){//add a new hierarchy object
+        addNewHier(name, description){//add a new hierarchy object
             var mainSideBar = this.shadowRoot.getElementById("mainSideBar")
             var newHier = document.createElement("div")//div element, will be the main object
             newHier.classList.add('draggable')//draggable format, CHANGE SOON
             newHier.classList.add("sidebarItem") //add class for usage
-            newHier.innerText = "> "+this.shadowRoot.getElementById("addedText").value//added the carat for distinguishability, move reference
+            newHier.innerText = "> "+name//added the carat for distinguishability, move reference
             newHier.draggable = true //can be dragged
             newHier.style.width = "80%"
 
@@ -621,7 +621,7 @@ body {
             newHier.setAttribute("title", "The big name");
             newHier.setAttribute("parent", "* is a parent, otherwise must reference parent");
             newHier.setAttribute("linkType", "4 types APP,URL,STORY,EXT");
-            newHier.setAttribute("description", "explanatory");
+            newHier.setAttribute("description", description);
 
             this.hoverButtonAdd(newHier)
 
@@ -686,14 +686,14 @@ body {
             })
 
             insideList.style.display="none"
-            newHier.id = this.shadowRoot.getElementById("addedText").value
+            newHier.id = name
             
             newHier.addEventListener('click', () => {
                 console.log(this.getParameters(newHier.id) + " " + this.getIcon(newHier.id) + " " +this.getModel(newHier.id) + " " +this.getLink(newHier.id) + " " +this.getTitle(newHier.id) + " " +this.getParent(newHier.id) + " " +this.getLinkType(newHier.id) + " " +this.getDescription(newHier.id) + " ")
             })
 
             mainSideBar.appendChild(newHier)//FINALLY ADD US TO SIDEBAR AND CAN WE PLEASE CHANGE THIS REFERENCE NAME
-            this.setTitle(newHier.id, this.shadowRoot.getElementById("addedText").value)
+            this.setTitle(newHier.id, name)
         }
 
             //Below all runs on start up, super important to know by heart
