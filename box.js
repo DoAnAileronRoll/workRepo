@@ -526,6 +526,7 @@ body {
             var mainSideBar = this.shadowRoot.getElementById("mainSideBar")
             var newSection = document.createElement("div") //create a p element
             newSection.classList.add("section") //section class added for format
+            newSection.classList.add("p-inline")
             newSection.innerText = name //get the correct text on
 
             var contBool = "true"
@@ -576,6 +577,7 @@ body {
             newChild.innerText = name//text, lets move the reference of this to the method call?
             newChild.draggable = true //can drag
             newChild.classList.add("sidebarItem") //sidebar usage pls
+            newChild.classList.add("p-inline")
             
             newChild.setAttribute("parameters", "mode=embed,pageBar=disabled");
             newChild.setAttribute("icon", "exFontAwesomeIcon");
@@ -610,6 +612,7 @@ body {
             var newHier = document.createElement("div")//div element, will be the main object
             newHier.classList.add('draggable')//draggable format, CHANGE SOON
             newHier.classList.add("sidebarItem") //add class for usage
+            newHier.classList.add("p-inline")
             newHier.innerText = "> "+name//added the carat for distinguishability, move reference
             newHier.draggable = true //can be dragged
             newHier.style.width = "80%"
