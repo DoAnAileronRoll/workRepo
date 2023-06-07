@@ -94,7 +94,7 @@ body {
    .draggable {
     padding: 15.5px;
     background-color: #29313a;
-    padding-left:40px;
+    
     cursor: move;
     cursor: pointer;
     color: white;
