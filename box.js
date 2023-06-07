@@ -372,6 +372,8 @@ body {
                     console.log("hierarchy " + mainSideBar[i].id)
                     //returnList.append("hierarchy " + mainSideBar[i].id)
                     for(var j=1;j<this.shadowRoot.getElementById("mainSideBar").children[2].children[1].children.length;j++){
+                        //ADD CHECK FOR EMPTY LIST
+                        
                         //returnList.append("child "+this.shadowRoot.getElementById("mainSideBar").children[2].children[1].children[j].id)
                         console.log("child "+this.shadowRoot.getElementById("mainSideBar").children[2].children[1].children[j].id)
                     }
@@ -831,6 +833,10 @@ body {
             // trashCanIcon.classList.add("fa-trash-can")
             trashCanIcon.classList.add("iconPad")
             trashCanIcon.style.float = "right"
+            trashCanIcon.addEventListener("click", () => {
+                var event = new Event("onDelete");
+				this.dispatchEvent(event);
+            })
             
             // var pencilIcon = document.createElement("i")
             var pencilIcon = document.createElement("button")
