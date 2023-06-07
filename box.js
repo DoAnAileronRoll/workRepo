@@ -356,7 +356,7 @@ body {
             for(var num = 0; num < document.getElementsByTagName("com-cbeyondata-sidepanel")[0].shadowRoot.children.length; num++){
                 var shadowNode = document.getElementsByTagName("com-cbeyondata-sidepanel")[0].shadowRoot.children[num]
                 if(shadowNode.tagName != null && shadowNode.tagName == "TABLE" && shadowNode.children.length>0){
-                    this.addNewSection(shadowNode.id,"this is a section")
+                    this.addNewSection(shadowNode.id.slice(5).toUpperCase(),"this is a section")
                     var table = document.getElementsByTagName("com-cbeyondata-sidepanel")[0].shadowRoot.getElementById(shadowNode.id)
                     for (var i = 0; i<table.rows.length; i++) {
                         //iterate through rows
