@@ -480,7 +480,7 @@ body {
                 container.addEventListener('dragover', e => { //when an item is dragged over it
                     e.preventDefault()//makes icon not freak out
                     var afterElement = this.getDragAfterElement(container, e.clientY)//e.clientY finds height of mouse
-                    var draggable = this.shadowRoot.querySelector('.dragging') //grabs the object actually being dragged
+                    //var draggable = this.shadowRoot.querySelector('.dragging') //grabs the object actually being dragged
                     if (afterElement == null) {//if mouse+draggable is below lowest item
                         container.appendChild(this.preciseItem)
                     } else {//otherwise put it above the closest item
