@@ -377,7 +377,7 @@ body {
                     console.log("section " + mainSideBar[i].id)
                 }
                 else{
-                    console.log(mainSideBar[i].id)
+                    console.log("standalone "+mainSideBar[i].id)
                 }
             }
 
