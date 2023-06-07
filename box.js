@@ -729,7 +729,6 @@ body {
             insideList.classList.add("container")
             insideList.id = "insideList"
             insideList.appendChild(upperDropBounds)
-            insideList.appendChild(dummy2)
 
             insideList.style.width = "75%"
             this.containerPrep();
