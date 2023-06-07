@@ -349,15 +349,15 @@ body {
 	class Box extends HTMLElement {
         loadEditSidebar(){
             var table = document.getElementsByTagName("com-cbeyondata-sidepanel")[0].shadowRoot.getElementById("tableNavigation")
-            for (var i = 0, row; row = table.rows[i]; i++) {
+            for (var i = 0; i<table.rows.length; i++) {
                 //iterate through rows
                 //rows would be accessed using the "row" variable assigned in the for loop
-                if(row.id == ""){
-                    for(var j =0; j < row.length; j++){
-                        console.log(row[j].id)
-                    }
-                }
-                console.log(row.id)
+                // if(table.rows[i] == ""){
+                //     for(var j =0; j < row.length; j++){
+                //         console.log(row[j].id)
+                //     }
+                // }
+                console.log(table.rows[i].cells[0].id)
              }
         }
 		othersPrep(){
