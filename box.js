@@ -92,7 +92,7 @@ body {
     margin-block-end: 1em;
   }
    .draggable {
-    padding: 15px;
+    padding: 15.5px;
     background-color: #29313a;
     
     cursor: move;
@@ -104,7 +104,7 @@ body {
     text-decoration: none;
   
     display: inline-block;
-    width: 260px;
+    width: 245px;
     transition-duration: 0.4s;
   }
   
@@ -736,7 +736,7 @@ body {
             insideList.id = "insideList"
             insideList.appendChild(upperDropBounds)
 
-            insideList.style.width = "75%"
+            insideList.style.width = "275px"
             this.containerPrep();
             newHier.appendChild(insideList)
 
