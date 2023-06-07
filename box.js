@@ -104,7 +104,7 @@ body {
     text-decoration: none;
   
     display: inline-block;
-    width: 100%;
+    width: 260px;
     transition-duration: 0.4s;
   }
   
