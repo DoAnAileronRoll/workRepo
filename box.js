@@ -171,7 +171,8 @@ body {
   }
   
   .draggable.dragging {
-    opacity: .8;
+    opacity: .7;
+    background-color: #354a5f;
   }
   
   .hierFather {
