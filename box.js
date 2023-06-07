@@ -88,6 +88,7 @@ body {
     padding: 0pt 5pt;
     width: 85%;
     display: inline-block;
+    margin-block-start: 1em;
   }
    .draggable {
     padding: 14.5px;
