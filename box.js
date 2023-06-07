@@ -364,6 +364,21 @@ body {
 
 
 	class Box extends HTMLElement {
+        getEditSideBar(){
+            var mainSideBar = this.shadowRoot.getElementById("mainSideBar").children;
+            for(var i=0;i<mainSideBar.length;i++){
+                if(mainSideBar[i].classList.contains("hierarchy")){
+                    console.log("hierarchy" + mainSideBar[i].id)
+                }
+                else if(mainSideBar[i].classList.contains("section")){
+                    console.log("section" + mainSideBar[i].id)
+                }
+                else{
+                    console.log(mainSideBar[i].id)
+                }
+            }
+
+        }
         loadEditSidebar(){
             var sideBar = this.shadowRoot.getElementById("mainSideBar")
             sideBar.innerHTML = ""
