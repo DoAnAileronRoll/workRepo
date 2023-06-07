@@ -86,7 +86,7 @@ body {
     cursor: move;
     cursor: pointer;
     padding: 0pt 5pt;
-    width: 85%;
+    width: 270px;
     display: inline-block;
     margin-block-start: 1em;
     margin-block-end: 1em;
