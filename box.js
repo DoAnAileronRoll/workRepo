@@ -21,10 +21,6 @@ body {
     display: inline;
     z-index: 0;
     display: block;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
   }
   .sidebarItem{
     opacity: 99%;
@@ -94,7 +90,7 @@ body {
     display: inline-block;
   }
    .draggable {
-    padding: .5rem;
+    padding: 14.5px;
     background-color: #29313a;
     
     cursor: move;
@@ -112,7 +108,7 @@ body {
   
   
   .draggable:hover {
-    background-color: #008CBA;
+    background-color: #354a5f;
     color: white;
   }
   .buttonChild {
