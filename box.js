@@ -355,7 +355,7 @@ body {
             //document.getElementsByTagName("com-cbeyondata-sidepanel")[0].shadowRoot.getElementById("tableNavigation") is parent name if it exists
             for(var num = 0; num < document.getElementsByTagName("com-cbeyondata-sidepanel")[0].shadowRoot.children.length; num++){
                 var shadowNode = document.getElementsByTagName("com-cbeyondata-sidepanel")[0].shadowRoot.children[num]
-                if(shadowNode.tagName != null && shadowNode.tagName == "TABLE"){
+                if(shadowNode.tagName != null && shadowNode.tagName == "TABLE" && shadowNode.children.length>0){
                     this.addNewSection(shadowNode.id,"this is a section")
                     var table = document.getElementsByTagName("com-cbeyondata-sidepanel")[0].shadowRoot.getElementById(shadowNode.id)
                     for (var i = 0; i<table.rows.length; i++) {
