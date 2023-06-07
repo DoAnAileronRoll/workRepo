@@ -469,8 +469,8 @@ body {
                     if (afterElement == null) {//if mouse+draggable is below lowest item
                         container.appendChild(this.preciseItem)
                     } else {//otherwise put it above the closest item
-                        console.log(this.preciseItem)
-                        console.log(afterElement)
+                        // console.log(this.preciseItem)
+                        // console.log(afterElement)
                         try{container.insertBefore(this.preciseItem, afterElement)}
                         catch (error) {  console.error(error)
                         }
