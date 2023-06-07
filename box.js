@@ -676,7 +676,7 @@ body {
         }
         
         addToHier(parentID, child){
-            this.shadowRoot.getElementById(parentID).insideList.appendChild(child)
+            this.shadowRoot.getElementById(parentID).children[1].appendChild(child)
         }
 
 
