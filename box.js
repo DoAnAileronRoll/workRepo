@@ -368,10 +368,13 @@ body {
             var mainSideBar = this.shadowRoot.getElementById("mainSideBar").children;
             for(var i=0;i<mainSideBar.length;i++){
                 if(mainSideBar[i].classList.contains("hierarchy")){
-                    console.log("hierarchy" + mainSideBar[i].id)
+                    console.log("hierarchy " + mainSideBar[i].id)
+                    for(var j=1;j<this.shadowRoot.getElementById("mainSideBar").children[2].children[1].children.length;j++){
+                        console.log("child "+this.shadowRoot.getElementById("mainSideBar").children[2].children[1].children[j].id)
+                    }
                 }
                 else if(mainSideBar[i].classList.contains("section")){
-                    console.log("section" + mainSideBar[i].id)
+                    console.log("section " + mainSideBar[i].id)
                 }
                 else{
                     console.log(mainSideBar[i].id)
