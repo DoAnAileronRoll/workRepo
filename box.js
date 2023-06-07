@@ -357,6 +357,7 @@ body {
                 //         console.log(row[j].id)
                 //     }
                 // }
+                this.addNewChild(table.rows[i].cells[0].id,"A test","pray for me")
                 console.log(table.rows[i].cells[0].id)
              }
         }
