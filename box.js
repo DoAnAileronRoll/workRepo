@@ -942,7 +942,7 @@ body {
         }
         setParameters(item, newVal){
             this.shadowRoot.getElementById(item).setAttribute("parameters", newVal)
-        }
+        } 
 
         getIcon(item){
             return this.shadowRoot.getElementById(item).getAttribute("icon")
