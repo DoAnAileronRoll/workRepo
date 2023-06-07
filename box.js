@@ -348,7 +348,7 @@ body {
 
 	class Box extends HTMLElement {
         loadEditSidebar(){
-            //var table = document.getElementsByTagName("com-cbeyondata-sidepanel")[0].shadowRoot.getElementById("tableNavigation");​
+            var table = document.getElementsByTagName("com-cbeyondata-sidepanel")[0].shadowRoot.getElementById("tableNavigation");​
             // for (var i = 0, row; row = table.rows[i]; i++) {
             //     //iterate through rows
             //     //rows would be accessed using the "row" variable assigned in the for loop
