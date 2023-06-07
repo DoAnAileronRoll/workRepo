@@ -634,7 +634,7 @@ body {
             newChild.addEventListener('click', () => {
                 console.log(this.getParameters(newChild.id) + " " + this.getIcon(newChild.id) + " " +this.getModel(newChild.id) + " " +this.getLink(newChild.id) + " " +this.getTitle(newChild.id) + " " +this.getParent(newChild.id) + " " +this.getLinkType(newChild.id) + " " +this.getDescription(newChild.id) + " ")
             })
-            this.setTitle(newChild.id, name)
+            //this.setTitle(newChild.id, name)
             return newChild
         }
 
