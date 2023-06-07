@@ -11,6 +11,9 @@
 body {
     margin: 0;
   }
+  .hierarchy{
+    .opacity: 99%;
+  }
   .iconPad{
     padding-left: .2rem;
   }
@@ -711,6 +714,7 @@ body {
             newHier.classList.add('draggable')//draggable format, CHANGE SOON
             newHier.classList.add("sidebarItem") //add class for usage
             newHier.classList.add("p-inline")
+            newHier.classList.add("hierarchy")
             newHier.innerText = "> "+name//added the carat for distinguishability, move reference
             newHier.draggable = true //can be dragged
             //newHier.style.width = "80%"
