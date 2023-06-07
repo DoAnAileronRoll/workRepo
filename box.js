@@ -348,6 +348,11 @@ body {
 
 	class Box extends HTMLElement {
         loadEditSidebar(){
+            var sideBar = this.shadowRoot.getElementById("mainSideBar")
+            while(sideBar.firstChild){
+                sideBar.removeChild(this.firstChild)
+            }
+
             var table = document.getElementsByTagName("com-cbeyondata-sidepanel")[0].shadowRoot.getElementById("tableNavigation")
             for (var i = 0; i<table.rows.length; i++) {
                 //iterate through rows
