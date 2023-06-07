@@ -351,9 +351,9 @@ body {
             var sideBar = this.shadowRoot.getElementById("mainSideBar")
             sideBar.innerHTML = ""
 
-            this.addNewSection("NAVIGATION", "GRAHHHH")
+            //this.addNewSection("NAVIGATION", "GRAHHHH")
             //document.getElementsByTagName("com-cbeyondata-sidepanel")[0].shadowRoot.getElementById("tableNavigation") is parent name if it exists
-            document.getElementById("com-cbeyondata-sidepanel")[0].shadowRoot.children.forEach(shadowNode =>{
+            document.getElementByTagName("com-cbeyondata-sidepanel")[0].shadowRoot.children.forEach(shadowNode =>{
                 if(shadowNode.tagName != null && shadowNode.tagName == "TABLE"){
                     this.addNewSection(shadowNode.id,"this is a section")
                     var table = document.getElementsByTagName("com-cbeyondata-sidepanel")[0].shadowRoot.getElementById("tableNavigation")
