@@ -92,7 +92,7 @@ body {
     margin-block-end: 1em;
   }
    .draggable {
-    padding: 14.5px;
+    padding: 15px;
     background-color: #29313a;
     
     cursor: move;
@@ -104,7 +104,7 @@ body {
     text-decoration: none;
   
     display: inline-block;
-    width: 85%;
+    width: 100%;
     transition-duration: 0.4s;
   }
   
@@ -697,7 +697,7 @@ body {
             newHier.classList.add("p-inline")
             newHier.innerText = "> "+name//added the carat for distinguishability, move reference
             newHier.draggable = true //can be dragged
-            newHier.style.width = "80%"
+            //newHier.style.width = "80%"
 
             newHier.setAttribute("parameters", "mode=embed,pageBar=disabled");
             newHier.setAttribute("icon", "exFontAwesomeIcon");
