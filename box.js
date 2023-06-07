@@ -733,7 +733,7 @@ body {
             dummy2.innerText = " Demo Item "
             lowerDropBounds.innerText = " ^ Drop Here ^ "
 
-            upperDropBounds.classList.add('placeholder')
+            upperDropBounds.classList.add('draggable')
 
             var insideList= document.createElement("div")
             insideList.classList.add("container")
