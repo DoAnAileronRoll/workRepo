@@ -357,7 +357,7 @@ body {
                 var shadowNode = document.getElementsByTagName("com-cbeyondata-sidepanel")[0].shadowRoot.children[num]
                 if(shadowNode.tagName != null && shadowNode.tagName == "TABLE"){
                     this.addNewSection(shadowNode.id,"this is a section")
-                    var table = document.getElementsByTagName("com-cbeyondata-sidepanel")[0].shadowRoot.getElementById("tableNavigation")
+                    var table = document.getElementsByTagName("com-cbeyondata-sidepanel")[0].shadowRoot.getElementById(shadowNode.id)
                     for (var i = 0; i<table.rows.length; i++) {
                         //iterate through rows
                         //rows would be accessed using the "row" variable assigned in the for loop
