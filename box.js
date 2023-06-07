@@ -350,36 +350,43 @@ body {
         loadEditSidebar(){
             var sideBar = this.shadowRoot.getElementById("mainSideBar")
             sideBar.innerHTML = ""
-            //document.getElementsByTagName("com-cbeyondata-sidepanel")[0].shadowRoot.getElementById("tableNavigation") is parent name if it exists
-            var table = document.getElementsByTagName("com-cbeyondata-sidepanel")[0].shadowRoot.getElementById("tableNavigation")
-            for (var i = 0; i<table.rows.length; i++) {
-                //iterate through rows
-                //rows would be accessed using the "row" variable assigned in the for loop
-                // if(table.rows[i] == ""){
-                //     for(var j =0; j < row.length; j++){
-                //         console.log(row[j].id)
-                //     }
-                // }
-                if(i<table.rows.length-1){
-                    if(table.rows[i+1].getAttribute("parentname") != null){
-                        var parentIndex = i
-                        this.addNewHier(table.rows[i].cells[0].id, "I am crying")
-                        while(i<table.rows.length-1 && table.rows[i+1].getAttribute("parentname") != null){
-                            this.addToHier(table.rows[parentIndex].cells[0].id, this.createNewChild(table.rows[i+1].cells[0].id,"A test","pray for me"))
-                            i++
-                        }
-                    }
-                    else{
-                        this.addNewChild(table.rows[i].cells[0].id,"A test","pray for me")
-                    }
 
+            this.addNewSection("NAVIGATION", "GRAHHHH")
+            //document.getElementsByTagName("com-cbeyondata-sidepanel")[0].shadowRoot.getElementById("tableNavigation") is parent name if it exists
+            document.getElementById("com-cbeyondata-sidepanel")[0].shadowRoot.children.forEach(shadowNode =>{
+                if(shadowNode.tagName != null && shadowNode.tagName == "TABLE"){
+                    this.addNewSection(shadowNode.id,"this is a section")
+                    var table = document.getElementsByTagName("com-cbeyondata-sidepanel")[0].shadowRoot.getElementById("tableNavigation")
+                    for (var i = 0; i<table.rows.length; i++) {
+                        //iterate through rows
+                        //rows would be accessed using the "row" variable assigned in the for loop
+                        // if(table.rows[i] == ""){
+                        //     for(var j =0; j < row.length; j++){
+                        //         console.log(row[j].id)
+                        //     }
+                        // }
+                        if(i<table.rows.length-1){
+                            if(table.rows[i+1].getAttribute("parentname") != null){
+                                var parentIndex = i
+                                this.addNewHier(table.rows[i].cells[0].id, "I am crying")
+                                while(i<table.rows.length-1 && table.rows[i+1].getAttribute("parentname") != null){
+                                    this.addToHier(table.rows[parentIndex].cells[0].id, this.createNewChild(table.rows[i+1].cells[0].id,"A test","pray for me"))
+                                    i++
+                                }
+                            }
+                            else{
+                                this.addNewChild(table.rows[i].cells[0].id,"A test","pray for me")
+                            }
+
+                        }
+                        else{
+                            this.addNewChild(table.rows[i].cells[0].id,"A test","pray for me")
+                        }
+                        
+                        console.log(table.rows[i].cells[0].id)
+                    }
                 }
-                else{
-                    this.addNewChild(table.rows[i].cells[0].id,"A test","pray for me")
-                }
-                
-                console.log(table.rows[i].cells[0].id)
-             }
+            })
         }
 		othersPrep(){
             
