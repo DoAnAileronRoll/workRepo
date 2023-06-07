@@ -370,22 +370,22 @@ body {
             for(var i=0;i<mainSideBar.length;i++){
                 if(mainSideBar[i].classList.contains("hierarchy")){
                     console.log("hierarchy " + mainSideBar[i].id)
-                    returnList.append("hierarchy " + mainSideBar[i].id)
+                    //returnList.append("hierarchy " + mainSideBar[i].id)
                     for(var j=1;j<this.shadowRoot.getElementById("mainSideBar").children[2].children[1].children.length;j++){
-                        returnList.append("child "+this.shadowRoot.getElementById("mainSideBar").children[2].children[1].children[j].id)
+                        //returnList.append("child "+this.shadowRoot.getElementById("mainSideBar").children[2].children[1].children[j].id)
                         console.log("child "+this.shadowRoot.getElementById("mainSideBar").children[2].children[1].children[j].id)
                     }
                 }
                 else if(mainSideBar[i].classList.contains("section")){
-                    returnList.append("section " + mainSideBar[i].id)
+                    //returnList.append("section " + mainSideBar[i].id)
                     console.log("section " + mainSideBar[i].id)
                 }
                 else{
-                    returnList.append("standalone "+mainSideBar[i].id)
+                    //returnList.append("standalone "+mainSideBar[i].id)
                     console.log("standalone "+mainSideBar[i].id)
                 }
             }
-            return returnList
+            //return returnList
 
         }
         loadEditSidebar(){
