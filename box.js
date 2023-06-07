@@ -362,7 +362,7 @@ body {
                 // }
                 if(i<table.rows.length-1){
                     if(table.rows[i+1].getAttribute("parentname") != null){
-                        var i = parentIndex
+                        var parentIndex = i
                         this.addNewHier(table.rows[i].cells[0].id, "I am crying")
                         while(table.rows[i+1].getAttribute("parentname") != null){
                             this.addToHier(table.rows[parentIndex].cells[0].id, this.createNewChild(table.rows[i+1].cells[0].id,"A test","pray for me"))
