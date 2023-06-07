@@ -107,6 +107,21 @@ body {
     width: 245px;
     transition-duration: 0.4s;
   }
+  .placeholder {
+    padding: 15.5px;
+    background-color: #29313a;
+    cursor: move;
+    cursor: pointer;
+    color: white;
+    font-family: Calibri;
+    font-size: 10.5pt;
+    font-weight: bold;
+    text-decoration: none;
+  
+    display: inline-block;
+    width: 245px;
+    transition-duration: 0.4s;
+  }
   
   
   .draggable:hover {
@@ -718,18 +733,7 @@ body {
             dummy2.innerText = " Demo Item "
             lowerDropBounds.innerText = " ^ Drop Here ^ "
 
-            upperDropBounds.classList.add('draggable')
-
-            dummy2.classList.add("draggable")
-            dummy2.classList.add("sidebarItem")
-            dummy2.draggable = true
-            dummy2.addEventListener('dragstart', () => {//oooo we know this
-                dummy2.classList.add('dragging')
-                this.preciseItem = dummy2
-            })
-            dummy2.addEventListener('dragend', () => {
-                dummy2.classList.remove('dragging')
-            })
+            upperDropBounds.classList.add('placeholder')
 
             var insideList= document.createElement("div")
             insideList.classList.add("container")
@@ -739,7 +743,6 @@ body {
             insideList.style.width = "275px"
             this.containerPrep();
             newHier.appendChild(insideList)
-
 
             insideList.addEventListener('dragover', e => {//event listener for our interior list. IDK if it works help me
                 e.preventDefault()
