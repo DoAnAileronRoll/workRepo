@@ -104,7 +104,7 @@ body {
     text-decoration: none;
   
     display: inline-block;
-    width: 245px;
+    width: 243px;
     transition-duration: 0.4s;
   }
   .placeholder {
