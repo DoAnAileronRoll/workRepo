@@ -350,7 +350,7 @@ body {
         loadEditSidebar(){
             var sideBar = this.shadowRoot.getElementById("mainSideBar")
             sideBar.innerHTML = ""
-
+            //document.getElementsByTagName("com-cbeyondata-sidepanel")[0].shadowRoot.getElementById("tableNavigation") is parent name if it exists
             var table = document.getElementsByTagName("com-cbeyondata-sidepanel")[0].shadowRoot.getElementById("tableNavigation")
             for (var i = 0; i<table.rows.length; i++) {
                 //iterate through rows
@@ -360,7 +360,21 @@ body {
                 //         console.log(row[j].id)
                 //     }
                 // }
-                this.addNewChild(table.rows[i].cells[0].id,"A test","pray for me")
+                if(i<table.rows.length-1){
+                    if(table.rows[i+1].getAttribute("parentname") != null){
+                        this.addNewHier(table.rows[i].cells[0].id, "I am crying")
+                        this.addToHier(table.rows[i].cells[0].id, this.createNewChild(table.rows[i+1].cells[0].id,"A test","pray for me"))
+                        i++
+                    }
+                    else{
+                        this.addNewChild(table.rows[i].cells[0].id,"A test","pray for me")
+                    }
+
+                }
+                else{
+                    this.addNewChild(table.rows[i].cells[0].id,"A test","pray for me")
+                }
+                
                 console.log(table.rows[i].cells[0].id)
              }
         }
@@ -589,6 +603,41 @@ body {
             mainSideBar.appendChild(newSection) //add to our main container the new section
             this.setTitle(newSection.id, name)
         }
+        
+        createNewChild(name, description, link){
+            var newChild = document.createElement("div")
+            newChild.classList.add('draggable')//draggable CLASS for the correct format
+            //newChild.classList.add('hoverer')
+            newChild.innerText = name//text, lets move the reference of this to the method call?
+            newChild.draggable = true //can drag
+            newChild.classList.add("sidebarItem") //sidebar usage pls
+            newChild.classList.add("p-inline")
+            
+            newChild.setAttribute("parameters", "mode=embed,pageBar=disabled");
+            newChild.setAttribute("icon", "exFontAwesomeIcon");
+            newChild.setAttribute("model", "");
+            newChild.setAttribute("link", link);
+            newChild.setAttribute("title", "The big name");
+            newChild.setAttribute("parent", "* is a parent, otherwise must reference parent");
+            newChild.setAttribute("linkType", "4 types APP,URL,STORY,EXT");
+            newChild.setAttribute("description", description);
+
+            newChild.addEventListener('dragstart', () => {//oooo we know this
+            newChild.classList.add('dragging')
+                this.preciseItem = newChild
+            })
+            newChild.addEventListener('dragend', () => {
+                newChild.classList.remove('dragging')
+            })
+            newChild.id = name
+            this.hoverButtonAdd(newChild)
+            newChild.addEventListener('click', () => {
+                console.log(this.getParameters(newChild.id) + " " + this.getIcon(newChild.id) + " " +this.getModel(newChild.id) + " " +this.getLink(newChild.id) + " " +this.getTitle(newChild.id) + " " +this.getParent(newChild.id) + " " +this.getLinkType(newChild.id) + " " +this.getDescription(newChild.id) + " ")
+            })
+            this.setTitle(newChild.id, name)
+            return newChild
+        }
+
 
         addNewChild(name, description, link){
             var mainSideBar = this.shadowRoot.getElementById("mainSideBar")
@@ -625,7 +674,10 @@ body {
             mainSideBar.appendChild(newChild)//add it
             this.setTitle(newChild.id, name)
         }
-
+        
+        addToHier(parentID, child){
+            this.shadowRoot.getElementById(parentID).insideList.appendChild(child)
+        }
 
 
         addNewHier(name, description){//add a new hierarchy object
