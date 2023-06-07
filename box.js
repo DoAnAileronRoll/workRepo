@@ -740,7 +740,7 @@ body {
             insideList.id = "insideList"
             insideList.appendChild(upperDropBounds)
 
-            insideList.style.width = "275px"
+            insideList.style.width = "273px"
             this.containerPrep();
             newHier.appendChild(insideList)
 
