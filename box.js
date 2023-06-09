@@ -874,10 +874,10 @@ body {
             
             pencilIcon.addEventListener("click", ()=>{
                 console.log("EDITTTTT")
-                var editArr;
-                editArr.append(pencilIcon.parentNode.parentNode.id)
-                editArr.append(pencilIcon.parentNode.parentNode.description)
-                editArr.append(pencilIcon.parentNode.parentNode.link)
+                let editArr = [pencilIcon.parentNode.parentNode.id,pencilIcon.parentNode.parentNode.description,pencilIcon.parentNode.parentNode.link]
+                // editArr.append(pencilIcon.parentNode.parentNode.id)
+                // editArr.append(pencilIcon.parentNode.parentNode.description)
+                // editArr.append(pencilIcon.parentNode.parentNode.link)
                 this.currentEdit = editArr
                 var event = new Event("onEdit");
 			    this.dispatchEvent(event);
