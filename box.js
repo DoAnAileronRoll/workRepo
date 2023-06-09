@@ -847,9 +847,10 @@ body {
             trashCanIcon.classList.add("iconPad")
             trashCanIcon.style.float = "right"
             trashCanIcon.addEventListener("click", () => {
+                this.currentDelete = trashCanIcon.parentNode.parentNode.id
                 var event = new Event("onDelete");
 				this.dispatchEvent(event);
-                this.currentDelete = trashCanIcon.parentNode.parentNode.id
+                
             })
             
             // var pencilIcon = document.createElement("i")
@@ -865,9 +866,9 @@ body {
             
             pencilIcon.addEventListener("click", ()=>{
                 console.log("EDITTTTT")
+                this.currentEdit = pencilIcon.parentNode.parentNode.id
                 var event = new Event("onEdit");
 			    this.dispatchEvent(event);
-                this.currentEdit = pencilIcon.parentNode.parentNode.id
             })
             
 
