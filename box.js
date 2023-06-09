@@ -825,7 +825,7 @@ body {
 
         getDeletedObject(){
             //console.log(this.shadowRoot.getElementById(object))
-            console.log("WILL BE EDITED" + this.currentEdit)
+            console.log("WILL BE DELETED" + this.currentDelete)
             return this.currentDelete
         }
         deleteObject(){
@@ -836,7 +836,7 @@ body {
         }
         getEditObject(){
             //console.log(this.shadowRoot.getElementById(object))
-            console.log("WILL BE DELETED" + this.currentDelete)
+            console.log("WILL BE EDIT" + this.currentEdit)
             return this.currentEdit
         }
             
@@ -874,7 +874,11 @@ body {
             
             pencilIcon.addEventListener("click", ()=>{
                 console.log("EDITTTTT")
-                this.currentEdit = pencilIcon.parentNode.parentNode.id
+                var editArr;
+                editArr.append(pencilIcon.parentNode.parentNode.id)
+                editArr.append(pencilIcon.parentNode.parentNode.description)
+                editArr.append(pencilIcon.parentNode.parentNode.link)
+                this.currentEdit = editArr
                 var event = new Event("onEdit");
 			    this.dispatchEvent(event);
             })
