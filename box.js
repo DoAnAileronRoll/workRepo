@@ -831,10 +831,10 @@ body {
         deleteObject(){
             this.shadowRoot.getElementById(this.currentDelete).remove()
         }
-        confirmEdit(id, description, link){
+        confirmEdit(id, description, link, newID){
             this.shadowRoot.getElementById(id).getAttribute("description") = description
             this.shadowRoot.getElementById(id).getAttribute("link") = link
-            this.shadowRoot.getElementById(id).id = id
+            this.shadowRoot.getElementById(id).id = newID
         }
         getEditObject(){
             //console.log(this.shadowRoot.getElementById(object))
