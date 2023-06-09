@@ -832,9 +832,16 @@ body {
             this.shadowRoot.getElementById(this.currentDelete).remove()
         }
         confirmEdit(id, description, link, newID){
-            this.shadowRoot.getElementById(id).getAttribute("description") = description
-            this.shadowRoot.getElementById(id).getAttribute("link") = link
-            this.shadowRoot.getElementById(id).id = newID
+            var item = this.shadowRoot.getElementById(id) 
+            item.getAttribute("description") = description
+            item.getAttribute("link") = link
+            item.id = newID
+            if(item.classList.contains("hierarchy")){
+                item.innerText = "> "+newID
+            }
+            else{
+                item.innerText = newID
+            }
         }
         getEditObject(){
             //console.log(this.shadowRoot.getElementById(object))
