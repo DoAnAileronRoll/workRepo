@@ -833,8 +833,8 @@ body {
         }
         confirmEdit(id, description, link, newID){
             var item = this.shadowRoot.getElementById(id) 
-            item.getAttribute("description") = description
-            item.getAttribute("link") = link
+            item.setAttribute("description",description)
+            item.setAttribute("link",link) 
             item.id = newID
             if(item.classList.contains("hierarchy")){
                 item.innerText = "> "+newID
