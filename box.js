@@ -556,12 +556,21 @@ body {
             // var sectionButton = this.shadowRoot.getElementById("sectionButton")
             // var childButton = this.shadowRoot.getElementById("childButton")
             // var hierButton = this.shadowRoot.getElementById("hierButton")
+            var currentDelete;
+            var currentEdit;
 
             var sidebarItems = null;
             var editBool = true; //edit status
             var preciseItem = null //LOOK AT ME
             
 		}
+        getDeletedObject(object){
+            console.log(this.shadowRoot.getElementById(object))
+        }
+        getEditObject(object){
+            console.log(this.shadowRoot.getElementById(object))
+        }
+
         setSelected(newSelected) {
             var cell;
             var anchor;
@@ -836,6 +845,7 @@ body {
             trashCanIcon.addEventListener("click", () => {
                 var event = new Event("onDelete");
 				this.dispatchEvent(event);
+                this.currentDelete = trashCanIcon.parentNode.parentNode.id
             })
             
             // var pencilIcon = document.createElement("i")
@@ -853,6 +863,7 @@ body {
                 console.log("EDITTTTT")
                 var event = new Event("onEdit");
 			    this.dispatchEvent(event);
+                this.currentEdit = pencilIcon.parentNode.parentNode.id
             })
             
 
@@ -942,7 +953,7 @@ body {
         }
         setParameters(item, newVal){
             this.shadowRoot.getElementById(item).setAttribute("parameters", newVal)
-        } 
+        }
 
         getIcon(item){
             return this.shadowRoot.getElementById(item).getAttribute("icon")
