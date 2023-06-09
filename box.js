@@ -874,7 +874,7 @@ body {
             
             pencilIcon.addEventListener("click", ()=>{
                 console.log("EDITTTTT")
-                let editArr = [pencilIcon.parentNode.parentNode.id,pencilIcon.parentNode.parentNode.description,pencilIcon.parentNode.parentNode.link]
+                let editArr = [pencilIcon.parentNode.parentNode.id,pencilIcon.parentNode.parentNode.getAttribute("description"),pencilIcon.parentNode.parentNode.getAttribute("link")]
                 // editArr.append(pencilIcon.parentNode.parentNode.id)
                 // editArr.append(pencilIcon.parentNode.parentNode.description)
                 // editArr.append(pencilIcon.parentNode.parentNode.link)
