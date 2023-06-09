@@ -825,11 +825,11 @@ body {
 
         getDeletedObject(){
             //console.log(this.shadowRoot.getElementById(object))
-            console.log(this.currentEdit)
+            console.log("WILL BE EDITED" + this.currentEdit)
         }
         getEditObject(){
             //console.log(this.shadowRoot.getElementById(object))
-            console.log(this.currentDelete)
+            console.log("WILL BE DELETED" + this.currentDelete)
         }
             
 
