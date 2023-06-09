@@ -828,6 +828,12 @@ body {
             console.log("WILL BE EDITED" + this.currentEdit)
             return this.currentDelete
         }
+        deleteObject(){
+            this.shadowRoot.getElementById(this.currentDelete).remove()
+        }
+        confirmEdit(){
+
+        }
         getEditObject(){
             //console.log(this.shadowRoot.getElementById(object))
             console.log("WILL BE DELETED" + this.currentDelete)
