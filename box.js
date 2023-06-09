@@ -564,12 +564,6 @@ body {
             var preciseItem = null //LOOK AT ME
             
 		}
-        getDeletedObject(object){
-            console.log(this.shadowRoot.getElementById(object))
-        }
-        getEditObject(object){
-            console.log(this.shadowRoot.getElementById(object))
-        }
 
         setSelected(newSelected) {
             var cell;
@@ -826,7 +820,17 @@ body {
             //Below all runs on start up, super important to know by heart
 
             //draggables should be renamed for clarity in the future OKAY???
+        
 
+
+        getDeletedObject(){
+            //console.log(this.shadowRoot.getElementById(object))
+            console.log(this.currentEdit)
+        }
+        getEditObject(){
+            //console.log(this.shadowRoot.getElementById(object))
+            console.log(this.currentDelete)
+        }
             
 
         hoverButtonAdd(parent){
