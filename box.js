@@ -375,14 +375,14 @@ body {
                     curList[0]=mainSideBar[i].id
                     curList[1]=mainSideBar[i].getAttribute("description")
                     curList[2]=mainSideBar[i].getAttribute("link")
-                    returnList.push("curList")
+                    returnList.push(curList)
                     
                     for(var j=1;j<mainSideBar[i].children[1].children.length;j++){
                         //ADD CHECK FOR EMPTY LIST
                         curList[0] = mainSideBar[i].children[1].children[j].id
                         curList[1] = mainSideBar[i].children[1].children[j].getAttribute("description")
                         curList[2] = mainSideBar[i].children[1].children[j].getAttribute("link")
-                        returnList.push("curList")
+                        returnList.push(curList)
                        
                         //returnList.append("child "+this.shadowRoot.getElementById("mainSideBar").children[2].children[1].children[j].id)
                         //console.log("child "+this.shadowRoot.getElementById("mainSideBar").children[2].children[1].children[j].id)
@@ -394,7 +394,7 @@ body {
                     curList[0]=mainSideBar[i].id
                     curList[1]=mainSideBar[i].getAttribute("description")
                     curList[2]=mainSideBar[i].getAttribute("link")
-                    returnList.push("curList")
+                    returnList.push(curList)
            
                 }
                 else{
@@ -403,7 +403,7 @@ body {
                     curList[0]=mainSideBar[i].id
                     curList[1]=mainSideBar[i].getAttribute("description")
                     curList[2]=mainSideBar[i].getAttribute("link")
-                    returnList.push("curList")
+                    returnList.push(curList)
     
                 }
             }
