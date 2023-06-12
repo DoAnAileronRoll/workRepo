@@ -365,7 +365,7 @@ body {
 
 	class Box extends HTMLElement {
         getFullEditSideBar(){
-            var returnList 
+            var returnList = []
             var curList = []
             var mainSideBar = this.shadowRoot.getElementById("mainSideBar").children
             for(var i=0;i<mainSideBar.length;i++){
