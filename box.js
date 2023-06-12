@@ -365,24 +365,24 @@ body {
 
 	class Box extends HTMLElement {
         getFullEditSideBar(){
-            var returnList = []
-            var curList = []
+            let returnList = [["id","description","link"]]
+            //var curList = []
             var mainSideBar = this.shadowRoot.getElementById("mainSideBar").children
             for(var i=0;i<mainSideBar.length;i++){
                 if(mainSideBar[i].classList.contains("hierarchy")){
                     console.log("hierarchy " + mainSideBar[i].id)
                     //returnList.append("hierarchy " + mainSideBar[i].id)
-                    curList[0]=mainSideBar[i].id
-                    curList[1]=mainSideBar[i].getAttribute("description")
-                    curList[2]=mainSideBar[i].getAttribute("link")
-                    returnList.push(curList)
+                    // curList[0]=mainSideBar[i].id
+                    // curList[1]=mainSideBar[i].getAttribute("description")
+                    // curList[2]=mainSideBar[i].getAttribute("link")
+                    returnList.push([mainSideBar[i].id,mainSideBar[i].getAttribute("description"),mainSideBar[i].getAttribute("link")])
                     
                     for(var j=1;j<mainSideBar[i].children[1].children.length;j++){
                         //ADD CHECK FOR EMPTY LIST
-                        curList[0] = mainSideBar[i].children[1].children[j].id
-                        curList[1] = mainSideBar[i].children[1].children[j].getAttribute("description")
-                        curList[2] = mainSideBar[i].children[1].children[j].getAttribute("link")
-                        returnList.push(curList)
+                        // curList[0] = mainSideBar[i].children[1].children[j].id
+                        // curList[1] = mainSideBar[i].children[1].children[j].getAttribute("description")
+                        // curList[2] = mainSideBar[i].children[1].children[j].getAttribute("link")
+                        returnList.push([mainSideBar[i].children[1].children[j].id,mainSideBar[i].children[1].children[j].getAttribute("description"),mainSideBar[i].children[1].children[j].getAttribute("link")])
                        
                         //returnList.append("child "+this.shadowRoot.getElementById("mainSideBar").children[2].children[1].children[j].id)
                         //console.log("child "+this.shadowRoot.getElementById("mainSideBar").children[2].children[1].children[j].id)
@@ -391,19 +391,21 @@ body {
                 else if(mainSideBar[i].classList.contains("section")){
                     //returnList.append("section " + mainSideBar[i].id)
                     //console.log("section " + mainSideBar[i].id)
-                    curList[0]=mainSideBar[i].id
-                    curList[1]=mainSideBar[i].getAttribute("description")
-                    curList[2]=mainSideBar[i].getAttribute("link")
-                    returnList.push(curList)
+                    // curList[0]=mainSideBar[i].id
+                    // curList[1]=mainSideBar[i].getAttribute("description")
+                    // curList[2]=mainSideBar[i].getAttribute("link")
+                    returnList.push([mainSideBar[i].id,mainSideBar[i].getAttribute("description"),mainSideBar[i].getAttribute("link")])
            
                 }
                 else{
                     //returnList.append("standalone "+mainSideBar[i].id)
                     //console.log("standalone "+mainSideBar[i].id)
-                    curList[0]=mainSideBar[i].id
-                    curList[1]=mainSideBar[i].getAttribute("description")
-                    curList[2]=mainSideBar[i].getAttribute("link")
-                    returnList.push(curList)
+                    // curList[0]=mainSideBar[i].id
+                    // curList[1]=mainSideBar[i].getAttribute("description")
+                    // curList[2]=mainSideBar[i].getAttribute("link")
+                    // returnList.push(curList)
+                    returnList.push([mainSideBar[i].id,mainSideBar[i].getAttribute("description"),mainSideBar[i].getAttribute("link")])
+           
     
                 }
             }
