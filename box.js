@@ -369,26 +369,26 @@ body {
             var curList
             var mainSideBar = this.shadowRoot.getElementById("mainSideBar").children
             for(var i=0;i<mainSideBar.length;i++){
-                if(mainSideBar[i].classList.contains("hierarchy") && mainSideBar.children[2].children[1].children!=null){
+                if(mainSideBar[i].classList.contains("hierarchy")){
                     console.log("hierarchy " + mainSideBar[i].id)
                     //returnList.append("hierarchy " + mainSideBar[i].id)
                     curList[0]=mainSideBar[i].id
                     curList[1]=mainSideBar[i].getAttribute("description")
                     curList[2]=mainSideBar[i].getAttribute("link")
                     returnList.appendChild(curList)
-                    for(var j=1;j<this.shadowRoot.getElementById("mainSideBar").children[2].children[1].children.length;j++){
+                    for(var j=1;j<mainSideBar[i].children[1].children.length;j++){
                         //ADD CHECK FOR EMPTY LIST
-                        curList[0] = this.shadowRoot.getElementById("mainSideBar").children[2].children[1].children[j].id
-                        curList[1] = this.shadowRoot.getElementById("mainSideBar").children[2].children[1].children[j].getAttribute("description")
-                        curList[2] = this.shadowRoot.getElementById("mainSideBar").children[2].children[1].children[j].getAttribute("link")
+                        curList[0] = mainSideBar[i].children[1].children[j].id
+                        curList[1] = mainSideBar[i].children[1].children[j].getAttribute("description")
+                        curList[2] = mainSideBar[i].children[1].children[j].getAttribute("link")
                         returnList.appendChild(curList)
                         //returnList.append("child "+this.shadowRoot.getElementById("mainSideBar").children[2].children[1].children[j].id)
-                        console.log("child "+this.shadowRoot.getElementById("mainSideBar").children[2].children[1].children[j].id)
+                        //console.log("child "+this.shadowRoot.getElementById("mainSideBar").children[2].children[1].children[j].id)
                     }
                 }
                 else if(mainSideBar[i].classList.contains("section")){
                     //returnList.append("section " + mainSideBar[i].id)
-                    console.log("section " + mainSideBar[i].id)
+                    //console.log("section " + mainSideBar[i].id)
                     curList[0]=mainSideBar[i].id
                     curList[1]=mainSideBar[i].getAttribute("description")
                     curList[2]=mainSideBar[i].getAttribute("link")
@@ -396,7 +396,7 @@ body {
                 }
                 else{
                     //returnList.append("standalone "+mainSideBar[i].id)
-                    console.log("standalone "+mainSideBar[i].id)
+                    //console.log("standalone "+mainSideBar[i].id)
                     curList[0]=mainSideBar[i].id
                     curList[1]=mainSideBar[i].getAttribute("description")
                     curList[2]=mainSideBar[i].getAttribute("link")
@@ -410,14 +410,14 @@ body {
             var returnList
             var mainSideBar = this.shadowRoot.getElementById("mainSideBar").children
             for(var i=0;i<mainSideBar.length;i++){
-                if(mainSideBar[i].classList.contains("hierarchy") && mainSideBar.children[2].children[1].children!=null){
+                if(mainSideBar[i].classList.contains("hierarchy")){ //&& mainSideBar.children[i].children[1].children!=null
                     console.log("hierarchy " + mainSideBar[i].id)
                     //returnList.append("hierarchy " + mainSideBar[i].id)
-                    for(var j=1;j<this.shadowRoot.getElementById("mainSideBar").children[2].children[1].children.length;j++){
+                    for(var j=1;j<mainSideBar[i].children[1].children.length;j++){
                         //ADD CHECK FOR EMPTY LIST
                         
                         //returnList.append("child "+this.shadowRoot.getElementById("mainSideBar").children[2].children[1].children[j].id)
-                        console.log("child "+this.shadowRoot.getElementById("mainSideBar").children[2].children[1].children[j].id)
+                        console.log("child "+mainSideBar[i].children[1].children[j].id)
                     }
                 }
                 else if(mainSideBar[i].classList.contains("section")){
