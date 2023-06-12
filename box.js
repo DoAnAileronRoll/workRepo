@@ -366,7 +366,7 @@ body {
 	class Box extends HTMLElement {
         getFullEditSideBar(){
             const returnList = [] 
-            const curList = []
+            var curList
             var mainSideBar = this.shadowRoot.getElementById("mainSideBar").children
             for(var i=0;i<mainSideBar.length;i++){
                 if(mainSideBar[i].classList.contains("hierarchy")){
