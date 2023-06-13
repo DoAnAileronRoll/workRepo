@@ -443,12 +443,14 @@ body {
             for(var i=1;i<array.length;i++){
                 if(array[i][1] == "section"){
                     var pel = document.createElement("p")
-                    pel.innerHTML = array[i][1].toUpperCase
+                    var value = array[i][1]
+                    pel.innerHTML = value
                     
                     mainSideBar.appendChild(pel)
 
                     var tab = document.createElement("table")
                     tab.id = "table"+array[i][1]
+                    mainSideBar.appendChild(tab)
                 }
             }
         }
