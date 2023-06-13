@@ -365,7 +365,7 @@ body {
 
 	class Box extends HTMLElement {
         getFullEditSideBar(){
-            let returnList = [["id","description","link"]]
+            let returnList = [["id","type","description","link"]]
             //var curList = []
             var mainSideBar = this.shadowRoot.getElementById("mainSideBar").children
             for(var i=0;i<mainSideBar.length;i++){
@@ -375,14 +375,14 @@ body {
                     // curList[0]=mainSideBar[i].id
                     // curList[1]=mainSideBar[i].getAttribute("description")
                     // curList[2]=mainSideBar[i].getAttribute("link")
-                    returnList.push([mainSideBar[i].id,mainSideBar[i].getAttribute("description"),mainSideBar[i].getAttribute("link")])
+                    returnList.push([mainSideBar[i].id,"hierarchy",mainSideBar[i].getAttribute("description"),mainSideBar[i].getAttribute("link")])
                     
                     for(var j=1;j<mainSideBar[i].children[1].children.length;j++){
                         //ADD CHECK FOR EMPTY LIST
                         // curList[0] = mainSideBar[i].children[1].children[j].id
                         // curList[1] = mainSideBar[i].children[1].children[j].getAttribute("description")
                         // curList[2] = mainSideBar[i].children[1].children[j].getAttribute("link")
-                        returnList.push([mainSideBar[i].children[1].children[j].id,mainSideBar[i].children[1].children[j].getAttribute("description"),mainSideBar[i].children[1].children[j].getAttribute("link")])
+                        returnList.push([mainSideBar[i].children[1].children[j].id,"child",mainSideBar[i].children[1].children[j].getAttribute("description"),mainSideBar[i].children[1].children[j].getAttribute("link")])
                        
                         //returnList.append("child "+this.shadowRoot.getElementById("mainSideBar").children[2].children[1].children[j].id)
                         //console.log("child "+this.shadowRoot.getElementById("mainSideBar").children[2].children[1].children[j].id)
@@ -394,7 +394,7 @@ body {
                     // curList[0]=mainSideBar[i].id
                     // curList[1]=mainSideBar[i].getAttribute("description")
                     // curList[2]=mainSideBar[i].getAttribute("link")
-                    returnList.push([mainSideBar[i].id,mainSideBar[i].getAttribute("description"),mainSideBar[i].getAttribute("link")])
+                    returnList.push([mainSideBar[i].id,"section",mainSideBar[i].getAttribute("description"),mainSideBar[i].getAttribute("link")])
            
                 }
                 else{
@@ -404,7 +404,7 @@ body {
                     // curList[1]=mainSideBar[i].getAttribute("description")
                     // curList[2]=mainSideBar[i].getAttribute("link")
                     // returnList.push(curList)
-                    returnList.push([mainSideBar[i].id,mainSideBar[i].getAttribute("description"),mainSideBar[i].getAttribute("link")])
+                    returnList.push([mainSideBar[i].id,"standalone",mainSideBar[i].getAttribute("description"),mainSideBar[i].getAttribute("link")])
            
     
                 }
