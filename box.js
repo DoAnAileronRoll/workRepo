@@ -443,7 +443,7 @@ body {
             for(var i=1;i<array.length;i++){
                 if(array[i][1] == "section"){
                     var pel = document.createElement("p")
-                    pel.innerHTML(array[i][1].toUpperCase) 
+                    pel.innerHTML = array[i][1].toUpperCase
                     
                     mainSideBar.appendChild(pel)
 
