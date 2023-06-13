@@ -439,7 +439,7 @@ body {
 
         }
         writeToMainSidebar(array){
-            mainSideBar = document.getElementsByTagName("com-cbeyondata-sidepanel")[0].shadowRoot
+            var mainSideBar = document.getElementsByTagName("com-cbeyondata-sidepanel")[0].shadowRoot
             for(var i=1;i<array.length;i++){
                 if(array[i][1] == "section"){
                     var pel = document.createElement("p")
