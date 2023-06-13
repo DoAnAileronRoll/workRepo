@@ -443,7 +443,7 @@ body {
             for(var i=1;i<array.length;i++){
                 if(array[i][1] == "section"){
                     var pel = document.createElement("p")
-                    var value = array[i][1]
+                    var value = array[i][0]
                     pel.innerHTML = value
                     
                     mainSideBar.appendChild(pel)
