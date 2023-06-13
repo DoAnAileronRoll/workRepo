@@ -438,6 +438,20 @@ body {
             //return returnList
 
         }
+        writeToMainSidebar(array){
+            mainSideBar = document.getElementsByTagName("com-cbeyondata-sidepanel")[0].shadowRoot
+            for(var i=1;i<array.length;i++){
+                if(array[i][1] == "section"){
+                    var pel = document.createElement("p")
+                    pel.innerHTML(array[i][1].toUpperCase) 
+                    
+                    mainSideBar.appendChild(pel)
+
+                    var tab = document.createElement("table")
+                    tab.id = "table"+array[i][1]
+                }
+            }
+        }
         loadEditSidebar(){
             var sideBar = this.shadowRoot.getElementById("mainSideBar")
             sideBar.innerHTML = ""
