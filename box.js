@@ -409,7 +409,7 @@ body {
     
                 }
             }
-            console.log("GRAHHHHHHHHHHHH"+ returnList)
+            console.log(returnList)
             return returnList
         }
         getEditSideBar(){
