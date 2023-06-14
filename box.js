@@ -432,7 +432,7 @@ body {
                     mainSideBar.appendChild(tab)
                     lastSection = tab.id
                 }
-                if(array[i][1] == "hierarchy"){
+                else if(array[i][1] == "hierarchy"){
                     var pel = document.createElement("p")
                     var value = array[i][0]
                     if(lastSection){
@@ -447,7 +447,7 @@ body {
                     // mainSideBar.appendChild(tab)
                     lastHier = value
                 }
-                if(array[i][1] == "child"){
+                else if(array[i][1] == "child"){
                     var pel = document.createElement("p")
                     var value = array[i][0]
                     if(lastSection){
@@ -464,7 +464,7 @@ body {
                     // tab.id = "table"+array[i][1]
                     // mainSideBar.appendChild(tab)
                 }
-                else{
+                else if(array[i][1] == "standalone"){
                     var pel = document.createElement("p")
                     var value = array[i][0] + " standalone"
                     pel.innerHTML = value
