@@ -430,7 +430,7 @@ body {
                     var tab = document.createElement("table")
                     tab.id = "table"+array[i][1]
                     mainSideBar.appendChild(tab)
-                    lastSection = tab.id
+                    lastSection = value
                 }
                 else if(array[i][1] == "hierarchy"){
                     var pel = document.createElement("p")
