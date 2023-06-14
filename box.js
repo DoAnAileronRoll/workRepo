@@ -466,7 +466,7 @@ body {
                 }
                 else{
                     var pel = document.createElement("p")
-                    var value = array[i][0]
+                    var value = array[i][0] + " standalone"
                     pel.innerHTML = value
                     
                     mainSideBar.appendChild(pel)
