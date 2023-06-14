@@ -371,42 +371,19 @@ body {
             for(var i=0;i<mainSideBar.length;i++){
                 if(mainSideBar[i].classList.contains("hierarchy")){
                     console.log("hierarchy " + mainSideBar[i].id)
-                    //returnList.append("hierarchy " + mainSideBar[i].id)
-                    // curList[0]=mainSideBar[i].id
-                    // curList[1]=mainSideBar[i].getAttribute("description")
-                    // curList[2]=mainSideBar[i].getAttribute("link")
                     returnList.push([mainSideBar[i].id,"hierarchy",mainSideBar[i].getAttribute("description"),mainSideBar[i].getAttribute("link")])
                     
                     for(var j=1;j<mainSideBar[i].children[1].children.length;j++){
                         //ADD CHECK FOR EMPTY LIST
-                        // curList[0] = mainSideBar[i].children[1].children[j].id
-                        // curList[1] = mainSideBar[i].children[1].children[j].getAttribute("description")
-                        // curList[2] = mainSideBar[i].children[1].children[j].getAttribute("link")
                         returnList.push([mainSideBar[i].children[1].children[j].id,"child",mainSideBar[i].children[1].children[j].getAttribute("description"),mainSideBar[i].children[1].children[j].getAttribute("link")])
-                       
-                        //returnList.append("child "+this.shadowRoot.getElementById("mainSideBar").children[2].children[1].children[j].id)
-                        //console.log("child "+this.shadowRoot.getElementById("mainSideBar").children[2].children[1].children[j].id)
                     }
                 }
                 else if(mainSideBar[i].classList.contains("section")){
-                    //returnList.append("section " + mainSideBar[i].id)
-                    //console.log("section " + mainSideBar[i].id)
-                    // curList[0]=mainSideBar[i].id
-                    // curList[1]=mainSideBar[i].getAttribute("description")
-                    // curList[2]=mainSideBar[i].getAttribute("link")
                     returnList.push([mainSideBar[i].id,"section",mainSideBar[i].getAttribute("description"),mainSideBar[i].getAttribute("link")])
            
                 }
                 else{
-                    //returnList.append("standalone "+mainSideBar[i].id)
-                    //console.log("standalone "+mainSideBar[i].id)
-                    // curList[0]=mainSideBar[i].id
-                    // curList[1]=mainSideBar[i].getAttribute("description")
-                    // curList[2]=mainSideBar[i].getAttribute("link")
-                    // returnList.push(curList)
                     returnList.push([mainSideBar[i].id,"standalone",mainSideBar[i].getAttribute("description"),mainSideBar[i].getAttribute("link")])
-           
-    
                 }
             }
             console.log(returnList)
@@ -440,6 +417,8 @@ body {
         }
         writeToMainSidebar(array){
             var mainSideBar = document.getElementsByTagName("com-cbeyondata-sidepanel")[0].shadowRoot
+            var lastSection
+            var lastHier
             for(var i=1;i<array.length;i++){
                 if(array[i][1] == "section"){
                     var pel = document.createElement("p")
@@ -451,6 +430,46 @@ body {
                     var tab = document.createElement("table")
                     tab.id = "table"+array[i][1]
                     mainSideBar.appendChild(tab)
+                    lastSection = tab.id
+                }
+                if(array[i][1] == "hierarchy"){
+                    var pel = document.createElement("p")
+                    var value = array[i][0]
+                    if(lastSection){
+                        value = value + " " + lastSection
+                    }
+                    pel.innerHTML = value
+                    
+                    mainSideBar.appendChild(pel)
+
+                    // var tab = document.createElement("table")
+                    // tab.id = "table"+array[i][1]
+                    // mainSideBar.appendChild(tab)
+                    lastHier = value
+                }
+                if(array[i][1] == "child"){
+                    var pel = document.createElement("p")
+                    var value = array[i][0]
+                    if(lastSection){
+                        value = value + " " + lastSection
+                    }
+                    if(lastHier){
+                        value = value + " " + lastHier
+                    }
+                    pel.innerHTML = value
+                    
+                    mainSideBar.appendChild(pel)
+
+                    // var tab = document.createElement("table")
+                    // tab.id = "table"+array[i][1]
+                    // mainSideBar.appendChild(tab)
+                }
+                else{
+                    var pel = document.createElement("p")
+                    var value = array[i][0]
+                    pel.innerHTML = value
+                    
+                    mainSideBar.appendChild(pel)
                 }
             }
         }
