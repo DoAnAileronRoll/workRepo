@@ -425,7 +425,7 @@ body {
         <table id="tableContext"></table>
     </div>
 
-    <div class="container" id="mainSideBar"></div>
+    <div hidden class="container" id="mainSideBar"></div>
     <br>
 
 </body>
