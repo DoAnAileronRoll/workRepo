@@ -414,8 +414,6 @@ body {
 </style>
 </head>
 <body>
-    <div class="topBar"></div>
-
     <div class="mainHolder">
         <p><i class="fa-solid fa-user"></i>NAVIGATION</p>
         <table id="tableNavigation"></table>
