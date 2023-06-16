@@ -411,7 +411,7 @@ body {
 <body>
     <div class="topBar"></div>
 
-    <div class "mainHolder">
+    <div class="mainHolder">
         <p><i class="fa-solid fa-user"></i>NAVIGATION</p>
         <table id="tableNavigation"></table>
         <p id="userDefined"><i class="fa-solid fa-user"></i></p>
