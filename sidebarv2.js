@@ -367,7 +367,7 @@ body {
       font-family:Calibri;
       font-size:10.5pt;
       font-weight:bold;
-  padding:0pt 5pt;
+        padding:0pt 5pt;
   }
   
   a {
@@ -381,7 +381,7 @@ body {
       padding:10pt 14pt;
       display: block;
       height:20px;
-      width:250.859px;
+      width:92%;
   
   }
   
