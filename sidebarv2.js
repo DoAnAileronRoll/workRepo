@@ -405,30 +405,8 @@ body {
 </style>
 </head>
 <body>
-    <div class="topBar">
-          <div class="disappearing">
-              <!--
-                <button class="buttonChild" id="childButton">Add a Child Item</button>
-              <button class="buttonHier" id="hierButton">Add a Hier Item</button>
-              <button class="buttonHier" id="sectionButton">Add a Section</button>
-              <label class="fancyTextLabel" id="addedTextLabel" for="addedText">Label:</label>
-              <input class="fancyText" type= "text" id="addedText" name="addedText" placeholder="Add Your Text">
-            -->
-            </div>
-          
-          <div class="constant">
-            <!--
-              <label class="fancyTextLabel" for="editSwitch">Edit:</label>
-              <label class="switch">
-                  <input type="checkbox" id="editSwitch" checked>
-                  <span class="slider round"></span>
-              </label>
-
-              -->
-          </div>
-     
-       </div>
-       <p><i class="fa-solid fa-user"></i>NAVIGATION</p>
+    <div class="topBar"></div>
+    <p><i class="fa-solid fa-user"></i>NAVIGATION</p>
     <table id="tableNavigation">
     </table>
     <p id="userDefined"><i class="fa-solid fa-user"></i></p>
@@ -440,10 +418,8 @@ body {
     <p id="context"></p>
     <table id="tableContext">
     </table>
-      <div class="container" id="mainSideBar">
-          
-    </div>
-      <br>
+    <div class="container" id="mainSideBar"></div>
+    <br>
 </body>
  `;
 
