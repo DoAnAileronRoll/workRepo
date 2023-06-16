@@ -401,25 +401,29 @@ body {
     vertical-align: top;
     filter: invert(.8) sepia(.3) hue-rotate(170deg) saturate(300%) opacity(60%);
   }
+  .mainHolder{
+    opacity: 99%;
+  }
 
 </style>
 </head>
 <body>
     <div class="topBar"></div>
-    <p><i class="fa-solid fa-user"></i>NAVIGATION</p>
-    <table id="tableNavigation">
-    </table>
-    <p id="userDefined"><i class="fa-solid fa-user"></i></p>
-    <table id="tableUserDefined">
-    </table>
-    <p>ADMIN</p>
-    <table id="tableAdmin">
-    </table>
-    <p id="context"></p>
-    <table id="tableContext">
-    </table>
+
+    <div class "mainHolder">
+        <p><i class="fa-solid fa-user"></i>NAVIGATION</p>
+        <table id="tableNavigation"></table>
+        <p id="userDefined"><i class="fa-solid fa-user"></i></p>
+        <table id="tableUserDefined"></table>
+        <p>ADMIN</p>
+        <table id="tableAdmin"></table>
+        <p id="context"></p>
+        <table id="tableContext"></table>
+    </div>
+
     <div class="container" id="mainSideBar"></div>
     <br>
+
 </body>
  `;
 
