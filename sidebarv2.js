@@ -403,6 +403,7 @@ body {
   }
   .mainHolder{
     opacity: 99%;
+    width: 290px;
   }
 
 </style>
