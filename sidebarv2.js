@@ -782,7 +782,7 @@ body {
         getSelected() {
             return this._selectedItem;
         }
-        getClientHeight() {
+        getClientHeight() {//refactor to include all objects
             var rtn = 0;
             for (let i = 0; i < this.shadowRoot.getRootNode().children.length; i++) {
                 rtn += this.shadowRoot.getRootNode().children[i].clientHeight;
