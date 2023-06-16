@@ -61,6 +61,7 @@ body {
     height: 48px;
     width: 1920px;
     background-color: #354a5f;
+    
   }
   .fancyText{
     height: 30px;
@@ -252,6 +253,8 @@ body {
     background-color: #29313a;
     width: 290px;
     height: 100%;
+    top: 48px;
+    position: absolute;
   }
   /* Rounded sliders */
   .slider.round {
@@ -404,6 +407,8 @@ body {
   .mainHolder{
     opacity: 99%;
     width: 290px;
+    top: 48px;
+    position: absolute;
   }
 
 </style>
