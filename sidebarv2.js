@@ -441,6 +441,7 @@ body {
     <table id="tableContext">
     </table>
       <div class="container" id="mainSideBar">
+          <!--
           <div class="section sidebarItem p-inline"  draggable = "true">SECTION 1</div>
           <div class="draggable sidebarItem p-inline"  draggable="true">NICK APP</div>
 
@@ -453,9 +454,10 @@ body {
         
         <div class="draggable sidebarItem p-inline" draggable="true">GREG APP</div> 
         <div class="draggable sidebarItem p-inline " draggable="true">HOVER ON ME</div>
-          
+        
           <br>
-      </div>
+          -->
+    </div>
       <br>
 </body>
  `;
