@@ -422,21 +422,6 @@ body {
         <table id="tableAdmin"></table>
         <p id="context"></p>
         <table id="tableContext"></table>
-        <p class="filler">ADMIN</p>
-        <p class="filler">ADMIN</p>
-        <p class="filler">ADMIN</p>
-        <p class="filler">ADMIN</p>
-        <p class="filler">ADMIN</p>
-        <p class="filler">ADMIN</p>
-        <p class="filler">ADMIN</p>
-        <p class="filler">ADMIN</p>
-        <p class="filler">ADMIN</p>
-        <p class="filler">ADMIN</p>
-        <p class="filler">ADMIN</p>
-        <p class="filler">ADMIN</p>
-        <p class="filler">ADMIN</p>
-        <p class="filler">ADMIN</p>
-        <p class="filler">ADMIN</p>
     </div>
 
     <div hidden class="container" id="mainSideBar"></div>
@@ -755,7 +740,7 @@ body {
 			anchor.classList.add("sela");
             if (cell.parentElement.hidden)
             {
-		var caption =  cell.parentNode.getAttribute("parentname").toString();
+		        var caption =  cell.parentNode.getAttribute("parentname").toString();
                 
                 var childRows = this.shadowRoot.querySelectorAll('[parentname="'+caption+'"]');
                 var rotate = false;
@@ -1288,6 +1273,13 @@ body {
             // hierButton.style.display="";
             // addedTextField.style.display="";
             // addedTextLabel.style.display="";
+            this.shadowRoot.querySelectorAll(".mainHolder").forEach(item => { //turns off dragging on sidebarItem, should add cursor support?
+                item.hidden=false;
+            })
+
+            this.shadowRoot.querySelectorAll(".container").forEach(item => { //turns off dragging on sidebarItem, should add cursor support?
+                item.hidden=true;
+            })
             this.shadowRoot.querySelectorAll(".sidebarItem").forEach(item => { //turns off dragging on sidebarItem, should add cursor support?
                 item.draggable=true;
             })
@@ -1305,6 +1297,13 @@ body {
             // hierButton.style.display="none";
             // addedTextField.style.display="none";
             // addedTextLabel.style.display="none";
+            this.shadowRoot.querySelectorAll(".mainHolder").forEach(item => { //turns off dragging on sidebarItem, should add cursor support?
+                item.hidden=true;
+            })
+
+            this.shadowRoot.querySelectorAll(".container").forEach(item => { //turns off dragging on sidebarItem, should add cursor support?
+                item.hidden=false;
+            })
             this.shadowRoot.querySelectorAll(".sidebarItem").forEach(item => { //turns on dragging for sidebarItem, should add cursor support?
                 item.draggable=false;
             })
