@@ -994,7 +994,7 @@ body {
                 newSection.classList.remove('dragging')
             })
             this.hoverButtonAdd(newSection)
-            newSection.id = name
+            newSection.id = "edit"+name
             newSection.addEventListener('click', () => {
                 console.log(this.getParameters(newSection.id) + " " + this.getIcon(newSection.id) + " " +this.getModel(newSection.id) + " " +this.getLink(newSection.id) + " " +this.getTitle(newSection.id) + " " +this.getParent(newSection.id) + " " +this.getLinkType(newSection.id) + " " +this.getDescription(newSection.id) + " ")
             })
@@ -1029,7 +1029,7 @@ body {
             newChild.addEventListener('dragend', () => {
                 newChild.classList.remove('dragging')
             })
-            newChild.id = name
+            newChild.id = "edit"+name
             this.hoverButtonAdd(newChild)
             newChild.addEventListener('click', () => {
                 console.log(this.getParameters(newChild.id) + " " + this.getIcon(newChild.id) + " " +this.getModel(newChild.id) + " " +this.getLink(newChild.id) + " " +this.getTitle(newChild.id) + " " +this.getParent(newChild.id) + " " +this.getLinkType(newChild.id) + " " +this.getDescription(newChild.id) + " ")
@@ -1065,7 +1065,7 @@ body {
             newChild.addEventListener('dragend', () => {
                 newChild.classList.remove('dragging')
             })
-            newChild.id = name
+            newChild.id = "edit"+name
             this.hoverButtonAdd(newChild)
             newChild.addEventListener('click', () => {
                 console.log(this.getParameters(newChild.id) + " " + this.getIcon(newChild.id) + " " +this.getModel(newChild.id) + " " +this.getLink(newChild.id) + " " +this.getTitle(newChild.id) + " " +this.getParent(newChild.id) + " " +this.getLinkType(newChild.id) + " " +this.getDescription(newChild.id) + " ")
@@ -1076,7 +1076,7 @@ body {
         }
         
         addToHier(parentID, child){
-            this.shadowRoot.getElementById(parentID).children[1].appendChild(child)
+            this.shadowRoot.getElementById("edit"+parentID).children[1].appendChild(child)
         }
 
 
