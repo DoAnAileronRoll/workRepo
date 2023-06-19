@@ -1274,11 +1274,11 @@ body {
             // addedTextField.style.display="";
             // addedTextLabel.style.display="";
             this.shadowRoot.querySelectorAll(".mainHolder").forEach(item => { //turns off dragging on sidebarItem, should add cursor support?
-                item.hidden=false;
+                item.hidden=true;
             })
 
             this.shadowRoot.querySelectorAll(".container").forEach(item => { //turns off dragging on sidebarItem, should add cursor support?
-                item.hidden=true;
+                item.hidden=false;
             })
             this.shadowRoot.querySelectorAll(".sidebarItem").forEach(item => { //turns off dragging on sidebarItem, should add cursor support?
                 item.draggable=true;
@@ -1298,11 +1298,11 @@ body {
             // addedTextField.style.display="none";
             // addedTextLabel.style.display="none";
             this.shadowRoot.querySelectorAll(".mainHolder").forEach(item => { //turns off dragging on sidebarItem, should add cursor support?
-                item.hidden=true;
+                item.hidden=false;
             })
 
             this.shadowRoot.querySelectorAll(".container").forEach(item => { //turns off dragging on sidebarItem, should add cursor support?
-                item.hidden=false;
+                item.hidden=true;
             })
             this.shadowRoot.querySelectorAll(".sidebarItem").forEach(item => { //turns on dragging for sidebarItem, should add cursor support?
                 item.draggable=false;
