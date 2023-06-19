@@ -547,11 +547,11 @@ body {
 
             //this.addNewSection("NAVIGATION", "GRAHHHH")
             //document.getElementsByTagName("com-cbeyondata-sidepanel")[0].shadowRoot.getElementById("tableNavigation") is parent name if it exists
-            for(var num = 0; num < document.getElementsByTagName("com-cbeyondata-sidepanel")[0].shadowRoot.children.length; num++){
-                var shadowNode = document.getElementsByTagName("com-cbeyondata-sidepanel")[0].shadowRoot.children[num]
+            for(var num = 0; num < this.shadowRoot.getElementById("regularSideBar").children.length; num++){
+                var shadowNode = this.shadowRoot.getElementById("regularSideBar").children.children[num]
                 if(shadowNode.tagName != null && shadowNode.tagName == "TABLE" && shadowNode.children.length>0){
                     this.addNewSection(shadowNode.id.slice(5).toUpperCase(),"this is a section")
-                    var table = document.getElementsByTagName("com-cbeyondata-sidepanel")[0].shadowRoot.getElementById(shadowNode.id)
+                    var table = this.shadowRoot.getElementById("regularSideBar").getElementById(shadowNode.id)
                     for (var i = 0; i<table.rows.length; i++) {
                         //iterate through rows
                         //rows would be accessed using the "row" variable assigned in the for loop
