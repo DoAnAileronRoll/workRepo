@@ -552,7 +552,7 @@ body {
                 if(shadowNode.tagName != null && shadowNode.tagName == "TABLE" && shadowNode.children.length>0){
                     this.addNewSection(shadowNode.id.slice(5).toUpperCase(),"this is a section")
                     //var table = this.shadowRoot.getElementById("regularSideBar").getElementById(shadowNode.id)
-                    var table = this.shadowRoot.getElementById("regularSideBar").children[num]​
+                    var table = this.shadowRoot.getElementById("regularSideBar").children[num]
                     for (var i = 0; i<table.rows.length; i++) {
                         //iterate through rows
                         //rows would be accessed using the "row" variable assigned in the for loop
