@@ -254,7 +254,6 @@ body {
     width: 290px;
     height: 100%;
     top: 48px;
-    position: absolute;
   }
   /* Rounded sliders */
   .slider.round {
