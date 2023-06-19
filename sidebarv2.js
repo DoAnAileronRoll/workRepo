@@ -413,7 +413,7 @@ body {
 </style>
 </head>
 <body>
-    <div class="mainHolder">
+    <div class="mainHolder" id="regularSideBar">
         <p><i class="fa-solid fa-user"></i>NAVIGATION</p>
         <table id="tableNavigation"></table>
         <p id="userDefined"><i class="fa-solid fa-user"></i></p>
@@ -424,7 +424,7 @@ body {
         <table id="tableContext"></table>
     </div>
 
-    <div hidden class="container" id="mainSideBar"></div>
+    <div hidden class="container" id="editSideBar"></div>
     <br>
 
 </body>
@@ -435,23 +435,23 @@ body {
         getFullEditSideBar(){
             let returnList = [["id","type","description","link"]]
             //var curList = []
-            var mainSideBar = this.shadowRoot.getElementById("mainSideBar").children
-            for(var i=0;i<mainSideBar.length;i++){
-                if(mainSideBar[i].classList.contains("hierarchy")){
-                    console.log("hierarchy " + mainSideBar[i].id)
-                    returnList.push([mainSideBar[i].id,"hierarchy",mainSideBar[i].getAttribute("description"),mainSideBar[i].getAttribute("link")])
+            var editSideBar = this.shadowRoot.getElementById("editSideBar").children
+            for(var i=0;i<editSideBar.length;i++){
+                if(editSideBar[i].classList.contains("hierarchy")){
+                    console.log("hierarchy " + editSideBar[i].id)
+                    returnList.push([editSideBar[i].id,"hierarchy",editSideBar[i].getAttribute("description"),editSideBar[i].getAttribute("link")])
                     
-                    for(var j=1;j<mainSideBar[i].children[1].children.length;j++){
+                    for(var j=1;j<editSideBar[i].children[1].children.length;j++){
                         //ADD CHECK FOR EMPTY LIST
-                        returnList.push([mainSideBar[i].children[1].children[j].id,"child",mainSideBar[i].children[1].children[j].getAttribute("description"),mainSideBar[i].children[1].children[j].getAttribute("link")])
+                        returnList.push([editSideBar[i].children[1].children[j].id,"child",editSideBar[i].children[1].children[j].getAttribute("description"),editSideBar[i].children[1].children[j].getAttribute("link")])
                     }
                 }
-                else if(mainSideBar[i].classList.contains("section")){
-                    returnList.push([mainSideBar[i].id,"section",mainSideBar[i].getAttribute("description"),mainSideBar[i].getAttribute("link")])
+                else if(editSideBar[i].classList.contains("section")){
+                    returnList.push([editSideBar[i].id,"section",editSideBar[i].getAttribute("description"),editSideBar[i].getAttribute("link")])
            
                 }
                 else{
-                    returnList.push([mainSideBar[i].id,"standalone",mainSideBar[i].getAttribute("description"),mainSideBar[i].getAttribute("link")])
+                    returnList.push([editSideBar[i].id,"standalone",editSideBar[i].getAttribute("description"),editSideBar[i].getAttribute("link")])
                 }
             }
             console.log(returnList)
@@ -459,32 +459,32 @@ body {
         }
         getEditSideBar(){
             var returnList
-            var mainSideBar = this.shadowRoot.getElementById("mainSideBar").children
-            for(var i=0;i<mainSideBar.length;i++){
-                if(mainSideBar[i].classList.contains("hierarchy")){ //&& mainSideBar.children[i].children[1].children!=null
-                    console.log("hierarchy " + mainSideBar[i].id)
-                    //returnList.append("hierarchy " + mainSideBar[i].id)
-                    for(var j=1;j<mainSideBar[i].children[1].children.length;j++){
+            var editSideBar = this.shadowRoot.getElementById("editSideBar").children
+            for(var i=0;i<editSideBar.length;i++){
+                if(editSideBar[i].classList.contains("hierarchy")){ //&& editSideBar.children[i].children[1].children!=null
+                    console.log("hierarchy " + editSideBar[i].id)
+                    //returnList.append("hierarchy " + editSideBar[i].id)
+                    for(var j=1;j<editSideBar[i].children[1].children.length;j++){
                         //ADD CHECK FOR EMPTY LIST
                         
-                        //returnList.append("child "+this.shadowRoot.getElementById("mainSideBar").children[2].children[1].children[j].id)
-                        console.log("child "+mainSideBar[i].children[1].children[j].id)
+                        //returnList.append("child "+this.shadowRoot.getElementById("editSideBar").children[2].children[1].children[j].id)
+                        console.log("child "+editSideBar[i].children[1].children[j].id)
                     }
                 }
-                else if(mainSideBar[i].classList.contains("section")){
-                    //returnList.append("section " + mainSideBar[i].id)
-                    console.log("section " + mainSideBar[i].id)
+                else if(editSideBar[i].classList.contains("section")){
+                    //returnList.append("section " + editSideBar[i].id)
+                    console.log("section " + editSideBar[i].id)
                 }
                 else{
-                    //returnList.append("standalone "+mainSideBar[i].id)
-                    console.log("standalone "+mainSideBar[i].id)
+                    //returnList.append("standalone "+editSideBar[i].id)
+                    console.log("standalone "+editSideBar[i].id)
                 }
             }
             //return returnList
 
         }
         writeToMainSidebar(array){
-            var mainSideBar = document.getElementsByTagName("com-cbeyondata-sidepanel")[0].shadowRoot
+            var editSideBar = document.getElementsByTagName("com-cbeyondata-sidepanel")[0].shadowRoot
             var lastSection
             var lastHier
             for(var i=1;i<array.length;i++){
@@ -493,11 +493,11 @@ body {
                     var value = array[i][0]
                     pel.innerHTML = value
                     
-                    mainSideBar.appendChild(pel)
+                    editSideBar.appendChild(pel)
 
                     var tab = document.createElement("table")
                     tab.id = "table"+array[i][1]
-                    mainSideBar.appendChild(tab)
+                    editSideBar.appendChild(tab)
                     lastSection = value
                 }
                 else if(array[i][1] == "hierarchy"){
@@ -508,11 +508,11 @@ body {
                     }
                     pel.innerHTML = value
                     
-                    mainSideBar.appendChild(pel)
+                    editSideBar.appendChild(pel)
 
                     // var tab = document.createElement("table")
                     // tab.id = "table"+array[i][1]
-                    // mainSideBar.appendChild(tab)
+                    // editSideBar.appendChild(tab)
                     lastHier = value
                 }
                 else if(array[i][1] == "child"){
@@ -526,23 +526,23 @@ body {
                     }
                     pel.innerHTML = value
                     
-                    mainSideBar.appendChild(pel)
+                    editSideBar.appendChild(pel)
 
                     // var tab = document.createElement("table")
                     // tab.id = "table"+array[i][1]
-                    // mainSideBar.appendChild(tab)
+                    // editSideBar.appendChild(tab)
                 }
                 else if(array[i][1] == "standalone"){
                     var pel = document.createElement("p")
                     var value = array[i][0] + " standalone"
                     pel.innerHTML = value
                     
-                    mainSideBar.appendChild(pel)
+                    editSideBar.appendChild(pel)
                 }
             }
         }
         loadEditSidebar(){
-            var sideBar = this.shadowRoot.getElementById("mainSideBar")
+            var sideBar = this.shadowRoot.getElementById("editSideBar")
             sideBar.innerHTML = ""
 
             //this.addNewSection("NAVIGATION", "GRAHHHH")
@@ -957,7 +957,7 @@ body {
 		}
 
         addNewSection(name, description){//Ideally trying to add a section
-            var mainSideBar = this.shadowRoot.getElementById("mainSideBar")
+            var editSideBar = this.shadowRoot.getElementById("editSideBar")
             var newSection = document.createElement("div") //create a p element
             newSection.classList.add("section") //section class added for format
             newSection.classList.add("p-inline")
@@ -999,7 +999,7 @@ body {
             })
             
 
-            mainSideBar.appendChild(newSection) //add to our main container the new section
+            editSideBar.appendChild(newSection) //add to our main container the new section
             this.setTitle(newSection.id, name)
         }
         
@@ -1039,7 +1039,7 @@ body {
 
 
         addNewChild(name, description, link){
-            var mainSideBar = this.shadowRoot.getElementById("mainSideBar")
+            var editSideBar = this.shadowRoot.getElementById("editSideBar")
             var newChild = document.createElement("div")
             newChild.classList.add('draggable')//draggable CLASS for the correct format
             //newChild.classList.add('hoverer')
@@ -1070,7 +1070,7 @@ body {
                 console.log(this.getParameters(newChild.id) + " " + this.getIcon(newChild.id) + " " +this.getModel(newChild.id) + " " +this.getLink(newChild.id) + " " +this.getTitle(newChild.id) + " " +this.getParent(newChild.id) + " " +this.getLinkType(newChild.id) + " " +this.getDescription(newChild.id) + " ")
             })
 
-            mainSideBar.appendChild(newChild)//add it
+            editSideBar.appendChild(newChild)//add it
             this.setTitle(newChild.id, name)
         }
         
@@ -1080,7 +1080,7 @@ body {
 
 
         addNewHier(name, description){//add a new hierarchy object
-            var mainSideBar = this.shadowRoot.getElementById("mainSideBar")
+            var editSideBar = this.shadowRoot.getElementById("editSideBar")
             var newHier = document.createElement("div")//div element, will be the main object
             newHier.classList.add('draggable')//draggable format, CHANGE SOON
             newHier.classList.add("sidebarItem") //add class for usage
@@ -1155,7 +1155,7 @@ body {
                 console.log(this.getParameters(newHier.id) + " " + this.getIcon(newHier.id) + " " +this.getModel(newHier.id) + " " +this.getLink(newHier.id) + " " +this.getTitle(newHier.id) + " " +this.getParent(newHier.id) + " " +this.getLinkType(newHier.id) + " " +this.getDescription(newHier.id) + " ")
             })
 
-            mainSideBar.appendChild(newHier)//FINALLY ADD US TO SIDEBAR AND CAN WE PLEASE CHANGE THIS REFERENCE NAME
+            editSideBar.appendChild(newHier)//FINALLY ADD US TO SIDEBAR AND CAN WE PLEASE CHANGE THIS REFERENCE NAME
             this.setTitle(newHier.id, name)
         }
 
