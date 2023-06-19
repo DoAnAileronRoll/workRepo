@@ -548,7 +548,7 @@ body {
             //this.addNewSection("NAVIGATION", "GRAHHHH")
             //document.getElementsByTagName("com-cbeyondata-sidepanel")[0].shadowRoot.getElementById("tableNavigation") is parent name if it exists
             for(var num = 0; num < this.shadowRoot.getElementById("regularSideBar").children.length; num++){
-                var shadowNode = this.shadowRoot.getElementById("regularSideBar").children.children[num]
+                var shadowNode = this.shadowRoot.getElementById("regularSideBar").children[num]
                 if(shadowNode.tagName != null && shadowNode.tagName == "TABLE" && shadowNode.children.length>0){
                     this.addNewSection(shadowNode.id.slice(5).toUpperCase(),"this is a section")
                     var table = this.shadowRoot.getElementById("regularSideBar").getElementById(shadowNode.id)
