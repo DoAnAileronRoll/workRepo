@@ -1150,7 +1150,7 @@ body {
             })
 
             insideList.style.display="none"
-            newHier.id = name
+            newHier.id = "edit"+name
             
             newHier.addEventListener('click', () => {
                 console.log(this.getParameters(newHier.id) + " " + this.getIcon(newHier.id) + " " +this.getModel(newHier.id) + " " +this.getLink(newHier.id) + " " +this.getTitle(newHier.id) + " " +this.getParent(newHier.id) + " " +this.getLinkType(newHier.id) + " " +this.getDescription(newHier.id) + " ")
