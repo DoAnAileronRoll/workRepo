@@ -483,7 +483,7 @@ body {
 
         }
         writeToMainSidebar(array){
-            var editSideBar = document.getElementsByTagName("com-cbeyondata-sidepanel")[0].shadowRoot
+            var mainSideBar = this.shadowRoot.getElementById("regularSideBar")
             var lastSection
             var lastHier
             for(var i=1;i<array.length;i++){
@@ -492,11 +492,11 @@ body {
                     var value = array[i][0]
                     pel.innerHTML = value
                     
-                    editSideBar.appendChild(pel)
+                    mainSideBar.appendChild(pel)
 
                     var tab = document.createElement("table")
                     tab.id = "table"+array[i][1]
-                    editSideBar.appendChild(tab)
+                    mainSideBar.appendChild(tab)
                     lastSection = value
                 }
                 else if(array[i][1] == "hierarchy"){
@@ -507,7 +507,7 @@ body {
                     }
                     pel.innerHTML = value
                     
-                    editSideBar.appendChild(pel)
+                    mainSideBar.appendChild(pel)
 
                     // var tab = document.createElement("table")
                     // tab.id = "table"+array[i][1]
@@ -525,7 +525,7 @@ body {
                     }
                     pel.innerHTML = value
                     
-                    editSideBar.appendChild(pel)
+                    mainSideBar.appendChild(pel)
 
                     // var tab = document.createElement("table")
                     // tab.id = "table"+array[i][1]
@@ -536,7 +536,7 @@ body {
                     var value = array[i][0] + " standalone"
                     pel.innerHTML = value
                     
-                    editSideBar.appendChild(pel)
+                    mainSideBar.appendChild(pel)
                 }
             }
         }
