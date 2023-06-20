@@ -490,14 +490,14 @@ body {
                 if(array[i][1] == "section"){
                     var pel = document.createElement("p")
                     var value = array[i][0]
-                    pel.innerHTML = value
+                    pel.innerHTML = value.slice(4)
                     
                     mainSideBar.appendChild(pel)
 
                     var tab = document.createElement("table")
-                    tab.id = "table"+array[i][1]
+                    tab.id = ("table"+array[i][1]).slice(4)
                     mainSideBar.appendChild(tab)
-                    lastSection = value
+                    lastSection = value.slice(4)
                 }
                 else if(array[i][1] == "hierarchy"){
                     var pel = document.createElement("p")
@@ -505,14 +505,14 @@ body {
                     if(lastSection){
                         value = value + " " + lastSection
                     }
-                    pel.innerHTML = value
+                    pel.innerHTML = value.slice(4)
                     
                     mainSideBar.appendChild(pel)
 
                     // var tab = document.createElement("table")
                     // tab.id = "table"+array[i][1]
                     // editSideBar.appendChild(tab)
-                    lastHier = value
+                    lastHier = value.slice(4)
                 }
                 else if(array[i][1] == "child"){
                     var pel = document.createElement("p")
@@ -523,7 +523,7 @@ body {
                     if(lastHier){
                         value = value + " " + lastHier
                     }
-                    pel.innerHTML = value
+                    pel.innerHTML = value.slice(4)
                     
                     mainSideBar.appendChild(pel)
 
@@ -534,7 +534,7 @@ body {
                 else if(array[i][1] == "standalone"){
                     var pel = document.createElement("p")
                     var value = array[i][0] + " standalone"
-                    pel.innerHTML = value
+                    pel.innerHTML = value.slice(4)
                     
                     mainSideBar.appendChild(pel)
                 }
