@@ -1003,9 +1003,6 @@ body {
             })
         }
 
-        
-        
-
         getDragAfterElement(container, y) {//handles which item is considered above and below when dragging,
         //y is the height of mouse, container is the items in question
             var draggableElements = [...container.querySelectorAll('.draggable:not(.dragging)')]
