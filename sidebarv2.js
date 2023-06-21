@@ -347,7 +347,27 @@ body {
                 }
             }
         }
-		othersPrep(){
+        containerPrep(){
+            var containers = this.shadowRoot.querySelectorAll('.container')
+            containers.forEach(container => {//containers are MARKED
+                container.addEventListener('dragover', e => { //when an item is dragged over it
+                    e.preventDefault()//makes icon not freak out
+                    var afterElement = this.getDragAfterElement(container, e.clientY)//e.clientY finds height of mouse
+                    //var draggable = this.shadowRoot.querySelector('.dragging') //grabs the object actually being dragged
+                    if (afterElement == null) {//if mouse+draggable is below lowest item
+                        container.appendChild(this.preciseItem)
+                    } else {//otherwise put it above the closest item
+                        // console.log(this.preciseItem)
+                        // console.log(afterElement)
+                        try{container.insertBefore(this.preciseItem, afterElement)}
+                        catch (error) {  console.error(error)
+                        }
+                    }
+                })
+            })
+        }
+        initialize(){
+            this.containerPrep()
             var draggables = this.shadowRoot.querySelectorAll('.draggable')
             var sections = this.shadowRoot.querySelectorAll('.section')
     
@@ -392,29 +412,6 @@ body {
                     section.classList.remove('dragging')
                 })
             })
-        }
-        containerPrep(){
-            var containers = this.shadowRoot.querySelectorAll('.container')
-            containers.forEach(container => {//containers are MARKED
-                container.addEventListener('dragover', e => { //when an item is dragged over it
-                    e.preventDefault()//makes icon not freak out
-                    var afterElement = this.getDragAfterElement(container, e.clientY)//e.clientY finds height of mouse
-                    //var draggable = this.shadowRoot.querySelector('.dragging') //grabs the object actually being dragged
-                    if (afterElement == null) {//if mouse+draggable is below lowest item
-                        container.appendChild(this.preciseItem)
-                    } else {//otherwise put it above the closest item
-                        // console.log(this.preciseItem)
-                        // console.log(afterElement)
-                        try{container.insertBefore(this.preciseItem, afterElement)}
-                        catch (error) {  console.error(error)
-                        }
-                    }
-                })
-            })
-        }
-        initialize(){
-            this.containerPrep()
-            this.othersPrep()
         }
 
         constructor() {
