@@ -1079,10 +1079,6 @@ body {
         setApp(newApp){
             this._selectedApp = newApp
         }
-
-        
-
-
 	}
 	customElements.define("com-cbeyondata-sidebarv2", Box);
 })();
