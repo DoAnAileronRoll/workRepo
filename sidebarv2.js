@@ -855,7 +855,7 @@ body {
             })
             newHier.addEventListener('dragend', () => {
                 newHier.classList.remove('dragging')
-            })
+            })  
 
             newHier.addEventListener("click", (event) =>{//fun stuff here. Listens for a click
                 if(insideList.style.display=="none"){//if interiorList is hidden, show it and TURN OFF DRAG
