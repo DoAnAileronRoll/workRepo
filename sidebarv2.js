@@ -325,22 +325,35 @@ body {
             //return returnList
 
         }
+        addTableToMainSidebar(tableName){
+            var mainSideBar = this.shadowRoot.getElementById("regularSideBar")
+            var pel = document.createElement("p")
+            pel.innerHTML = tableName
+            mainSideBar.appendChild(pel)
+
+            var tab = document.createElement("table")
+            tab.id = ("table"+tableName)
+            mainSideBar.appendChild(tab)
+        }
+        
+
         writeToMainSidebar(array){
             var mainSideBar = this.shadowRoot.getElementById("regularSideBar")
             var lastSection
             var lastHier
             for(var i=1;i<array.length;i++){
                 if(array[i][1] == "section"){
-                    var pel = document.createElement("p")
-                    var value = array[i][0]
-                    pel.innerHTML = value.slice(4)
+                    this.addTableToMainSidebar(array[i][0].slide(4))
+                    // var pel = document.createElement("p")
+                    // var value = array[i][0]
+                    // pel.innerHTML = value.slice(4)
                     
-                    mainSideBar.appendChild(pel)
+                    // mainSideBar.appendChild(pel)
 
-                    var tab = document.createElement("table")
-                    tab.id = ("table"+array[i][1]).slice(4)
-                    mainSideBar.appendChild(tab)
-                    lastSection = value.slice(4)
+                    // var tab = document.createElement("table")
+                    // tab.id = ("table"+array[i][1]).slice(4)
+                    // mainSideBar.appendChild(tab)
+                    // lastSection = value.slice(4)
                 }
                 else if(array[i][1] == "hierarchy"){
                     var pel = document.createElement("p")
