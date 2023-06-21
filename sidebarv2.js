@@ -543,8 +543,6 @@ body {
         loadEditSidebar(){
             var sideBar = this.shadowRoot.getElementById("editSideBar")
             sideBar.innerHTML = ""
-
-            //this.addNewSection("NAVIGATION", "GRAHHHH")
             //document.getElementsByTagName("com-cbeyondata-sidepanel")[0].shadowRoot.getElementById("tableNavigation") is parent name if it exists
             for(var num = 0; num < this.shadowRoot.getElementById("regularSideBar").children.length; num++){
                 var shadowNode = this.shadowRoot.getElementById("regularSideBar").children[num]
@@ -553,6 +551,7 @@ body {
                     //var table = this.shadowRoot.getElementById("regularSideBar").getElementById(shadowNode.id)
                     var table = this.shadowRoot.getElementById("regularSideBar").children[num]
                     for (var i = 0; i<table.rows.length; i++) {
+                        //iterate through rows
                         if(i<table.rows.length-1){
                             if(table.rows[i+1].getAttribute("parentname") != null){
                                 var parentIndex = i
@@ -577,25 +576,8 @@ body {
             }
         }
 		othersPrep(){
-            
-            
-            // var sectionButton = this.shadowRoot.getElementById("sectionButton")
-            // var childButton = this.shadowRoot.getElementById("childButton")
-            // var hierButton = this.shadowRoot.getElementById("hierButton")
             var draggables = this.shadowRoot.querySelectorAll('.draggable')
             var sections = this.shadowRoot.querySelectorAll('.section')
-
-            var editSlider = this.shadowRoot.getElementById("editSwitch")
-
-            // childButton.addEventListener("click", () => 
-            //     this.addNewChild()
-            // )
-            // sectionButton.addEventListener("click", () =>
-            //     this.addNewSection()
-            // )
-            // hierButton.addEventListener("click", () =>
-            //     this.addNewHier()
-            // )
     
             this.shadowRoot.querySelectorAll('.draggable').forEach(item =>{
                 this.hoverButtonAdd(item)
@@ -618,15 +600,6 @@ body {
 				    this.dispatchEvent(event);
                 })
             })
-            
-            // editSlider.addEventListener("change", () =>{
-            //     if(editSlider.checked){  //turn on edit
-            //         this.editActivate()
-            //     }
-            //     else{
-            //         this.editDeactivate() //turn off edit
-            //     }
-            // })
 
             draggables.forEach(draggable => {//draggables will be added to dragging class when dragged
                 draggable.addEventListener('dragstart', () => {
@@ -686,20 +659,11 @@ body {
 			var _selectedItem;
 			var _oldSelectedItem = "";
             var _selectedApp;
-
-            
             
             var containers = this.shadowRoot.querySelectorAll('.container')
             var draggables = this.shadowRoot.querySelectorAll('.draggable')
             var sections = this.shadowRoot.querySelectorAll('.section')
 
-            // var label = this.shadowRoot.querySelector(".fancyText")
-            // var editSlider = this.shadowRoot.getElementById("editSwitch")
-            // var addedTextField = this.shadowRoot.getElementById("addedText")
-            // var addedTextLabel = this.shadowRoot.getElementById("addedTextLabel")
-            // var sectionButton = this.shadowRoot.getElementById("sectionButton")
-            // var childButton = this.shadowRoot.getElementById("childButton")
-            // var hierButton = this.shadowRoot.getElementById("hierButton")
             var currentDelete;
             var currentEdit;
 
@@ -1179,7 +1143,6 @@ body {
             }
         }
         getEditObject(){
-            //console.log(this.shadowRoot.getElementById(object))
             console.log("WILL BE EDIT" + this.currentEdit)
             return this.currentEdit
         }
@@ -1189,13 +1152,11 @@ body {
             console.log("ADDING")
             var hiddenDiv = document.createElement("div")
 
-            //var trashCanIcon = document.createElement("i")
             var trashCanIcon = document.createElement("button")
             trashCanIcon.style = "button"
             trashCanIcon.innerText = "X"
             trashCanIcon.classList.add("xButton")
-            // trashCanIcon.classList.add("fa-solid")
-            // trashCanIcon.classList.add("fa-trash-can")
+
             trashCanIcon.classList.add("iconPad")
             trashCanIcon.style.float = "right"
             trashCanIcon.addEventListener("click", () => {
@@ -1205,23 +1166,18 @@ body {
                 
             })
             
-            // var pencilIcon = document.createElement("i")
             var pencilIcon = document.createElement("button")
             pencilIcon.style = "button"
             pencilIcon.innerText = "E"
             
             pencilIcon.classList.add("editButton")
-            // pencilIcon.classList.add("fa-solid")
-            // pencilIcon.classList.add("fa-pen-to-square")
+
             pencilIcon.classList.add("iconPad")
             pencilIcon.style.float = "right"
             
             pencilIcon.addEventListener("click", ()=>{
                 console.log("EDITTTTT")
                 let editArr = [pencilIcon.parentNode.parentNode.id,pencilIcon.parentNode.parentNode.getAttribute("description"),pencilIcon.parentNode.parentNode.getAttribute("link")]
-                // editArr.append(pencilIcon.parentNode.parentNode.id)
-                // editArr.append(pencilIcon.parentNode.parentNode.description)
-                // editArr.append(pencilIcon.parentNode.parentNode.link)
                 this.currentEdit = editArr
                 var event = new Event("onEdit");
 			    this.dispatchEvent(event);
@@ -1254,18 +1210,8 @@ body {
         }
 
         editActivate(){ //turn on 
-            // var addedTextField = this.shadowRoot.getElementById("addedText")
-            // var addedTextLabel = this.shadowRoot.getElementById("addedTextLabel")
-            // var sectionButton = this.shadowRoot.getElementById("sectionButton")
-            // var childButton = this.shadowRoot.getElementById("childButton")
-            // var hierButton = this.shadowRoot.getElementById("hierButton")
-
             this.editBool = true
-            // sectionButton.style.display=""; //shows all edit fields in topBar
-            // childButton.style.display="";
-            // hierButton.style.display="";
-            // addedTextField.style.display="";
-            // addedTextLabel.style.display="";
+           
             this.shadowRoot.querySelectorAll(".mainHolder").forEach(item => { //turns off dragging on sidebarItem, should add cursor support?
                 item.hidden=true;
             })
@@ -1278,18 +1224,8 @@ body {
             })
         }
         editDeactivate(){ //turn off edit
-            // var addedTextField = this.shadowRoot.getElementById("addedText")
-            // var addedTextLabel = this.shadowRoot.getElementById("addedTextLabel")
-            // var sectionButton = this.shadowRoot.getElementById("sectionButton")
-            // var childButton = this.shadowRoot.getElementById("childButton")
-            // var hierButton = this.shadowRoot.getElementById("hierButton")
-
             this.editBool = false;
-            // sectionButton.style.display="none"; //this hides an item
-            // childButton.style.display="none";
-            // hierButton.style.display="none";
-            // addedTextField.style.display="none";
-            // addedTextLabel.style.display="none";
+           
             this.shadowRoot.querySelectorAll(".mainHolder").forEach(item => { //turns off dragging on sidebarItem, should add cursor support?
                 item.hidden=false;
             })
