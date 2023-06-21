@@ -204,6 +204,76 @@ body {
 
 
 	class Box extends HTMLElement {
+        constructor() {
+			super();
+			let shadowRoot = this.attachShadow({
+				mode: "open"
+			});
+			shadowRoot.appendChild(template.content.cloneNode(true));
+			this.addEventListener("click", event => {
+				var event = new Event("onClick");
+				this.dispatchEvent(event);
+			});
+			this._props = {};
+			var _selectedItem;
+			var _oldSelectedItem = "";
+            var _selectedApp;
+
+            var currentDelete;
+            var currentEdit;
+
+            var sidebarItems = null;
+            var editBool = true; //edit status
+            var preciseItem = null //LOOK AT ME
+            
+		}
+        initialize(){
+            this.containerPrep()
+            var draggables = this.shadowRoot.querySelectorAll('.draggable')
+            var sections = this.shadowRoot.querySelectorAll('.section')
+    
+            this.shadowRoot.querySelectorAll('.draggable').forEach(item =>{
+                this.hoverButtonAdd(item)
+            })
+            this.shadowRoot.querySelectorAll('.section').forEach(item =>{
+                this.hoverButtonAdd(item)
+            })
+            
+            
+            this.shadowRoot.querySelectorAll('.xButton').forEach(item => {
+                item.addEventListener("click", ()=>{
+                    console.log("XXXXXXXXXX")
+                })
+            })
+            
+            this.shadowRoot.querySelectorAll('.editButton').forEach(item => {
+                item.addEventListener("click", ()=>{
+                    console.log("EDITTTTT")
+                    var event = new Event("onEdit");
+				    this.dispatchEvent(event);
+                })
+            })
+
+            draggables.forEach(draggable => {//draggables will be added to dragging class when dragged
+                draggable.addEventListener('dragstart', () => {
+                    draggable.classList.add('dragging')
+                    this.preciseItem=draggable
+                })
+                draggable.addEventListener('dragend', () => {//and removed when not being dragged
+                    draggable.classList.remove('dragging')
+                })
+            })
+    
+            sections.forEach(section => {//same as for sections
+                section.addEventListener('dragstart', () => {
+                section.classList.add('dragging')
+                    this.preciseItem = section
+                })
+                section.addEventListener('dragend', () => {
+                    section.classList.remove('dragging')
+                })
+            })
+        }
         getFullEditSideBar(){
             let returnList = [["id","type","description","link"]]
             //var curList = []
@@ -366,78 +436,6 @@ body {
                 })
             })
         }
-        initialize(){
-            this.containerPrep()
-            var draggables = this.shadowRoot.querySelectorAll('.draggable')
-            var sections = this.shadowRoot.querySelectorAll('.section')
-    
-            this.shadowRoot.querySelectorAll('.draggable').forEach(item =>{
-                this.hoverButtonAdd(item)
-            })
-            this.shadowRoot.querySelectorAll('.section').forEach(item =>{
-                this.hoverButtonAdd(item)
-            })
-            
-            
-            this.shadowRoot.querySelectorAll('.xButton').forEach(item => {
-                item.addEventListener("click", ()=>{
-                    console.log("XXXXXXXXXX")
-                })
-            })
-            
-            this.shadowRoot.querySelectorAll('.editButton').forEach(item => {
-                item.addEventListener("click", ()=>{
-                    console.log("EDITTTTT")
-                    var event = new Event("onEdit");
-				    this.dispatchEvent(event);
-                })
-            })
-
-            draggables.forEach(draggable => {//draggables will be added to dragging class when dragged
-                draggable.addEventListener('dragstart', () => {
-                    draggable.classList.add('dragging')
-                    this.preciseItem=draggable
-                })
-                draggable.addEventListener('dragend', () => {//and removed when not being dragged
-                    draggable.classList.remove('dragging')
-                })
-            })
-    
-            sections.forEach(section => {//same as for sections
-                section.addEventListener('dragstart', () => {
-                section.classList.add('dragging')
-                    this.preciseItem = section
-                })
-                section.addEventListener('dragend', () => {
-                    section.classList.remove('dragging')
-                })
-            })
-        }
-
-        constructor() {
-			super();
-			let shadowRoot = this.attachShadow({
-				mode: "open"
-			});
-			shadowRoot.appendChild(template.content.cloneNode(true));
-			this.addEventListener("click", event => {
-				var event = new Event("onClick");
-				this.dispatchEvent(event);
-			});
-			this._props = {};
-			var _selectedItem;
-			var _oldSelectedItem = "";
-            var _selectedApp;
-
-            var currentDelete;
-            var currentEdit;
-
-            var sidebarItems = null;
-            var editBool = true; //edit status
-            var preciseItem = null //LOOK AT ME
-            
-		}
-
         setSelected(newSelected){
             var cell;
             var anchor;
