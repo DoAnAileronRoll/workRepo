@@ -438,13 +438,11 @@ body {
             
 		}
 
-        setSelected(newSelected) 
-        {
+        setSelected(newSelected){
             var cell;
             var anchor;
 
-            if (this._oldSelectedItem)
-            {
+            if (this._oldSelectedItem){
                 cell = this.shadowRoot.getElementById(this._oldSelectedItem);
                 anchor = this.shadowRoot.getElementById(this._oldSelectedItem + "A");
                 
@@ -460,8 +458,7 @@ body {
 			
 			cell.classList.add("sel");
 			anchor.classList.add("sela");
-            if (cell.parentElement.hidden)
-            {
+            if (cell.parentElement.hidden){
 		        var caption =  cell.parentNode.getAttribute("parentname").toString();
                 
                 var childRows = this.shadowRoot.querySelectorAll('[parentname="'+caption+'"]');
@@ -470,17 +467,13 @@ body {
                 for (let i = 0; i < childRows.length; i++) {
                     childRows[i].hidden = !childRows[i].hidden;
                     rotate=childRows[i].hidden;
-                  }                
-                
+                }                
                 var parentCaratNode = this.shadowRoot.getElementById(caption+'C');
-                if (parentCaratNode)
-                {
-                    if (rotate) 
-                    {
+                if (parentCaratNode){
+                    if (rotate){
                         parentCaratNode.classList.remove("rotated"); 
                     }
-                    else
-                    {
+                    else{
                         parentCaratNode.classList.add("rotated");
                     }
                 }
@@ -669,8 +662,6 @@ body {
             newSection.classList.add("section") //section class added for format
             newSection.classList.add("p-inline")
             newSection.innerText = name //get the correct text on
-
-            var contBool = "true"
 
             this.shadowRoot.querySelectorAll("*").forEach((item)=>{
                 if(item.hasAttribute('id')){
