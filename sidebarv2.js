@@ -853,7 +853,7 @@ body {
         }
 
 
-        addUserDefined(caption, icon, parentname) {
+        addUserDefined(caption, icon, parentname) { 
 			var table = this.shadowRoot.getElementById("tableUserDefined");
 			var row = table.insertRow(0);
 			var cell = row.insertCell(0);
