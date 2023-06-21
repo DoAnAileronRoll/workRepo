@@ -46,41 +46,6 @@ body {
     height: 100%;
     width: 80%;
   }
-  
-  .hierDiv{
-    opacity: 99%;
-    background-color: #008CBA;
-  }
-  .disappearing{
-    float:left
-  }
-  .constant{
-    float:right
-  }
-  .topBar{
-    height: 48px;
-    width: 1920px;
-    background-color: #354a5f;
-    
-  }
-  .fancyText{
-    height: 30px;
-    border: 1px solid black;
-    color: black;
-    font-family: Calibri;
-    font-size: 8pt;
-    font-weight: bold;
-    text-decoration: none;
-  }
-  
-  .fancyTextLabel{
-    height: 100px;
-    color: white;
-    font-family: Calibri;
-    font-size: 8pt;
-    font-weight: bold;
-    text-decoration: none;
-  }
   .section{
     color: rgb(221, 210, 211);
     font-family: Calibri;
@@ -111,143 +76,13 @@ body {
     width: 243px;
     transition-duration: 0.4s;
   }
-  .placeholder {
-    padding: 15.5px;
-    background-color: #29313a;
-    cursor: move;
-    cursor: pointer;
-    color: white;
-    font-family: Calibri;
-    font-size: 10.5pt;
-    font-weight: bold;
-    text-decoration: none;
-  
-    display: inline-block;
-    width: 245px;
-    transition-duration: 0.4s;
-  }
-  
-  
   .draggable:hover {
     background-color: #354a5f;
     color: white;
   }
-  .buttonChild {
-    border: 1px solid black;
-    height: 30px;
-    width: 100px;
-    color: white;
-    background-color: #3a426f;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-family: Calibri;
-    font-size: 8pt;
-    font-weight: bold;
-  
-    transition-duration: 0.4s;
-    cursor: pointer;
-  }
-  
-  .buttonChild:hover {
-    background-color: #008CBA;
-    color: white;
-  }
-  .buttonHier {
-    border: 1px solid black;
-    color: white;
-    height: 30px;
-    width: 100px;
-    background-color: #3a426f;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-family: Calibri;
-    font-size: 8pt;
-    font-weight: bold;
-    transition-duration: 0.4s;
-    cursor: pointer;
-  }
-  
-  .buttonHier:hover {
-    background-color: #008CBA;
-    color: white;
-  }
-  
   .draggable.dragging {
     opacity: .7;
     background-color: #354a5f;
-  }
-  
-  .hierFather {
-    padding: 1rem;
-    background-color: #20243c;
-    border: 1px solid black;
-    cursor: move;
-    cursor: pointer;
-    color: white;
-    font-family: Calibri;
-    font-size: 10.5pt;
-    font-weight: bold;
-    text-decoration: none;
-    padding: 10pt 14pt;
-    display: block;
-    height: 100%;
-    width: 80%;
-  }
-  .hierFather.dragging {
-    opacity: .8;
-  }
-  
-  .switch {
-  position: relative;
-  display: inline-block;
-  width: 60px;
-  height: 34px;
-  }
-  
-  .switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-  }
-  
-  .slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ccc;
-  -webkit-transition: .4s;
-  transition: .4s;
-  }
-  
-  .slider:before {
-  position: absolute;
-  content: "";
-  height: 26px;
-  width: 26px;
-  left: 4px;
-  bottom: 4px;
-  background-color: white;
-  -webkit-transition: .4s;
-  transition: .4s;
-  }
-  
-  input:checked + .slider {
-  background-color: #2196F3;
-  }
-  
-  input:focus + .slider {
-  box-shadow: 0 0 1px #2196F3;
-  }
-  
-  input:checked + .slider:before {
-  -webkit-transform: translateX(26px);
-  -ms-transform: translateX(26px);
-  transform: translateX(26px);
   }
   .container {
     background-color: #29313a;
@@ -255,69 +90,7 @@ body {
     height: 100%;
     top: 48px;
   }
-  /* Rounded sliders */
-  .slider.round {
-  border-radius: 34px;
-  }
-  
-  .slider.round:before {
-  border-radius: 50%;
-  }
-  
-  .switch {
-    position: relative;
-    display: inline-block;
-    width: 60px;
-    height: 34px;
-  }
-  .switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-  }
-  .slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #ccc;
-    -webkit-transition: .4s;
-    transition: .4s;
-  }
-  .slider:before {
-    position: absolute;
-    content: "";
-    height: 26px;
-    width: 26px;
-    left: 4px;
-    bottom: 4px;
-    background-color: white;
-    -webkit-transition: .4s;
-    transition: .4s;
-  }
-  input:checked + .slider {
-    background-color: #2196F3;
-  }
-  input:focus + .slider {
-    box-shadow: 0 0 1px #2196F3;
-  }
-  input:checked + .slider:before {
-    -webkit-transform: translateX(26px);
-    -ms-transform: translateX(26px);
-    transform: translateX(26px);
-  }
-   /* Rounded sliders */
-  .slider.round {
-    border-radius: 34px;
-  }
-  .slider.round:before {
-    border-radius: 50%;
-  }
-  
-  
-
+ 
   path {
     fill: #7E99B0;
   }
@@ -548,7 +321,6 @@ body {
                 var shadowNode = this.shadowRoot.getElementById("regularSideBar").children[num]
                 if(shadowNode.tagName != null && shadowNode.tagName == "TABLE" && shadowNode.children.length>0){
                     this.addNewSection(shadowNode.id.slice(5).toUpperCase(),"this is a section")
-                    //var table = this.shadowRoot.getElementById("regularSideBar").getElementById(shadowNode.id)
                     var table = this.shadowRoot.getElementById("regularSideBar").children[num]
                     for (var i = 0; i<table.rows.length; i++) {
                         //iterate through rows
