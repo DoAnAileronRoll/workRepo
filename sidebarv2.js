@@ -553,13 +553,6 @@ body {
                     //var table = this.shadowRoot.getElementById("regularSideBar").getElementById(shadowNode.id)
                     var table = this.shadowRoot.getElementById("regularSideBar").children[num]
                     for (var i = 0; i<table.rows.length; i++) {
-                        //iterate through rows
-                        //rows would be accessed using the "row" variable assigned in the for loop
-                        // if(table.rows[i] == ""){
-                        //     for(var j =0; j < row.length; j++){
-                        //         console.log(row[j].id)
-                        //     }
-                        // }
                         if(i<table.rows.length-1){
                             if(table.rows[i+1].getAttribute("parentname") != null){
                                 var parentIndex = i
