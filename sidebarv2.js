@@ -428,10 +428,6 @@ body {
 			var _selectedItem;
 			var _oldSelectedItem = "";
             var _selectedApp;
-            
-            var containers = this.shadowRoot.querySelectorAll('.container')
-            var draggables = this.shadowRoot.querySelectorAll('.draggable')
-            var sections = this.shadowRoot.querySelectorAll('.section')
 
             var currentDelete;
             var currentEdit;
