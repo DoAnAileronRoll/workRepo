@@ -335,7 +335,7 @@ body {
             tab.id = ("table"+tableName)
             mainSideBar.appendChild(tab)
         }
-        
+
 
         writeToMainSidebar(array){
             var mainSideBar = this.shadowRoot.getElementById("regularSideBar")
@@ -343,7 +343,7 @@ body {
             var lastHier
             for(var i=1;i<array.length;i++){
                 if(array[i][1] == "section"){
-                    this.addTableToMainSidebar(array[i][0].slide(4))
+                    this.addTableToMainSidebar(array[i][0].slice(4))
                     // var pel = document.createElement("p")
                     // var value = array[i][0]
                     // pel.innerHTML = value.slice(4)
