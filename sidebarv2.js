@@ -800,7 +800,6 @@ body {
             this.shadowRoot.getElementById("edit"+parentID).children[1].appendChild(child)
         }
 
-
         addNewHier(name, description){//add a new hierarchy object
             var editSideBar = this.shadowRoot.getElementById("editSideBar")
             var newHier = document.createElement("div")//div element, will be the main object
