@@ -337,7 +337,7 @@ body {
         }
         addItemToTable(caption, icon, parentname, tableName) {
 			var table = this.shadowRoot.getElementById(tableName);
-			var row = table.insertRow(0);
+			var row = table.insertRow();//changed index
 			var cell = row.insertCell(0);
 			cell.id = caption;
  var icons = {
