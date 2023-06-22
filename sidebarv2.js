@@ -941,7 +941,7 @@ body {
             var item = this.shadowRoot.getElementById(id) 
             item.setAttribute("description",description)
             item.setAttribute("link",link) 
-            item.id = newID
+            item.id = "edit"+newID
             if(item.classList.contains("hierarchy")){
                 item.firstChild.data = "> "+newID
             }
