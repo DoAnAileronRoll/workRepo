@@ -299,32 +299,32 @@ body {
             console.log(returnList)
             return returnList
         }
-        getEditSideBar(){
-            var returnList
-            var editSideBar = this.shadowRoot.getElementById("editSideBar").children
-            for(var i=0;i<editSideBar.length;i++){
-                if(editSideBar[i].classList.contains("hierarchy")){ //&& editSideBar.children[i].children[1].children!=null
-                    console.log("hierarchy " + editSideBar[i].id)
-                    //returnList.append("hierarchy " + editSideBar[i].id)
-                    for(var j=1;j<editSideBar[i].children[1].children.length;j++){
-                        //ADD CHECK FOR EMPTY LIST
+        // getEditSideBar(){
+        //     var returnList
+        //     var editSideBar = this.shadowRoot.getElementById("editSideBar").children
+        //     for(var i=0;i<editSideBar.length;i++){
+        //         if(editSideBar[i].classList.contains("hierarchy")){ //&& editSideBar.children[i].children[1].children!=null
+        //             console.log("hierarchy " + editSideBar[i].id)
+        //             //returnList.append("hierarchy " + editSideBar[i].id)
+        //             for(var j=1;j<editSideBar[i].children[1].children.length;j++){
+        //                 //ADD CHECK FOR EMPTY LIST
                         
-                        //returnList.append("child "+this.shadowRoot.getElementById("editSideBar").children[2].children[1].children[j].id)
-                        console.log("child "+editSideBar[i].children[1].children[j].id)
-                    }
-                }
-                else if(editSideBar[i].classList.contains("section")){
-                    //returnList.append("section " + editSideBar[i].id)
-                    console.log("section " + editSideBar[i].id)
-                }
-                else{
-                    //returnList.append("standalone "+editSideBar[i].id)
-                    console.log("standalone "+editSideBar[i].id)
-                }
-            }
-            //return returnList
+        //                 //returnList.append("child "+this.shadowRoot.getElementById("editSideBar").children[2].children[1].children[j].id)
+        //                 console.log("child "+editSideBar[i].children[1].children[j].id)
+        //             }
+        //         }
+        //         else if(editSideBar[i].classList.contains("section")){
+        //             //returnList.append("section " + editSideBar[i].id)
+        //             console.log("section " + editSideBar[i].id)
+        //         }
+        //         else{
+        //             //returnList.append("standalone "+editSideBar[i].id)
+        //             console.log("standalone "+editSideBar[i].id)
+        //         }
+        //     }
+        //     //return returnList
 
-        }
+        // }
         addTableToMainSidebar(tableName){
             var mainSideBar = this.shadowRoot.getElementById("regularSideBar")
             var pel = document.createElement("p")
@@ -887,10 +887,10 @@ body {
             item.setAttribute("link",link) 
             item.id = newID
             if(item.classList.contains("hierarchy")){
-                item.innerText = "> "+newID
+                item.firstChild.data = "> "+newID
             }
             else{
-                item.innerText = newID
+                item.firstChild.data = newID
             }
         }
         getEditObject(){
