@@ -388,9 +388,10 @@ body {
 
         writeToMainSidebar(array){
             var mainSideBar = this.shadowRoot.getElementById("regularSideBar")
-            while(mainSideBar.firstChild){
-                mainSideBar.remove(mainSideBar.firstChild)
-            }
+            // while(mainSideBar.firstChild){
+            //     mainSideBar.remove(mainSideBar.firstChild)
+            // }
+            mainSideBar.replaceChildren()
             var curTable
             var curHier
             for(var i=1;i<array.length;i++){
