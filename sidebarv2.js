@@ -402,7 +402,7 @@ body {
                     // var tab = document.createElement("table")
                     // tab.id = ("table"+array[i][1]).slice(4)
                     // mainSideBar.appendChild(tab)
-                    curTable = value.slice(4)
+                    curTable = "table"+value.slice(4)
                 }
                 else if(array[i][1] == "hierarchy"){
                     //var pel = document.createElement("p")
