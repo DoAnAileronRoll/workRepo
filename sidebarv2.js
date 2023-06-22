@@ -394,7 +394,7 @@ body {
                 if(array[i][1] == "section"){
                     this.addTableToMainSidebar(array[i][0].slice(4))
                     // var pel = document.createElement("p")
-                    // var value = array[i][0]
+                    var value = array[i][0]
                     // pel.innerHTML = value.slice(4)
                     
                     // mainSideBar.appendChild(pel)
@@ -440,7 +440,7 @@ body {
                 }
                 else if(array[i][1] == "standalone"){
                     // var pel = document.createElement("p")
-                    // var value = array[i][0] + " standalone"
+                    var value = array[i][0]// + " standalone"
                     // pel.innerHTML = value.slice(4)
                     
                     // mainSideBar.appendChild(pel)
