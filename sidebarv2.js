@@ -490,6 +490,10 @@ body {
 
         }
         loadEditSidebar(){
+            var event = new Event("dataPull");
+			this.dispatchEvent(event);
+
+
             var sideBar = this.shadowRoot.getElementById("editSideBar")
             sideBar.innerHTML = ""
             //document.getElementsByTagName("com-cbeyondata-sidepanel")[0].shadowRoot.getElementById("tableNavigation") is parent name if it exists
@@ -814,10 +818,8 @@ body {
             newChild.classList.add("sidebarItem") //sidebar usage pls
             newChild.classList.add("p-inline")
             
-            var workingString = this.selectionVar[name.toUpperCase]
-            console.log("WORKING STEING"+workingString)
-
-
+            //var workingString = this.selectionVar[name.toUpperCase]
+            //console.log("WORKING STEING"+workingString)
 
             newChild.setAttribute("parameters", "mode=embed,pageBar=disabled");
             newChild.setAttribute("icon", "exFontAwesomeIcon");
@@ -855,6 +857,9 @@ body {
             newChild.classList.add("sidebarItem") //sidebar usage pls
             newChild.classList.add("p-inline")
             
+
+
+
             newChild.setAttribute("parameters", "mode=embed,pageBar=disabled");
             newChild.setAttribute("icon", "exFontAwesomeIcon");
             newChild.setAttribute("model", "");
