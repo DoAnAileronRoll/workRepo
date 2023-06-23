@@ -815,9 +815,9 @@ body {
             newChild.classList.add("p-inline")
             
             var workingString = this.selectionVar[name.toUpperCase]
-            console.log(workingString)
+            console.log("WORKING STEING"+workingString)
 
-            
+
 
             newChild.setAttribute("parameters", "mode=embed,pageBar=disabled");
             newChild.setAttribute("icon", "exFontAwesomeIcon");
