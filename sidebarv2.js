@@ -814,6 +814,11 @@ body {
             newChild.classList.add("sidebarItem") //sidebar usage pls
             newChild.classList.add("p-inline")
             
+            var workingString = this.selectionVar[name.toUpperCase]
+            console.log(workingString)
+
+            
+
             newChild.setAttribute("parameters", "mode=embed,pageBar=disabled");
             newChild.setAttribute("icon", "exFontAwesomeIcon");
             newChild.setAttribute("model", "");
