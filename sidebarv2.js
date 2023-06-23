@@ -244,13 +244,13 @@ body {
             
             this.shadowRoot.querySelectorAll('.xButton').forEach(item => {
                 item.addEventListener("click", ()=>{
-                    console.log("XXXXXXXXXX")
+                    //console.log("XXXXXXXXXX")
                 })
             })
             
             this.shadowRoot.querySelectorAll('.editButton').forEach(item => {
                 item.addEventListener("click", ()=>{
-                    console.log("EDITTTTT")
+                    //console.log("EDITTTTT")
                     var event = new Event("onEdit");
 				    this.dispatchEvent(event);
                 })
@@ -278,7 +278,7 @@ body {
         }
         receiveSelectionVariable(selvar){
             this.selectionVar = selvar
-            console.log(this.selectionVar)
+            //console.log(this.selectionVar)
         }
         getFullEditSideBar(){
             let returnList = [["id","type","description","link"]]
@@ -286,7 +286,7 @@ body {
             var editSideBar = this.shadowRoot.getElementById("editSideBar").children
             for(var i=0;i<editSideBar.length;i++){
                 if(editSideBar[i].classList.contains("hierarchy")){
-                    console.log("hierarchy " + editSideBar[i].id)
+                    //console.log("hierarchy " + editSideBar[i].id)
                     returnList.push([editSideBar[i].id,"hierarchy",editSideBar[i].getAttribute("description"),editSideBar[i].getAttribute("link")])
                     
                     for(var j=1;j<editSideBar[i].children[1].children.length;j++){
@@ -302,7 +302,7 @@ body {
                     returnList.push([editSideBar[i].id,"standalone",editSideBar[i].getAttribute("description"),editSideBar[i].getAttribute("link")])
                 }
             }
-            console.log(returnList)
+            //console.log(returnList)
             return returnList
         }
         // getEditSideBar(){
@@ -466,7 +466,7 @@ body {
             var editSideBar = this.shadowRoot.getElementById("editSideBar").children
             for(var i=0;i<editSideBar.length;i++){
                 if(editSideBar[i].classList.contains("hierarchy")){
-                    console.log("hierarchy " + editSideBar[i].id)
+                    //("hierarchy " + editSideBar[i].id)
                     returnList.push([editSideBar[i].id,"hierarchy",editSideBar[i].getAttribute("description"),editSideBar[i].getAttribute("link")])
                     
                     for(var j=1;j<editSideBar[i].children[1].children.length;j++){
@@ -482,7 +482,7 @@ body {
                     returnList.push([editSideBar[i].id,"standalone",editSideBar[i].getAttribute("description"),editSideBar[i].getAttribute("link")])
                 }
             }
-            console.log(returnList)
+            //console.log(returnList)
             for(i=1;i<formatList.length;i++){
 
             }
@@ -522,7 +522,7 @@ body {
                             this.addNewChild(table.rows[i].cells[0].id,"A test","pray for me")
                         }
                         
-                        console.log(table.rows[i].cells[0].id)
+                        //console.log(table.rows[i].cells[0].id)
                     }
                 }
             }
@@ -773,13 +773,15 @@ body {
 
             this.shadowRoot.querySelectorAll("*").forEach((item)=>{
                 if(item.hasAttribute('id')){
-                    console.log(item.id)
+                    //console.log(item.id)
                 }
             })
 
             newSection.draggable = true //can be dragged :)
             newSection.classList.add("sidebarItem") //sidebarItem class added for future usage
 
+            var workingString = this.selectionVar[name.toUpperCase]
+            console.log("WORKING STEING"+workingString)
 
             newSection.setAttribute("parameters", "mode=embed,pageBar=disabled");
             newSection.setAttribute("icon", "exFontAwesomeIcon");
@@ -801,7 +803,7 @@ body {
             this.hoverButtonAdd(newSection)
             newSection.id = "edit"+name
             newSection.addEventListener('click', () => {
-                console.log(this.getParameters(newSection.id) + " " + this.getIcon(newSection.id) + " " +this.getModel(newSection.id) + " " +this.getLink(newSection.id) + " " +this.getTitle(newSection.id) + " " +this.getParent(newSection.id) + " " +this.getLinkType(newSection.id) + " " +this.getDescription(newSection.id) + " ")
+                //console.log(this.getParameters(newSection.id) + " " + this.getIcon(newSection.id) + " " +this.getModel(newSection.id) + " " +this.getLink(newSection.id) + " " +this.getTitle(newSection.id) + " " +this.getParent(newSection.id) + " " +this.getLinkType(newSection.id) + " " +this.getDescription(newSection.id) + " ")
             })
             
 
@@ -818,8 +820,8 @@ body {
             newChild.classList.add("sidebarItem") //sidebar usage pls
             newChild.classList.add("p-inline")
             
-            //var workingString = this.selectionVar[name.toUpperCase]
-            //console.log("WORKING STEING"+workingString)
+            var workingString = this.selectionVar[name.toUpperCase]
+            console.log("WORKING STEING"+workingString)
 
             newChild.setAttribute("parameters", "mode=embed,pageBar=disabled");
             newChild.setAttribute("icon", "exFontAwesomeIcon");
@@ -840,7 +842,7 @@ body {
             newChild.id = "edit"+name
             this.hoverButtonAdd(newChild)
             newChild.addEventListener('click', () => {
-                console.log(this.getParameters(newChild.id) + " " + this.getIcon(newChild.id) + " " +this.getModel(newChild.id) + " " +this.getLink(newChild.id) + " " +this.getTitle(newChild.id) + " " +this.getParent(newChild.id) + " " +this.getLinkType(newChild.id) + " " +this.getDescription(newChild.id) + " ")
+                //console.log(this.getParameters(newChild.id) + " " + this.getIcon(newChild.id) + " " +this.getModel(newChild.id) + " " +this.getLink(newChild.id) + " " +this.getTitle(newChild.id) + " " +this.getParent(newChild.id) + " " +this.getLinkType(newChild.id) + " " +this.getDescription(newChild.id) + " ")
             })
             //this.setTitle(newChild.id, name)
             return newChild
@@ -858,7 +860,8 @@ body {
             newChild.classList.add("p-inline")
             
 
-
+            var workingString = this.selectionVar[name.toUpperCase]
+            console.log("WORKING STEING"+workingString)
 
             newChild.setAttribute("parameters", "mode=embed,pageBar=disabled");
             newChild.setAttribute("icon", "exFontAwesomeIcon");
@@ -900,6 +903,9 @@ body {
             newHier.innerText = "> "+name//added the carat for distinguishability, move reference
             newHier.draggable = true //can be dragged
             //newHier.style.width = "80%"
+
+            var workingString = this.selectionVar[name.toUpperCase]
+            console.log("WORKING STEING"+workingString)
 
             newHier.setAttribute("parameters", "mode=embed,pageBar=disabled");
             newHier.setAttribute("icon", "exFontAwesomeIcon");
@@ -950,12 +956,12 @@ body {
                 if(insideList.style.display=="none"){//if interiorList is hidden, show it and TURN OFF DRAG
                     insideList.style.display=""
                     insideList.parentElement.draggable=false //CANNOT DRAG AN OPEN LIST
-                    console.log("OPEN")
+                    //console.log("OPEN")
                 }
                 else{
                     insideList.style.display="none" //IF SHOWING WE ROLL UP
                     insideList.parentElement.draggable=true //CAN DRAG CLOSED LIST
-                    console.log("closed")
+                    //console.log("closed")
                 }
             })
 
@@ -963,7 +969,7 @@ body {
             newHier.id = "edit"+name
             
             newHier.addEventListener('click', () => {
-                console.log(this.getParameters(newHier.id) + " " + this.getIcon(newHier.id) + " " +this.getModel(newHier.id) + " " +this.getLink(newHier.id) + " " +this.getTitle(newHier.id) + " " +this.getParent(newHier.id) + " " +this.getLinkType(newHier.id) + " " +this.getDescription(newHier.id) + " ")
+                //console.log(this.getParameters(newHier.id) + " " + this.getIcon(newHier.id) + " " +this.getModel(newHier.id) + " " +this.getLink(newHier.id) + " " +this.getTitle(newHier.id) + " " +this.getParent(newHier.id) + " " +this.getLinkType(newHier.id) + " " +this.getDescription(newHier.id) + " ")
             })
 
             editSideBar.appendChild(newHier)//FINALLY ADD US TO SIDEBAR AND CAN WE PLEASE CHANGE THIS REFERENCE NAME
@@ -978,7 +984,7 @@ body {
 
         getDeletedObject(){
             //console.log(this.shadowRoot.getElementById(object))
-            console.log("WILL BE DELETED" + this.currentDelete)
+            //console.log("WILL BE DELETED" + this.currentDelete)
             return this.currentDelete
         }
         deleteObject(){
@@ -997,13 +1003,13 @@ body {
             }
         }
         getEditObject(){
-            console.log("WILL BE EDIT" + this.currentEdit)
+            //console.log("WILL BE EDIT" + this.currentEdit)
             return this.currentEdit
         }
             
 
         hoverButtonAdd(parent){
-            console.log("ADDING")
+            //console.log("ADDING")
             var hiddenDiv = document.createElement("div")
 
             var trashCanIcon = document.createElement("button")
@@ -1030,7 +1036,7 @@ body {
             pencilIcon.style.float = "right"
             
             pencilIcon.addEventListener("click", ()=>{
-                console.log("EDITTTTT")
+                //console.log("EDITTTTT")
                 let editArr = [pencilIcon.parentNode.parentNode.id,pencilIcon.parentNode.parentNode.getAttribute("description"),pencilIcon.parentNode.parentNode.getAttribute("link")]
                 this.currentEdit = editArr
                 var event = new Event("onEdit");
