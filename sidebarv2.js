@@ -225,6 +225,8 @@ body {
             var sidebarItems = null;
             var editBool = true; //edit status
             var preciseItem = null //LOOK AT ME
+
+            var selectionVar;
             
 		}
         initialize(){
@@ -273,6 +275,10 @@ body {
                     section.classList.remove('dragging')
                 })
             })
+        }
+        receiveSelectionVariable(selvar){
+            this.selectionVar = selvar
+            console.log(this.selectionVar)
         }
         getFullEditSideBar(){
             let returnList = [["id","type","description","link"]]
@@ -451,6 +457,37 @@ body {
                     this.addItemToTable(value.slice(4),"crosshairs","",curTable)
                 }
             }
+        }
+       
+        getFullMainSidebar(){//desc link icon model linktype title parentid
+            //let returnList = [["id","type","description","link"]]
+            let formatList = [["desc",'link',"icon","model","linktype","title","parentID"]]
+            //var curList = []
+            var editSideBar = this.shadowRoot.getElementById("editSideBar").children
+            for(var i=0;i<editSideBar.length;i++){
+                if(editSideBar[i].classList.contains("hierarchy")){
+                    console.log("hierarchy " + editSideBar[i].id)
+                    returnList.push([editSideBar[i].id,"hierarchy",editSideBar[i].getAttribute("description"),editSideBar[i].getAttribute("link")])
+                    
+                    for(var j=1;j<editSideBar[i].children[1].children.length;j++){
+                        //ADD CHECK FOR EMPTY LIST
+                        returnList.push([editSideBar[i].children[1].children[j].id,"child",editSideBar[i].children[1].children[j].getAttribute("description"),editSideBar[i].children[1].children[j].getAttribute("link")])
+                    }
+                }
+                else if(editSideBar[i].classList.contains("section")){
+                    returnList.push([editSideBar[i].id,"section",editSideBar[i].getAttribute("description"),editSideBar[i].getAttribute("link")])
+           
+                }
+                else{
+                    returnList.push([editSideBar[i].id,"standalone",editSideBar[i].getAttribute("description"),editSideBar[i].getAttribute("link")])
+                }
+            }
+            console.log(returnList)
+            for(i=1;i<formatList.length;i++){
+
+            }
+            return returnList
+
         }
         loadEditSidebar(){
             var sideBar = this.shadowRoot.getElementById("editSideBar")
