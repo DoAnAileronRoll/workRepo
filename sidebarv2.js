@@ -778,15 +778,16 @@ body {
                 if(item.hasAttribute('id')){
                     //console.log(item.id)
                 }
-            })
+            }) 
 
             newSection.draggable = true //can be dragged :)
+            
             newSection.classList.add("sidebarItem") //sidebarItem class added for future usage
 
             var workingString = this.selectionVar[name.toUpperCase()]
             console.log("WORKING STEING"+workingString)
 
-            var idstuff = this.selectionVar[name.toUpperCase()].split(",")[0]
+            //var idstuff = this.selectionVar[name.toUpperCase()].split(",")[0]
 
 
             newSection.setAttribute("parameters", "mode=embed,pageBar=disabled");
