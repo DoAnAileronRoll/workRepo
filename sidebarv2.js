@@ -278,7 +278,11 @@ body {
         }
         receiveSelectionVariable(selvar){
             this.selectionVar = selvar
-            console.log("rdtcfgvh"+this.selectionVar)
+            console.log("rdtcfgvh"+selvar.toString)
+            //console.log("dasfdaf"+selvar.)
+        }
+        receiveKeyValArray(stuff){
+            console.log("stuff"+stuff)
         }
         getFullEditSideBar(){
             let returnList = [["id","type","description","link"]]
@@ -492,7 +496,6 @@ body {
         loadEditSidebar(){
             var event = new Event("dataPull");
 			this.dispatchEvent(event);
-
 
             var sideBar = this.shadowRoot.getElementById("editSideBar")
             sideBar.innerHTML = ""
@@ -764,7 +767,7 @@ body {
 
 		}
 
-        addNewSection(name, description){//Ideally trying to add a section
+        addNewSection(name, description){//Ideally trying to add a section THESE ARE TABLES THEY HAVE NO ATTRIBUTES
             var editSideBar = this.shadowRoot.getElementById("editSideBar")
             var newSection = document.createElement("div") //create a p element
             newSection.classList.add("section") //section class added for format
@@ -780,8 +783,11 @@ body {
             newSection.draggable = true //can be dragged :)
             newSection.classList.add("sidebarItem") //sidebarItem class added for future usage
 
-            var workingString = this.selectionVar[name.toUpperCase]
+            var workingString = this.selectionVar[name.toUpperCase()]
             console.log("WORKING STEING"+workingString)
+
+            var idstuff = this.selectionVar[name.toUpperCase()].split(",")[0]
+
 
             newSection.setAttribute("parameters", "mode=embed,pageBar=disabled");
             newSection.setAttribute("icon", "exFontAwesomeIcon");
@@ -820,7 +826,7 @@ body {
             newChild.classList.add("sidebarItem") //sidebar usage pls
             newChild.classList.add("p-inline")
             
-            var workingString = this.selectionVar[name.toUpperCase]
+            var workingString = this.selectionVar[name.toUpperCase()]
             console.log("WORKING STEING"+workingString)
 
             newChild.setAttribute("parameters", "mode=embed,pageBar=disabled");
@@ -860,7 +866,7 @@ body {
             newChild.classList.add("p-inline")
             
 
-            var workingString = this.selectionVar[name.toUpperCase]
+            var workingString = this.selectionVar[name.toUpperCase()]
             console.log("WORKING STEING"+workingString)
 
             newChild.setAttribute("parameters", "mode=embed,pageBar=disabled");
@@ -904,7 +910,7 @@ body {
             newHier.draggable = true //can be dragged
             //newHier.style.width = "80%"
 
-            var workingString = this.selectionVar[name.toUpperCase]
+            var workingString = this.selectionVar[name.toUpperCase()]
             console.log("WORKING STEING"+workingString)
 
             newHier.setAttribute("parameters", "mode=embed,pageBar=disabled");
