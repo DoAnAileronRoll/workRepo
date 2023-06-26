@@ -278,7 +278,7 @@ body {
         }
         receiveSelectionVariable(selvar){
             this.selectionVar = selvar
-            console.log("rdtcfgvh"+selvar)
+            console.log("rdtcfgvh"+this.selectionVar)
         }
         getFullEditSideBar(){
             let returnList = [["id","type","description","link"]]
