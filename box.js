@@ -497,7 +497,6 @@ body {
             var event = new Event("dataPull");
 			this.dispatchEvent(event);
 
-
             var sideBar = this.shadowRoot.getElementById("editSideBar")
             sideBar.innerHTML = ""
             //document.getElementsByTagName("com-cbeyondata-sidepanel")[0].shadowRoot.getElementById("tableNavigation") is parent name if it exists
@@ -787,7 +786,7 @@ body {
             var workingString = this.selectionVar[name.toUpperCase()]
             console.log("WORKING STEING"+workingString)
 
-            var idstuff = this.selectionVar[name.toUpperCase()].split(",")[0]
+            //var idstuff = this.selectionVar[name.toUpperCase()].split(",")[0]
 
 
             newSection.setAttribute("parameters", "mode=embed,pageBar=disabled");
