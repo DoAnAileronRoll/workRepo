@@ -278,7 +278,7 @@ body {
         }
         receiveSelectionVariable(selvar){
             this.selectionVar = selvar
-            //console.log(this.selectionVar)
+            console.log("rdtcfgvh"+selvar)
         }
         getFullEditSideBar(){
             let returnList = [["id","type","description","link"]]
@@ -983,7 +983,7 @@ body {
 
 
         getDeletedObject(){
-            //console.log(this.shadowRoot.getElementById(object))
+            //console.log(this.shadowRoot.getElementById(object)) k
             //console.log("WILL BE DELETED" + this.currentDelete)
             return this.currentDelete
         }
