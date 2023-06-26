@@ -278,7 +278,8 @@ body {
         }
         receiveSelectionVariable(selvar){
             this.selectionVar = selvar
-            console.log("rdtcfgvh"+this.selectionVar)
+            console.log("rdtcfgvh"+selvar.toString)
+            //console.log("dasfdaf"+selvar.)
         }
         receiveKeyValArray(stuff){
             console.log("stuff"+stuff)
