@@ -781,11 +781,11 @@ body {
             }) 
 
             newSection.draggable = true //can be dragged :)
-            
-            newSection.classList.add("sidebarItem") //sidebarItem class added for future usage
 
-            var workingString = this.selectionVar[name.toUpperCase()]
-            console.log("WORKING STEING"+workingString)
+            // newSection.classList.add("sidebarItem") //sidebarItem class added for future usage
+
+            // var workingString = this.selectionVar[name.toUpperCase()].split(",")
+            // console.log("WORKING STEING"+workingString)
 
             //var idstuff = this.selectionVar[name.toUpperCase()].split(",")[0]
 
@@ -827,7 +827,7 @@ body {
             newChild.classList.add("sidebarItem") //sidebar usage pls
             newChild.classList.add("p-inline")
             
-            var workingString = this.selectionVar[name.toUpperCase()]
+            var workingString = this.selectionVar[name.toUpperCase()].split(",")
             console.log("WORKING STEING"+workingString)
 
             newChild.setAttribute("parameters", "mode=embed,pageBar=disabled");
@@ -867,7 +867,7 @@ body {
             newChild.classList.add("p-inline")
             
 
-            var workingString = this.selectionVar[name.toUpperCase()]
+            var workingString = this.selectionVar[name.toUpperCase()].split(",")
             console.log("WORKING STEING"+workingString)
 
             newChild.setAttribute("parameters", "mode=embed,pageBar=disabled");
@@ -911,7 +911,7 @@ body {
             newHier.draggable = true //can be dragged
             //newHier.style.width = "80%"
 
-            var workingString = this.selectionVar[name.toUpperCase()]
+            var workingString = this.selectionVar[name.toUpperCase()].split(",")
             console.log("WORKING STEING"+workingString)
 
             newHier.setAttribute("parameters", "mode=embed,pageBar=disabled");
