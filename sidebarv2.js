@@ -285,25 +285,28 @@ body {
             console.log("stuff"+stuff)
         }
         getFullEditSideBar(){
-            let returnList = [["id","type","description","link"]]
+            let returnList = [["id","type","description","link","icon","model","linktype","title","parent"]]
+            //let returnList = [["description","link","icon","model","linktype","title","parent"]]
             //var curList = []
             var editSideBar = this.shadowRoot.getElementById("editSideBar").children
             for(var i=0;i<editSideBar.length;i++){
                 if(editSideBar[i].classList.contains("hierarchy")){
                     //console.log("hierarchy " + editSideBar[i].id)
-                    returnList.push([editSideBar[i].id,"hierarchy",editSideBar[i].getAttribute("description"),editSideBar[i].getAttribute("link")])
+                    returnList.push([editSideBar[i].id,"hierarchy",editSideBar[i].getAttribute("description"),editSideBar[i].getAttribute("link"),editSideBar[i].getAttribute("icon"),editSideBar[i].getAttribute("model"),editSideBar[i].getAttribute("linktype"),editSideBar[i].getAttribute("title"),editSideBar[i].getAttribute("parent")])
                     
                     for(var j=1;j<editSideBar[i].children[1].children.length;j++){
                         //ADD CHECK FOR EMPTY LIST
-                        returnList.push([editSideBar[i].children[1].children[j].id,"child",editSideBar[i].children[1].children[j].getAttribute("description"),editSideBar[i].children[1].children[j].getAttribute("link")])
+                        var shorthand = editSideBar[i].children[1].children[j]
+                        //returnList.push([editSideBar[i].children[1].children[j].id,"child",editSideBar[i].children[1].children[j].getAttribute("description"),editSideBar[i].children[1].children[j].getAttribute("link")])
+                        returnList.push([shorthand.id,"child",shorthand.getAttribute("description"),shorthand.getAttribute("link"),shorthand.getAttribute("icon"),shorthand.getAttribute("model"),shorthand.getAttribute("linktype"),shorthand.getAttribute("title"),shorthand.getAttribute("parent")])
                     }
                 }
                 else if(editSideBar[i].classList.contains("section")){
-                    returnList.push([editSideBar[i].id,"section",editSideBar[i].getAttribute("description"),editSideBar[i].getAttribute("link")])
+                    returnList.push([editSideBar[i].id,"section",editSideBar[i].getAttribute("description"),editSideBar[i].getAttribute("link"),,editSideBar[i].getAttribute("icon"),editSideBar[i].getAttribute("model"),editSideBar[i].getAttribute("linktype"),editSideBar[i].getAttribute("title"),editSideBar[i].getAttribute("parent")])
            
                 }
                 else{
-                    returnList.push([editSideBar[i].id,"standalone",editSideBar[i].getAttribute("description"),editSideBar[i].getAttribute("link")])
+                    returnList.push([editSideBar[i].id,"standalone",editSideBar[i].getAttribute("description"),editSideBar[i].getAttribute("link"),,editSideBar[i].getAttribute("icon"),editSideBar[i].getAttribute("model"),editSideBar[i].getAttribute("linktype"),editSideBar[i].getAttribute("title"),editSideBar[i].getAttribute("parent")])
                 }
             }
             //console.log(returnList)
