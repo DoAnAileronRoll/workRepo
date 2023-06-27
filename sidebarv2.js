@@ -831,7 +831,7 @@ body {
             newChild.classList.add("p-inline")
             
             var workingString = this.selectionVar[name.toUpperCase()].split(",")
-            console.log("WORKING STEING"+workingString)
+            //console.log("WORKING STEING"+workingString)
 
             newChild.setAttribute("description", workingString[0]);
             newChild.setAttribute("link", workingString[1]);
@@ -870,7 +870,7 @@ body {
             
 
             var workingString = this.selectionVar[name.toUpperCase()].split(",")
-            console.log("WORKING STEING"+workingString)
+            //console.log("WORKING STEING"+workingString)
             
             newChild.setAttribute("description", workingString[0]);
             newChild.setAttribute("link", workingString[1]);
@@ -920,7 +920,7 @@ body {
             //newHier.style.width = "80%"
 
             var workingString = this.selectionVar[name.toUpperCase()].split(",")
-            console.log("WORKING STEING"+workingString)
+            //console.log("WORKING STEING"+workingString)
 
             newHier.setAttribute("description", workingString[0]);
             newHier.setAttribute("link", workingString[1]);
