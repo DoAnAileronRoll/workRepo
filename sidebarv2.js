@@ -8,7 +8,7 @@
 
 <link rel="stylesheet" href="https://cbeyondatanmd.github.io/widgets/font-awesome.min.css">
 <style>
-body {
+body { 
     margin: 0;
   }
   .hierarchy{
