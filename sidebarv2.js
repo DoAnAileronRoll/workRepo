@@ -790,14 +790,14 @@ body {
             //var idstuff = this.selectionVar[name.toUpperCase()].split(",")[0]
 
 
-            newSection.setAttribute("parameters", "mode=embed,pageBar=disabled");
-            newSection.setAttribute("icon", "exFontAwesomeIcon");
-            newSection.setAttribute("model", "");
-            newSection.setAttribute("link", "URL/last section of URL in sac");
-            newSection.setAttribute("title", "The big name");
-            newSection.setAttribute("parent", "* is a parent, otherwise must reference parent");
-            newSection.setAttribute("linkType", "4 types APP,URL,STORY,EXT");
-            newSection.setAttribute("description", description);
+            // newSection.setAttribute("parameters", "mode=embed,pageBar=disabled");
+            // newSection.setAttribute("icon", "exFontAwesomeIcon");
+            // newSection.setAttribute("model", "");
+            // newSection.setAttribute("link", "URL/last section of URL in sac");
+            // newSection.setAttribute("title", "The big name");
+            // newSection.setAttribute("parent", "* is a parent, otherwise must reference parent");
+            // newSection.setAttribute("linkType", "4 types APP,URL,STORY,EXT");
+            // newSection.setAttribute("description", description);
 
 
             newSection.addEventListener('dragstart', () => {//dragging functionality
@@ -830,14 +830,13 @@ body {
             var workingString = this.selectionVar[name.toUpperCase()].split(",")
             console.log("WORKING STEING"+workingString)
 
-            newChild.setAttribute("parameters", "mode=embed,pageBar=disabled");
-            newChild.setAttribute("icon", "exFontAwesomeIcon");
-            newChild.setAttribute("model", "");
-            newChild.setAttribute("link", link);
-            newChild.setAttribute("title", "The big name");
-            newChild.setAttribute("parent", "* is a parent, otherwise must reference parent");
-            newChild.setAttribute("linkType", "4 types APP,URL,STORY,EXT");
-            newChild.setAttribute("description", description);
+            newChild.setAttribute("description", workingString[0]);
+            newChild.setAttribute("link", workingString[1]);
+            newChild.setAttribute("icon", workingString[2]);
+            newChild.setAttribute("model", workingString[3]);
+            newChild.setAttribute("linkType", workingString[4]);
+            newChild.setAttribute("title", workingString[5]);
+            newChild.setAttribute("parent", workingString[6]);
 
             newChild.addEventListener('dragstart', () => {//oooo we know this
             newChild.classList.add('dragging')
@@ -869,15 +868,21 @@ body {
 
             var workingString = this.selectionVar[name.toUpperCase()].split(",")
             console.log("WORKING STEING"+workingString)
-
-            newChild.setAttribute("parameters", "mode=embed,pageBar=disabled");
-            newChild.setAttribute("icon", "exFontAwesomeIcon");
-            newChild.setAttribute("model", "");
-            newChild.setAttribute("link", link);
-            newChild.setAttribute("title", "The big name");
-            newChild.setAttribute("parent", "* is a parent, otherwise must reference parent");
-            newChild.setAttribute("linkType", "4 types APP,URL,STORY,EXT");
-            newChild.setAttribute("description", description);
+            
+            newChild.setAttribute("description", workingString[0]);
+            newChild.setAttribute("link", workingString[1]);
+            newChild.setAttribute("icon", workingString[2]);
+            newChild.setAttribute("model", workingString[3]);
+            newChild.setAttribute("linkType", workingString[4]);
+            newChild.setAttribute("title", workingString[5]);
+            newChild.setAttribute("parent", workingString[6]);
+            //newChild.setAttribute("parameters", "mode=embed,pageBar=disabled");
+            
+            
+            
+            
+            
+            
 
             newChild.addEventListener('dragstart', () => {//oooo we know this
             newChild.classList.add('dragging')
@@ -914,14 +919,13 @@ body {
             var workingString = this.selectionVar[name.toUpperCase()].split(",")
             console.log("WORKING STEING"+workingString)
 
-            newHier.setAttribute("parameters", "mode=embed,pageBar=disabled");
-            newHier.setAttribute("icon", "exFontAwesomeIcon");
-            newHier.setAttribute("model", "");
-            newHier.setAttribute("link", "URL/last section of URL in sac");
-            newHier.setAttribute("title", "The big name");
-            newHier.setAttribute("parent", "* is a parent, otherwise must reference parent");
-            newHier.setAttribute("linkType", "4 types APP,URL,STORY,EXT");
-            newHier.setAttribute("description", description);
+            newHier.setAttribute("description", workingString[0]);
+            newHier.setAttribute("link", workingString[1]);
+            newHier.setAttribute("icon", workingString[2]);
+            newHier.setAttribute("model", workingString[3]);
+            newHier.setAttribute("linkType", workingString[4]);
+            newHier.setAttribute("title", workingString[5]);
+            newHier.setAttribute("parent", workingString[6]);
 
             this.hoverButtonAdd(newHier)
 
