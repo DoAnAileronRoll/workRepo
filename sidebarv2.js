@@ -873,9 +873,10 @@ body {
             newChild.classList.add("p-inline")
             
 
-            var workingString = this.selectionVar[name.toUpperCase()].split(",")
+            
             //console.log("WORKING STEING"+workingString)
             if(this.selectionVar[name.toUpperCase()]!=null){
+                var workingString = this.selectionVar[name.toUpperCase()].split(",")
                 newChild.setAttribute("description", workingString[0]);
                 newChild.setAttribute("link", workingString[1]);
                 newChild.setAttribute("icon", workingString[2]);
