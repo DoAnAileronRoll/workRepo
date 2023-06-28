@@ -8,7 +8,7 @@
 
 <link rel="stylesheet" href="https://cbeyondatanmd.github.io/widgets/font-awesome.min.css">
 <style>
-body { 
+body {
     margin: 0;
   }
   .hierarchy{
@@ -833,13 +833,17 @@ body {
             var workingString = this.selectionVar[name.toUpperCase()].split(",")
             //console.log("WORKING STEING"+workingString)
 
-            newChild.setAttribute("description", workingString[0]);
-            newChild.setAttribute("link", workingString[1]);
-            newChild.setAttribute("icon", workingString[2]);
-            newChild.setAttribute("model", workingString[3]);
-            newChild.setAttribute("linkType", workingString[4]);
-            newChild.setAttribute("title", workingString[5]);
-            newChild.setAttribute("parent", workingString[6]);
+            if(this.selectionVar[name.toUpperCase()]!=null){
+                newChild.setAttribute("description", workingString[0]);
+                newChild.setAttribute("link", workingString[1]);
+                newChild.setAttribute("icon", workingString[2]);
+                newChild.setAttribute("model", workingString[3]);
+                newChild.setAttribute("linkType", workingString[4]);
+                newChild.setAttribute("title", workingString[5]);
+                newChild.setAttribute("parent", workingString[6]);
+
+                workingString = null;
+            }
 
             newChild.addEventListener('dragstart', () => {//oooo we know this
             newChild.classList.add('dragging')
@@ -871,18 +875,17 @@ body {
 
             var workingString = this.selectionVar[name.toUpperCase()].split(",")
             //console.log("WORKING STEING"+workingString)
-            
-            newChild.setAttribute("description", workingString[0]);
-            newChild.setAttribute("link", workingString[1]);
-            newChild.setAttribute("icon", workingString[2]);
-            newChild.setAttribute("model", workingString[3]);
-            newChild.setAttribute("linkType", workingString[4]);
-            newChild.setAttribute("title", workingString[5]);
-            newChild.setAttribute("parent", workingString[6]);
-            //newChild.setAttribute("parameters", "mode=embed,pageBar=disabled");
-            
-            
-            
+            if(this.selectionVar[name.toUpperCase()]!=null){
+                newChild.setAttribute("description", workingString[0]);
+                newChild.setAttribute("link", workingString[1]);
+                newChild.setAttribute("icon", workingString[2]);
+                newChild.setAttribute("model", workingString[3]);
+                newChild.setAttribute("linkType", workingString[4]);
+                newChild.setAttribute("title", workingString[5]);
+                newChild.setAttribute("parent", workingString[6]);
+                //newChild.setAttribute("parameters", "mode=embed,pageBar=disabled")   
+                workingString = null;
+            }
             
             
             
@@ -919,16 +922,21 @@ body {
             newHier.draggable = true //can be dragged
             //newHier.style.width = "80%"
 
-            var workingString = this.selectionVar[name.toUpperCase()].split(",")
-            //console.log("WORKING STEING"+workingString)
 
-            newHier.setAttribute("description", workingString[0]);
-            newHier.setAttribute("link", workingString[1]);
-            newHier.setAttribute("icon", workingString[2]);
-            newHier.setAttribute("model", workingString[3]);
-            newHier.setAttribute("linkType", workingString[4]);
-            newHier.setAttribute("title", workingString[5]);
-            newHier.setAttribute("parent", workingString[6]);
+            if(this.selectionVar[name.toUpperCase()]!=null){
+                var workingString = this.selectionVar[name.toUpperCase()].split(",")
+                //console.log("WORKING STEING"+workingString)
+
+                newHier.setAttribute("description", workingString[0]);
+                newHier.setAttribute("link", workingString[1]);
+                newHier.setAttribute("icon", workingString[2]);
+                newHier.setAttribute("model", workingString[3]);
+                newHier.setAttribute("linkType", workingString[4]);
+                newHier.setAttribute("title", workingString[5]);
+                newHier.setAttribute("parent", workingString[6]);
+
+                workingString = null;
+            }
 
             this.hoverButtonAdd(newHier)
 
