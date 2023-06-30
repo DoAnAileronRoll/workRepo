@@ -192,8 +192,12 @@ body {
     <div class="mainHolder" id="regularSideBar">
         <p><i class="fa-solid fa-user"></i>NAVIGATION</p>
         <table id="tableNavigation"></table>
-        <p id="userDefined"><i class="fa-solid fa-user"></i></p>
-        <table id="tableUserDefined"></table>
+        
+        <!--
+            <p id="userDefined"><i class="fa-solid fa-user"></i></p>
+            <table id="tableUserDefined"></table>
+        -->
+        
         <p>ADMIN</p>
         <table id="tableAdmin"></table>
         <p id="context"></p>
