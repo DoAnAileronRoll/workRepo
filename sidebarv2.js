@@ -1070,6 +1070,7 @@ body {
             trashCanIcon.innerText = "X"
             trashCanIcon.classList.add("xButton")
 
+            hiddenDiv.innerHTML = hiddenDiv.innerHTML+'<svg class="iconPad child" style="float: right;" width="16" height="16" viewBox="0 0 '+icons["sack-dollar"][0]+' '+icons["sack-dollar"][1]+'"><path d="' + icons["sack-dollar"][4] + '"></path></svg>'
             trashCanIcon.classList.add("iconPad")
             trashCanIcon.style.float = "right"
             trashCanIcon.addEventListener("click", () => {
