@@ -1069,7 +1069,7 @@ body {
             };
 
             hiddenDiv.innerHTML = hiddenDiv.innerHTML+'<svg class="iconPad child" id="trashCanDelete" style="float: right;" width="16" height="16" viewBox="0 0 '+icons["sack-dollar"][0]+' '+icons["sack-dollar"][1]+'"><path d="' + icons["sack-dollar"][4] + '"></path></svg>'
-            var trashy = hiddenDiv.getElementById("trashCanDelete")
+            var trashy = hiddenDiv.children[0]
             // var trashCanIcon = document.createElement("button")
 
             // trashCanIcon.style = "button"
