@@ -62,8 +62,8 @@ body {
     margin-block-end: 1em;
   }
   .standAlone{
-    padding: 15.5px;
-    height: 17.6666px;
+    padding: 14.333px;
+    height: 20px;
   }
    .draggable {
     background-color: #29313a;
