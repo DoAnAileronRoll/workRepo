@@ -1107,7 +1107,7 @@ body {
 
             hiddenDiv.classList.add("hoverItems")
 
-            hiddenDiv.appendChild(trashCanIcon)
+            //hiddenDiv.appendChild(trashCanIcon)
             hiddenDiv.appendChild(pencilIcon)
               
             parent.append(hiddenDiv)
