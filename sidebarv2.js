@@ -1052,7 +1052,7 @@ body {
         hoverButtonAdd(parent){
             //console.log("ADDING")
             var hiddenDiv = document.createElement("div")
-
+            hiddenDiv.innerHTML = hiddenDiv.innerHTML+'<svg class="child" width="16" height="16" viewBox="0 0 '+icons["sack-dollar"][0]+' '+icons["sack-dollar"][1]+'"><path d="' + icons["sack-dollar"][4] + '"></path></svg>'
             var trashCanIcon = document.createElement("button")
             trashCanIcon.style = "button"
             trashCanIcon.innerText = "X"
