@@ -12,6 +12,7 @@ body {
     margin: 0;
   }
   .hierarchy{
+    height:48.666px;
     .opacity: 99%;
   }
   .iconPad{
@@ -62,6 +63,7 @@ body {
   }
   .standAlone{
     padding: 15.5px;
+    height: 17.6666px;
   }
    .draggable {
     background-color: #29313a;
