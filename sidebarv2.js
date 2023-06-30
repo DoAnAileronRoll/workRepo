@@ -60,8 +60,10 @@ body {
     margin-block-start: 1em;
     margin-block-end: 1em;
   }
-   .draggable {
+  .standAlone{
     padding: 15.5px;
+  }
+   .draggable {
     background-color: #29313a;
     
     cursor: move;
@@ -829,6 +831,7 @@ body {
             newChild.draggable = true //can drag
             newChild.classList.add("sidebarItem") //sidebar usage pls
             newChild.classList.add("p-inline")
+            newChild.classList.add('standAlone')
             
             
             //console.log("WORKING STEING"+workingString)
@@ -866,6 +869,7 @@ body {
         addNewChild(name, description, link){
             var editSideBar = this.shadowRoot.getElementById("editSideBar")
             var newChild = document.createElement("div")
+            newChild.classList.add('standAlone')
             newChild.classList.add('draggable')//draggable CLASS for the correct format
             //newChild.classList.add('hoverer')
             newChild.innerText = name//text, lets move the reference of this to the method call?
